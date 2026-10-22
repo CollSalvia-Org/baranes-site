@@ -252,3 +252,14 @@ body.baranes-g02-v02 .footer{border-color:#335166;color:#9db2c2}
   body.baranes-g02-v02 .landing-hero h1{font-size:36px}
   body.baranes-g02-v02 .nav a{font-size:11px;padding:6px 5px}
 }
+
+/* G02 live layout repair: legacy brand.css assigns grid-area:panel to .hero-panel,
+   which creates implicit grid tracks in the independent .landing-hero grid.
+   Let the G02 panel auto-place in its own two-column layout. */
+body.baranes-g02-v02 .landing-hero > aside.hero-panel.landing-boundary {
+  grid-area: auto;
+  margin-top: 0;
+}
+body.baranes-g02-v02 .landing-hero > .landing-hero-copy {
+  min-width: 0;
+}
