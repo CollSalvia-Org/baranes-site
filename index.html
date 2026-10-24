@@ -54,118 +54,80 @@
       <p class="v03-hero__fine">En desarrollo activo. Todavía no es un producto comercial.</p>
     </div>
 
-    <figure class="v03-path" data-path data-state="done" aria-labelledby="path-title">
-      <div class="v03-path__head">
-        <div class="v03-path__title"><span class="v03-tag v03-tag--illus">Ejemplo conceptual</span><span id="path-title">Un cambio en RepoOps</span></div>
-        <div class="v03-path__meta">
-          <span class="v03-path__domain">RepoOps</span>
-          <span class="v03-chip v03-chip--amber v03-reveal v03-is-on"><span aria-hidden="true">⊘</span> Sin reintento automático</span>
-        </div>
+    <figure class="v03-rec" data-rec aria-labelledby="rec-title">
+      <div class="v03-rec__head">
+        <p class="v03-rec__title"><span class="v03-tag v03-tag--illus">Ejemplo conceptual</span><span id="rec-title">Registro de un cambio</span></p>
+        <code class="v03-rec__ref">demo/tienda-api</code>
       </div>
+      <p class="v03-rec__q">El worker agotó el tiempo. ¿Se aplicó el cambio?</p>
+      <p class="v03-rec__ctx">Cambio propuesto: corregir la validación de pedidos. Datos de muestra: explica el modelo, no es una captura de producto.</p>
 
-      <div class="v03-path__case">
-        <p class="v03-path__q">El worker agotó el tiempo. ¿Se aplicó el cambio?</p>
-        <p class="v03-path__ctx">Cambio propuesto: corregir la validación de pedidos en <code>demo/tienda-api</code></p>
-      </div>
-
-      <details class="v03-path__expander" open><summary>Explorar los seis pasos <span aria-hidden="true">＋</span></summary><div class="v03-path__track">
-        <ol class="v03-path__steps">
-          <li class="v03-pstep v03-is-reached v03-is-linked">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="1"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Propuesta</span><span class="v03-pstep__val">cambio solicitado</span></button>
+      <div class="v03-rec__ledger">
+        <p class="v03-rec__cols" aria-hidden="true"><span>Paso</span><span>Quién responde</span><span>Qué consta</span></p>
+        <ol class="v03-rec__rows">
+          <li class="v03-row">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-1"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Propuesta</span><span class="v03-row__who">Agente</span><span class="v03-row__what">cambio solicitado</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-1"><div><p>El objetivo se concreta en una petición: repositorio, operación, alcance e identidad. Proponer un cambio no concede permiso para ejecutarlo.</p></div></div>
           </li>
-          <li class="v03-pstep v03-is-reached v03-is-linked">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="2"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Admisión</span><span class="v03-pstep__val">permiso y alcance</span></button>
+          <li class="v03-row">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-2"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Admisión</span><span class="v03-row__who">Dominio</span><span class="v03-row__what">1 repositorio, 2 rutas</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-2"><div><p>Antes de ejecutar se comprueban el permiso del dominio y el alcance previsto. En este ejemplo: un repositorio y dos rutas autorizadas.</p></div></div>
           </li>
-          <li class="v03-pstep v03-pstep--warn v03-is-reached v03-is-linked">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="3"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Ejecución</span><span class="v03-pstep__val">timeout</span></button>
+          <li class="v03-row v03-row--warn">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-3"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Ejecución</span><span class="v03-row__who">Worker</span><span class="v03-row__what">timeout</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-3"><div><p>El worker actúa con un permiso acotado y termina por timeout. Ese resultado describe la ejecución; no demuestra que el cambio no exista.</p></div></div>
           </li>
-          <li class="v03-pstep v03-is-reached v03-is-linked">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="4"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Observación</span><span class="v03-pstep__val">commit localizado</span></button>
+          <li class="v03-row">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-4"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Observación</span><span class="v03-row__who">Git</span><span class="v03-row__what">commit localizado</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-4"><div><p>Git permite localizar un commit en la rama candidata. Su presencia aporta un dato: todavía hay que contrastar su identidad y su contenido.</p></div></div>
           </li>
-          <li class="v03-pstep v03-pstep--cross v03-is-reached v03-is-linked">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="5"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Contraste</span><span class="v03-pstep__val">candidato confirmado</span></button>
-            <span class="v03-path__gate v03-is-on" aria-hidden="true"><span>Decisión de aceptación</span></span>
+          <li class="v03-row v03-row--ok v03-row--cross">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-5"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Contraste</span><span class="v03-row__who">RepoOps</span><span class="v03-row__what">candidato confirmado</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-5"><div><p>Se comparan la petición, el candidato y el estado de Git. En este ejemplo coinciden: el cambio previsto está presente en la rama candidata, así que no hay reintento automático.</p></div></div>
           </li>
-          <li class="v03-pstep v03-pstep--accept v03-is-reached">
-            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="6"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Aceptación</span><span class="v03-pstep__val">pendiente</span></button>
+          <li class="v03-gate" aria-hidden="true"><span class="v03-gate__bar"></span><span class="v03-gate__label">Decisión de aceptación</span></li>
+          <li class="v03-row v03-row--hold">
+            <button class="v03-row__btn" type="button" aria-expanded="false" aria-controls="rec-6"><span class="v03-row__node" aria-hidden="true"></span><span class="v03-row__step">Aceptación</span><span class="v03-row__who">Autoridad separada</span><span class="v03-row__what">pendiente</span><svg class="v03-row__chev" viewbox="0 0 16 16" aria-hidden="true"><path d="M4.5 6.5 8 10l3.5-3.5"></path></svg></button>
+            <div class="v03-row__more" id="rec-6"><div><p>Confirmar qué cambió no autoriza su incorporación al repositorio canónico. Esa decisión sigue pendiente; publicar requeriría también la autoridad correspondiente.</p></div></div>
           </li>
         </ol>
       </div>
 
-      </details><div class="v03-path__detail" id="path-detail" aria-live="polite" aria-atomic="true" role="region" aria-label="Explicación del recorrido"><p data-detail="0" class="v03-is-shown"><b>El cambio está presente; aceptarlo sigue pendiente.</b> En este ejemplo, el commit observado coincide con el candidato previsto. El timeout no demuestra ausencia de efecto ni autoriza otro intento.</p>
-<p data-detail="1" hidden><b>Propuesta.</b> El objetivo se concreta en una petición: repositorio, operación, alcance e identidad. Proponer un cambio no concede permiso para ejecutarlo.</p>
-<p data-detail="2" hidden><b>Admisión.</b> Antes de ejecutar se comprueban el permiso del dominio y el alcance previsto. En este ejemplo: un repositorio y dos rutas autorizadas.</p>
-<p data-detail="3" hidden><b>Ejecución autorizada.</b> El worker actúa con un permiso acotado y termina por timeout. Ese resultado describe la ejecución; no demuestra que el cambio no exista.</p>
-<p data-detail="4" hidden><b>Observación.</b> Git permite localizar un commit en la rama candidata. Su presencia aporta un dato: todavía hay que contrastar su identidad y su contenido.</p>
-<p data-detail="5" hidden><b>Contraste del efecto.</b> Se comparan la petición, el candidato y el estado de Git. En este ejemplo coinciden: el cambio previsto está presente en la rama candidata.</p>
-<p data-detail="6" hidden><b>Aceptación.</b> Confirmar qué cambió no autoriza su incorporación al repositorio canónico. Esa decisión sigue pendiente; publicar requeriría también la autoridad correspondiente.</p></div>
-
-      <figcaption class="v03-path__note">
-        <span>Datos de muestra. Explica el modelo; no es una captura de producto. Puedes consultar cada paso.</span>
-        <button class="v03-path__replay" type="button" data-replay aria-label="Repetir la animación del recorrido"><svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3.6 8.6a4.6 4.6 0 1 0 1.3-4"></path><path d="M3.4 2.6v2.7h2.7"></path></svg> Repetir</button>
-      </figcaption>
+      <div class="v03-rec__foot">
+        <p class="v03-rec__state"><span class="v03-pill v03-pill--ok">Efecto presente</span><span class="v03-pill v03-pill--hold">Aceptación pendiente</span><span class="v03-pill">Sin reintento automático</span></p>
+        <p class="v03-rec__sum">El timeout no demuestra ausencia de efecto ni autoriza otro intento. Abre cada paso para ver qué consta.</p>
+      </div>
     </figure>
     </div>
 </section>
 
-<section class="v03-strip" aria-label="De qué se compone BARANES">
+<section class="v03-band" aria-label="Cómo se organiza BARANES">
   <div class="v03-wrap">
-    <ul class="v03-strip__list">
-      <li>
-        <a class="v03-seg" href="#modelo">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4.5 4.5v15M19.5 4.5v15M4.5 9h15M4.5 14h15M9.5 9v5M14.5 9v5"></path></svg></span>
-          <span class="v03-seg__title">Frontera de autoridad</span>
-          <span class="v03-seg__desc">Proponer, ejecutar, comprobar y aceptar son actos distintos.</span>
-          <span class="v03-status v03-status--def">Modelo documentado</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a class="v03-seg" href="#repoops">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" stroke-dasharray="2.6 2.6"></rect><path d="M10 8.8v6.4l5-3.2z"></path></svg></span>
-          <span class="v03-seg__title">Ejecución acotada</span>
-          <span class="v03-seg__desc">Alcance, capacidades y condiciones de parada, explícitos.</span>
-          <span class="v03-status v03-status--dev">En validación</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a class="v03-seg" data-pending-href="./atlas/effect-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.3 12.3l2.5 2.5 4.9-5.3"></path></svg></span>
-          <span class="v03-seg__title">Qué cambió realmente</span>
-          <span class="v03-seg__desc">La determina el dominio afectado, no quien ejecuta.</span>
-          <span class="v03-status v03-status--def">Modelo documentado</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a class="v03-seg" data-pending-href="./atlas/evidence-and-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M6.5 3.5h7.5l3.5 3.5v13.5h-11z"></path><path d="M14 3.5V7h3.5"></path><path d="M9.5 12h5M9.5 15.5h5"></path></svg></span>
-          <span class="v03-seg__title">Evidencias</span>
-          <span class="v03-seg__desc">Respaldan la decisión sin convertirse en autoridad.</span>
-          <span class="v03-status v03-status--def">Modelo documentado</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a class="v03-seg" href="#repoops">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="7" cy="6" r="2"></circle><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="9" r="2"></circle><path d="M7 8v8"></path><path d="M17 11c0 3.6-4.2 4.3-8.4 5.6"></path></svg></span>
-          <span class="v03-seg__title">RepoOps</span>
-          <span class="v03-seg__desc">Primer dominio: operaciones con límites y evidencias sobre Git.</span>
-          <span class="v03-status v03-status--dev">En desarrollo</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a class="v03-seg" data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
-          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 4l8 4.2-8 4.2-8-4.2z"></path><path d="M4 12.2l8 4.2 8-4.2"></path><path d="M4 16.1l8 4.2 8-4.2"></path></svg></span>
-          <span class="v03-seg__title">SDD Framework</span>
-          <span class="v03-seg__desc">Ciclo de vida y contratos legibles por máquina. Apache-2.0.</span>
-          <span class="v03-status v03-status--now">Open source</span>
-          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
-        </a>
-      </li>
-    </ul>
+    <div class="v03-band__grid">
+      <div class="v03-band__group v03-band__group--core">
+        <p class="v03-band__label"><b>Core</b><span>Reglas compartidas</span></p>
+        <ul class="v03-band__items">
+          <li><a class="v03-item" href="#modelo"><span class="v03-item__t">Frontera de autoridad</span><span class="v03-item__d">Proponer, ejecutar, comprobar y aceptar son actos distintos.</span><span class="v03-status v03-status--def">Modelo documentado</span></a></li>
+          <li><a class="v03-item" href="#repoops"><span class="v03-item__t">Ejecución acotada</span><span class="v03-item__d">Alcance, capacidades y condiciones de parada, explícitos.</span><span class="v03-status v03-status--dev">En validación</span></a></li>
+          <li><a class="v03-item" data-pending-href="./atlas/effect-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión"><span class="v03-item__t">Qué cambió realmente</span><span class="v03-item__d">Lo determina el dominio afectado, no quien ejecuta.</span><span class="v03-status v03-status--def">Modelo documentado</span></a></li>
+          <li><a class="v03-item" data-pending-href="./atlas/evidence-and-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión"><span class="v03-item__t">Evidencias</span><span class="v03-item__d">Respaldan la decisión sin convertirse en autoridad.</span><span class="v03-status v03-status--def">Modelo documentado</span></a></li>
+        </ul>
+      </div>
+      <div class="v03-band__group">
+        <p class="v03-band__label"><b>Dominios</b><span>Efectos con dueño</span></p>
+        <ul class="v03-band__items">
+          <li><a class="v03-item" href="#repoops"><span class="v03-item__t">RepoOps</span><span class="v03-item__d">Operaciones con límites y evidencias sobre Git.</span><span class="v03-status v03-status--dev">En desarrollo</span></a></li>
+          <li><span class="v03-item"><span class="v03-item__t">Otros dominios</span><span class="v03-item__d">El mismo modelo para otras clases de efectos.</span><span class="v03-status v03-status--dir">Dirección</span></span></li>
+        </ul>
+      </div>
+      <div class="v03-band__group">
+        <p class="v03-band__label"><b>Abierto</b><span>Para explorar hoy</span></p>
+        <ul class="v03-band__items">
+          <li><a class="v03-item" data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión"><span class="v03-item__t">SDD Framework</span><span class="v03-item__d">Ciclo de vida y contratos legibles por máquina.</span><span class="v03-status v03-status--now">Open source</span></a></li>
+          <li><a class="v03-item" data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión"><span class="v03-item__t">Atlas</span><span class="v03-item__d">El modelo técnico y sus límites, navegable.</span><span class="v03-status v03-status--now">Público</span></a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
