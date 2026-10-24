@@ -1,120 +1,309 @@
 <!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="#0b1827" name="theme-color"/>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BARANES — La inteligencia no es autoridad</title>
+<meta name="description" content="BARANES separa quién puede actuar, qué cambió y quién puede aceptarlo. Explora RepoOps, SDD Framework y el Atlas público.">
+<meta name="theme-color" content="#0b1827">
+<link rel="canonical" href="https://baranes.ai/">
+<meta property="og:type" content="website"><meta property="og:title" content="BARANES — La inteligencia no es autoridad">
+<meta property="og:description" content="Permisos explícitos, cambios comprobables y decisiones de aceptación separadas. RepoOps es el primer dominio en desarrollo.">
+<meta property="og:url" content="https://baranes.ai/"><meta name="twitter:card" content="summary">
+<link rel="icon" href="./assets/baranes-symbol-teal.svg" type="image/svg+xml">
+<link rel="preload" href="./assets/fonts/sora-variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="./assets/site.css"><link rel="stylesheet" href="./assets/brand.css">
+<link rel="stylesheet" href="./assets/landing-g02.css"><link rel="stylesheet" href="./assets/landing-v03.css"></head><body class="home-v03">
 
-<meta content="Los agentes pueden proponer cambios. BARANES estudia cómo gobernar sus efectos: ejecución acotada, comprobación de resultados y decisiones de aceptación separadas." name="description"/>
-<meta content="website" property="og:type"/>
-<meta content="BARANES — ¿Quién decide qué se acepta?" property="og:title"/>
-<meta content="Generar código no significa autorizar un cambio real. Descubre RepoOps, sus límites y un caso interno documentado." property="og:description"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="BARANES — ¿Quién decide qué se acepta?" name="twitter:title"/>
-<meta content="¿Quién decide qué cambio de un agente puede aceptarse? Exploramos el caso concreto de RepoOps." name="twitter:description"/>
+<a class="v03-skip" href="#main">Saltar al contenido</a>
 
-<title>BARANES — ¿Quién decide qué se acepta?</title>
-
-<link href="https://baranes.ai/" rel="canonical"/>
-<meta content="https://baranes.ai/" property="og:url"/>
-<link href="./assets/baranes-symbol-teal.svg" rel="icon" type="image/svg+xml"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="./assets/site.css" rel="stylesheet"/>
-<link href="./assets/brand.css" rel="stylesheet"/>
-<link href="./assets/landing-g02.css" rel="stylesheet"/>
-</head>
-<body class="baranes-g02-v02">
-<header class="topbar">
-<div class="shell topbar-inner">
-<a aria-label="Inicio de BARANES" class="brand" href="#main"><span aria-hidden="true" class="brand-mark">B</span><span>BARANES</span></a>
-<nav aria-label="Navegación principal" class="nav">
-<a data-nav="" href="#main">Inicio</a>
-<a data-nav="" href="./repoops/">RepoOps</a>
-<a data-nav="" href="./open-source/">Código abierto</a>
-<a data-nav="" href="./atlas/">Atlas</a>
-<a class="github" href="https://github.com/CollSalvia-Org/sdd-framework">GitHub ↗</a>
-</nav>
-</div>
+<header class="v03-nav">
+  <div class="v03-wrap v03-nav__inner">
+    <a class="v03-brand brand" href="./" aria-label="BARANES, inicio">
+      <img class="v03-brand__mark" src="./assets/baranes-symbol-teal.svg" width="38" height="38" alt=""><span class="v03-brand__word">BARANES</span>
+    </a>
+    <nav class="v03-nav__links" aria-label="Principal">
+      <a href="./" aria-current="page" data-nav="">Inicio</a>
+      <a data-pending-href="./repoops/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">RepoOps</a>
+      <a data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Open source</a>
+      <a data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Atlas</a>
+    </nav>
+    <a class="v03-btn v03-btn--ghost v03-btn--sm" data-pending-href="https://github.com/CollSalvia-Org/sdd-framework" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">GitHub
+      <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"></path></svg>
+    </a>
+  </div>
 </header>
-<main id="main">
-<section aria-labelledby="landing-main-title" class="shell landing-hero">
-<div class="landing-hero-copy">
-<div class="eyebrow">BARANES / GOBERNAR LOS EFECTOS DE LA IA</div>
-<h1 id="landing-main-title">Los agentes de IA pueden proponer cambios.<span class="landing-question">¿Quién decide qué se acepta?</span></h1>
-<p class="lede">Generar código no es lo mismo que autorizar un cambio en un sistema real. Alcance, ejecución, verificación y aceptación necesitan límites distintos.</p>
-<p class="hero-copy">BARANES explora cómo separar el trabajo candidato de un agente de la decisión de aceptar sus efectos en el sistema. RepoOps es un ámbito concreto de esa investigación.</p>
-<div class="cta-row">
-<a class="btn primary" href="#example">Ver un caso documentado ↓</a>
-<a class="btn secondary" href="./repoops/">Explorar RepoOps →</a>
-</div>
-<p class="landing-small-print">Investigación e ingeniería en curso. No es una afirmación de software listo para empresas.</p>
-</div>
-<aside aria-label="Diferencia entre la propuesta de un agente y la aceptación en el sistema" class="hero-panel landing-boundary">
-<div class="landing-panel-head"><span>FRONTERA DE AUTORIDAD</span><span aria-hidden="true" class="landing-panel-pulse"></span></div>
-<div class="landing-boundary-step"><span class="step-num">01 / PROPONER</span><strong>Salida del agente</strong><small>Ideas, código y cambios propuestos</small></div>
-<div aria-hidden="true" class="landing-boundary-connector"><span></span><b>↓</b><span></span></div>
-<div class="landing-boundary-step landing-candidate"><span class="step-num">02 / EXAMINAR</span><strong>Cambio candidato acotado</strong><small>Alcance, comprobaciones y evidencias</small></div>
-<div class="landing-guardrail"><span>≠</span> <strong>Verificar no equivale a autorizar</strong></div>
-<div class="landing-boundary-step landing-accepted"><span class="step-num">03 / ACEPTAR</span><strong>Efecto controlado</strong><small>Una decisión de autoridad separada</small></div>
-<p class="landing-panel-caption">Un modelo conceptual de la separación; no afirma que todos los flujos estén automatizados.</p>
-</aside>
+
+<main id="main" tabindex="-1">
+
+<section class="v03-hero" aria-labelledby="hero-title">
+  <div class="v03-wrap v03-hero__grid">
+
+    <div class="v03-hero__copy">
+      <p class="v03-label"><span class="v03-rails" aria-hidden="true"></span>Infraestructura gobernada para agentes de IA</p>
+      <h1 class="v03-hero__title" id="hero-title">La inteligencia no es autoridad. <span class="v03-hero__sub">BARANES gobierna el camino de la intención al efecto real.</span></h1>
+      <p class="v03-hero__lede">Los agentes ya proponen cambios y ejecutan tareas. Cuando actúan sobre sistemas reales, necesitamos saber con qué permiso lo hacen, qué ha cambiado y cómo se ha comprobado.</p>
+      <div class="v03-hero__ctas">
+        <a class="v03-btn v03-btn--primary" href="#repoops">Explorar RepoOps</a>
+        <a class="v03-btn v03-btn--ghost" data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Leer el Atlas</a>
+      </div>
+      <p class="v03-pending-note">Los enlaces atenuados están en revisión.</p><ul class="v03-hero__status" aria-label="Estado del proyecto">
+        <li class="v03-status v03-status--now">SDD Framework · Open source</li>
+        <li class="v03-status v03-status--now">Atlas público</li>
+        <li class="v03-status v03-status--dev">RepoOps en desarrollo</li>
+      </ul>
+      <p class="v03-hero__fine">En desarrollo activo. Todavía no es un producto comercial.</p>
+    </div>
+
+    <figure class="v03-path" data-path data-state="done" aria-labelledby="path-title">
+      <div class="v03-path__head">
+        <div class="v03-path__title"><span class="v03-tag v03-tag--illus">Ejemplo conceptual</span><span id="path-title">Un cambio en RepoOps</span></div>
+        <div class="v03-path__meta">
+          <span class="v03-path__domain">RepoOps</span>
+          <span class="v03-chip v03-chip--amber v03-reveal v03-is-on"><span aria-hidden="true">⊘</span> Sin reintento automático</span>
+        </div>
+      </div>
+
+      <div class="v03-path__case">
+        <p class="v03-path__q">El worker agotó el tiempo. ¿Se aplicó el cambio?</p>
+        <p class="v03-path__ctx">Cambio propuesto: corregir la validación de pedidos en <code>demo/tienda-api</code></p>
+      </div>
+
+      <details class="v03-path__expander" open><summary>Explorar los seis pasos <span aria-hidden="true">＋</span></summary><div class="v03-path__track">
+        <ol class="v03-path__steps">
+          <li class="v03-pstep v03-is-reached v03-is-linked">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="1"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Propuesta</span><span class="v03-pstep__val">cambio solicitado</span></button>
+          </li>
+          <li class="v03-pstep v03-is-reached v03-is-linked">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="2"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Admisión</span><span class="v03-pstep__val">permiso y alcance</span></button>
+          </li>
+          <li class="v03-pstep v03-pstep--warn v03-is-reached v03-is-linked">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="3"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Ejecución</span><span class="v03-pstep__val">timeout</span></button>
+          </li>
+          <li class="v03-pstep v03-is-reached v03-is-linked">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="4"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Observación</span><span class="v03-pstep__val">commit localizado</span></button>
+          </li>
+          <li class="v03-pstep v03-pstep--cross v03-is-reached v03-is-linked">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="5"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Contraste</span><span class="v03-pstep__val">candidato confirmado</span></button>
+            <span class="v03-path__gate v03-is-on" aria-hidden="true"><span>Decisión de aceptación</span></span>
+          </li>
+          <li class="v03-pstep v03-pstep--accept v03-is-reached">
+            <button class="v03-pstep__btn" type="button" aria-pressed="false" aria-controls="path-detail" data-step="6"><span class="v03-pstep__node" aria-hidden="true"></span><span class="v03-pstep__name">Aceptación</span><span class="v03-pstep__val">pendiente</span></button>
+          </li>
+        </ol>
+      </div>
+
+      </details><div class="v03-path__detail" id="path-detail" aria-live="polite" aria-atomic="true" role="region" aria-label="Explicación del recorrido"><p data-detail="0" class="v03-is-shown"><b>El cambio está presente; aceptarlo sigue pendiente.</b> En este ejemplo, el commit observado coincide con el candidato previsto. El timeout no demuestra ausencia de efecto ni autoriza otro intento.</p>
+<p data-detail="1" hidden><b>Propuesta.</b> El objetivo se concreta en una petición: repositorio, operación, alcance e identidad. Proponer un cambio no concede permiso para ejecutarlo.</p>
+<p data-detail="2" hidden><b>Admisión.</b> Antes de ejecutar se comprueban el permiso del dominio y el alcance previsto. En este ejemplo: un repositorio y dos rutas autorizadas.</p>
+<p data-detail="3" hidden><b>Ejecución autorizada.</b> El worker actúa con un permiso acotado y termina por timeout. Ese resultado describe la ejecución; no demuestra que el cambio no exista.</p>
+<p data-detail="4" hidden><b>Observación.</b> Git permite localizar un commit en la rama candidata. Su presencia aporta un dato: todavía hay que contrastar su identidad y su contenido.</p>
+<p data-detail="5" hidden><b>Contraste del efecto.</b> Se comparan la petición, el candidato y el estado de Git. En este ejemplo coinciden: el cambio previsto está presente en la rama candidata.</p>
+<p data-detail="6" hidden><b>Aceptación.</b> Confirmar qué cambió no autoriza su incorporación al repositorio canónico. Esa decisión sigue pendiente; publicar requeriría también la autoridad correspondiente.</p></div>
+
+      <figcaption class="v03-path__note">
+        <span>Datos de muestra. Explica el modelo; no es una captura de producto. Puedes consultar cada paso.</span>
+        <button class="v03-path__replay" type="button" data-replay aria-label="Repetir la animación del recorrido"><svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3.6 8.6a4.6 4.6 0 1 0 1.3-4"></path><path d="M3.4 2.6v2.7h2.7"></path></svg> Repetir</button>
+      </figcaption>
+    </figure>
+    </div>
 </section>
-<section aria-labelledby="example-heading" class="section landing-example" id="example">
-<div class="shell">
-<div class="section-head">
-<div class="kicker">UN CASO DOCUMENTADO</div>
-<h2 id="example-heading">Un cambio con un resultado registrado. No una promesa comercial.</h2>
-<p>Una funcionalidad interna del Dashboard ofrece un ejemplo concreto. Los artefactos de soporte todavía no son públicos ni pueden examinarse de forma independiente.</p>
-</div>
-<div class="landing-example-grid">
-<article class="landing-record">
-<div class="landing-record-top"><span>CASO INTERNO / DASHBOARD</span><span class="landing-draft-label">CASO INTERNO · EVIDENCIA NO PÚBLICA</span></div>
-<h3>Un cambio documentado en un Dashboard</h3>
-<p class="landing-record-intro">Un recorrido acotado de una funcionalidad con trabajo candidato documentado, validación, verificación, auditoría y registro archivado.</p>
-<div aria-label="Recorrido resumido de la funcionalidad" class="landing-case-flow">
-<span>Especificación</span><b aria-hidden="true">→</b><span>Candidato</span><b aria-hidden="true">→</b><span>Validación / verificación</span><b aria-hidden="true">→</b><span>Auditoría</span><b aria-hidden="true">→</b><span>Archivo</span>
-</div>
-<div aria-label="Resultados registrados del caso" class="landing-outcome">
-<div><small>ESTADO REGISTRADO</small><strong>ARCHIVE</strong></div>
-<div><small>VALIDACIÓN</small><strong>PASS</strong></div>
-<div><small>VERIFICACIÓN</small><strong>PASS</strong></div>
-<div><small>AUDITORÍA</small><strong>PASS</strong></div>
-</div>
-<p class="landing-provenance"><strong>Procedencia:</strong> la revisión interna G02 de octubre de 2026 recoge el estado de archivo y las comprobaciones registradas de este caso. Los recibos originales y los detalles internos no se han publicado ni se han revisado aquí como evidencia pública independiente. <strong>Esta descripción no acredita preparación comercial ni garantiza otros recorridos.</strong></p>
-</article>
-<aside aria-labelledby="limits-heading" class="landing-limits">
-<div class="kicker">QUÉ SIGNIFICA EL CASO</div>
-<h3 id="limits-heading">La evidencia tiene límites.</h3>
-<div class="landing-limit-item"><strong>Qué demuestra</strong><p>Una funcionalidad concreta llegó a estado archivado con resultados de validación, verificación y auditoría registrados.</p></div>
-<div class="landing-limit-item"><strong>Qué no demuestra</strong><p>Madurez comercial, portabilidad completa, seguridad global ni fiabilidad universal de extremo a extremo.</p></div>
-<div class="landing-limit-item"><strong>Qué falta</strong><p>Preparar un recorrido revisable, sin información sensible, que vincule las afirmaciones con artefactos reales.</p></div>
-</aside>
-</div>
-</div>
+
+<section class="v03-strip" aria-label="De qué se compone BARANES">
+  <div class="v03-wrap">
+    <ul class="v03-strip__list">
+      <li>
+        <a class="v03-seg" href="#modelo">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4.5 4.5v15M19.5 4.5v15M4.5 9h15M4.5 14h15M9.5 9v5M14.5 9v5"></path></svg></span>
+          <span class="v03-seg__title">Frontera de autoridad</span>
+          <span class="v03-seg__desc">Proponer, ejecutar, comprobar y aceptar son actos distintos.</span>
+          <span class="v03-status v03-status--def">Modelo documentado</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+      <li>
+        <a class="v03-seg" href="#repoops">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" stroke-dasharray="2.6 2.6"></rect><path d="M10 8.8v6.4l5-3.2z"></path></svg></span>
+          <span class="v03-seg__title">Ejecución acotada</span>
+          <span class="v03-seg__desc">Alcance, capacidades y condiciones de parada, explícitos.</span>
+          <span class="v03-status v03-status--dev">En validación</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+      <li>
+        <a class="v03-seg" data-pending-href="./atlas/effect-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.3 12.3l2.5 2.5 4.9-5.3"></path></svg></span>
+          <span class="v03-seg__title">Qué cambió realmente</span>
+          <span class="v03-seg__desc">La determina el dominio afectado, no quien ejecuta.</span>
+          <span class="v03-status v03-status--def">Modelo documentado</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+      <li>
+        <a class="v03-seg" data-pending-href="./atlas/evidence-and-truth/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M6.5 3.5h7.5l3.5 3.5v13.5h-11z"></path><path d="M14 3.5V7h3.5"></path><path d="M9.5 12h5M9.5 15.5h5"></path></svg></span>
+          <span class="v03-seg__title">Evidencias</span>
+          <span class="v03-seg__desc">Respaldan la decisión sin convertirse en autoridad.</span>
+          <span class="v03-status v03-status--def">Modelo documentado</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+      <li>
+        <a class="v03-seg" href="#repoops">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="7" cy="6" r="2"></circle><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="9" r="2"></circle><path d="M7 8v8"></path><path d="M17 11c0 3.6-4.2 4.3-8.4 5.6"></path></svg></span>
+          <span class="v03-seg__title">RepoOps</span>
+          <span class="v03-seg__desc">Primer dominio: operaciones con límites y evidencias sobre Git.</span>
+          <span class="v03-status v03-status--dev">En desarrollo</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+      <li>
+        <a class="v03-seg" data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+          <span class="v03-seg__icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 4l8 4.2-8 4.2-8-4.2z"></path><path d="M4 12.2l8 4.2 8-4.2"></path><path d="M4 16.1l8 4.2 8-4.2"></path></svg></span>
+          <span class="v03-seg__title">SDD Framework</span>
+          <span class="v03-seg__desc">Ciclo de vida y contratos legibles por máquina. Apache-2.0.</span>
+          <span class="v03-status v03-status--now">Open source</span>
+          <svg class="v03-seg__go" viewbox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"></path></svg>
+        </a>
+      </li>
+    </ul>
+  </div>
 </section>
-<section aria-labelledby="problem-heading" class="section landing-primitives">
-<div class="shell">
-<div class="section-head">
-<div class="kicker">TRES LÍMITES ESENCIALES</div>
-<h2 id="problem-heading">¿Qué debe estar bajo control?</h2>
-<p>Lo que produce un agente es una propuesta, no permiso para cambiar un sistema.</p>
-</div>
-<div class="landing-primitives-grid">
-<div class="principle"><b>Ejecución acotada</b><span>Alcance, capacidades y condiciones de parada explícitos.</span></div>
-<div class="principle"><b>Gobierno de efectos</b><span>El trabajo candidato permanece separado del cambio aceptado.</span></div>
-<div class="principle"><b>Evidencia primero</b><span>Comprobaciones, auditoría y procedencia trazables antes de aceptar efectos.</span></div>
-</div>
-</div>
+
+<section class="v03-sec v03-sec--deep" id="problema" aria-labelledby="problema-title">
+  <div class="v03-wrap">
+    <div class="v03-problem">
+      <div class="v03-problem__intro">
+        <p class="v03-label"><span class="v03-rails" aria-hidden="true"></span>El problema</p>
+        <h2 class="v03-h2" id="problema-title">Que el proceso termine no demuestra qué cambió.</h2>
+        <p class="v03-lead">Un ejecutor puede informar con exactitud de lo que hizo sin establecer qué cambió de verdad. En ese hueco está el riesgo: reintentar a ciegas, dar por bueno lo que nadie comprobó o perder lo que sí ocurrió.</p>
+        <a class="v03-link" data-pending-href="./atlas/done-vs-true/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Profundizar en el Atlas
+          <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg>
+        </a>
+      </div>
+      <ul class="v03-ledger">
+        <li>
+          <p class="v03-ledger__eq"><span>Proceso correcto</span> <b>≠</b> <span>efecto correcto</span></p>
+          <p class="v03-ledger__txt">Un proceso puede terminar bien mientras un cambio concurrente altera el estado final.</p>
+        </li>
+        <li>
+          <p class="v03-ledger__eq"><span>Proceso fallido</span> <b>≠</b> <span>sin efecto</span></p>
+          <p class="v03-ledger__txt">Puede fallar después de haber creado parte del efecto, o todo.</p>
+        </li>
+        <li>
+          <p class="v03-ledger__eq"><span>Timeout</span> <b>≠</b> <span>sin efecto</span></p>
+          <p class="v03-ledger__txt">El sistema externo puede haber aceptado el cambio antes de que se agotara el tiempo.</p>
+        </li>
+        <li>
+          <p class="v03-ledger__eq"><span>Resultado perdido</span> <b>≠</b> <span>permiso para reintentar</span></p>
+          <p class="v03-ledger__txt">Reintentar sin saber qué pasó puede duplicar un efecto real.</p>
+        </li>
+      </ul>
+    </div>
+    </div>
 </section>
-<section aria-labelledby="today-heading" class="section">
-<div class="shell"><div class="section-head"><div class="kicker">ESTADO ACTUAL</div><h2 id="today-heading">Resultados concretos. Límites reales.</h2><p>BARANES es experimental. RepoOps ha demostrado recorridos gobernados reales, mientras que la integración, la portabilidad y la preparación más amplia del producto siguen en desarrollo.</p></div><div class="landing-state-grid"><article class="landing-state-card"><span class="landing-state-kicker">EXISTE HOY</span><h3>Atlas público interactivo</h3><p>Explora modelos técnicos y los límites previstos de la arquitectura.</p><a href="./atlas/">Explorar el Atlas →</a></article><article class="landing-state-card"><span class="landing-state-kicker oss">CÓDIGO ABIERTO</span><h3>SDD Framework</h3><p>Un ciclo de vida documentado y contratos de funcionalidades con código público.</p><a href="https://github.com/CollSalvia-Org/sdd-framework">Ver repositorio ↗</a></article><article class="landing-state-card"><span class="landing-state-kicker target">EN DESARROLLO</span><h3>BARANES + RepoOps</h3><p>La integración y la preparación operativa más amplia siguen en evaluación. No afirmamos madurez comercial.</p><a href="./repoops/">Explorar RepoOps →</a></article></div></div>
+
+<section class="v03-sec v03-sec--deep" id="repoops" aria-labelledby="repoops-title">
+  <div class="v03-wrap">
+    <div class="v03-repo-heading">
+      <div><p class="v03-label"><span class="v03-rails" aria-hidden="true"></span>RepoOps, el primer dominio</p>
+      <h2 class="v03-h2" id="repoops-title">Del trabajo definido<br>al cambio comprobado.</h2></div>
+      <p class="v03-lead">Un cambio necesita una definición clara y una ejecución controlada. SDD Framework organiza el trabajo; RepoOps desarrolla los mecanismos para llevarlo al repositorio con límites y evidencias.</p>
+    </div>
+    <div class="v03-duo">
+      <article class="v03-duo__part v03-duo__part--sdd" aria-labelledby="sdd-title">
+        <div class="v03-duo__head"><span class="v03-duo__name">SDD Framework</span><span class="v03-status v03-status--now">Open source</span></div>
+        <h3 id="sdd-title">Definir el trabajo.</h3>
+        <p>Describe una funcionalidad, cómo avanza el trabajo y qué comprobaciones requiere cada etapa.</p>
+        <ul class="v03-duo__list"><li>Qué se quiere cambiar.</li><li>Qué exige cada etapa.</li><li>Cómo comprobar el resultado.</li></ul>
+        <a class="v03-link" data-pending-href="https://github.com/CollSalvia-Org/sdd-framework" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Explorar SDD Framework <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"></path></svg></a>
+      </article>
+      <article class="v03-duo__part v03-duo__part--repo" aria-labelledby="repo-part-title">
+        <div class="v03-duo__head"><span class="v03-duo__name">RepoOps</span><span class="v03-status v03-status--dev">En desarrollo</span></div>
+        <h3 id="repo-part-title">Controlar las operaciones.</h3>
+        <p>Aplica controles a las operaciones sobre Git: alcance autorizado, ejecución acotada y evidencias de lo que cambió.</p>
+        <ul class="v03-duo__list"><li>Permiso y alcance explícitos.</li><li>Un candidato que se puede revisar.</li><li>Resultado contrastado con Git.</li></ul>
+        <a class="v03-link" data-pending-href="./repoops/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Explorar RepoOps <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></a>
+      </article>
+    </div>
+    <div class="v03-repo-boundary"><span class="v03-repo-boundary__mark" aria-hidden="true">≠</span><p>El candidato se puede revisar y mejorar.<br><strong>Incorporarlo al repositorio requiere una decisión explícita.</strong></p><a class="v03-link" data-pending-href="./atlas/repoops/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Explorar el ciclo de trabajo <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></a></div>
+    <p class="v03-repo-note">RepoOps cuenta con mecanismos de ejecución y verificación. Su integración en un recorrido completo sigue en desarrollo. SDD Framework define el ciclo de trabajo; no concede permisos sobre sistemas externos.</p>
+  </div>
+</section><section class="v03-sec" id="modelo" aria-labelledby="modelo-title">
+  <div class="v03-wrap">
+    <div class="v03-sec-head"><p class="v03-label"><span class="v03-rails" aria-hidden="true"></span>El modelo · documentado en el Atlas</p>
+      <h2 class="v03-h2" id="modelo-title">Reglas compartidas.<br>Efectos con dueño.</h2>
+      <p class="v03-lead">El modelo de BARANES separa cuatro preguntas. Cada dominio responde de los efectos que se producen en su propio sistema.</p></div>
+    <div class="v03-core">
+      <article class="v03-fam"><h3 class="v03-fam__name">Identidad y política</h3><p class="v03-fam__q">¿Quién pide qué,<br>y está permitido?</p></article>
+      <article class="v03-fam"><h3 class="v03-fam__name">Autoridad y coordinación</h3><p class="v03-fam__q">¿Con qué permiso?<br>¿Hasta dónde llega?</p></article>
+      <article class="v03-fam"><h3 class="v03-fam__name">Ejecución y evidencias</h3><p class="v03-fam__q">¿Qué cambió<br>y cómo se comprueba?</p></article>
+      <article class="v03-fam"><h3 class="v03-fam__name">Observación</h3><p class="v03-fam__q">¿Qué se puede ver<br>sin alterar el estado?</p></article>
+    </div>
+    <div class="v03-model-foot"><p>Los agentes proponen y actúan con los permisos que reciben. Las evidencias respaldan las decisiones; no conceden autoridad por sí solas.</p><a class="v03-link" data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Entender el modelo <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></a></div>
+  </div>
+</section><section class="v03-sec" id="estado" aria-labelledby="estado-title">
+  <div class="v03-wrap">
+    <div class="v03-state-head"><div><p class="v03-label"><span class="v03-rails" aria-hidden="true"></span>Estado del proyecto</p>
+      <h2 class="v03-h2" id="estado-title">Qué puedes explorar.<br>Qué falta demostrar.</h2></div><p class="v03-lead">BARANES es experimental. Los recursos públicos, la validación interna y la dirección del modelo tienen alcances distintos.</p></div>
+    <div class="v03-board">
+      <section class="v03-board__col" aria-labelledby="public-title"><h3 class="v03-board__head" id="public-title"><span class="v03-status v03-status--now">Recursos públicos</span></h3><ul>
+        <li><h4>SDD Framework</h4><p>Contratos, esquemas, documentación y herramientas. Open source, Apache-2.0.</p><a data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Explorar el framework <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></a></li>
+        <li><h4>Atlas</h4><p>El modelo técnico y sus límites, con una vista interactiva de RepoOps.</p><a data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Abrir el Atlas <svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></a></li>
+      </ul></section>
+      <section class="v03-board__col" aria-labelledby="validation-title"><h3 class="v03-board__head" id="validation-title"><span class="v03-status v03-status--dev">En validación</span></h3><ul>
+        <li><h4>RepoOps integrado</h4><p>Conectar los mecanismos existentes en un recorrido completo y fiable.</p></li>
+        <li><h4>Comprobación de sus límites</h4><p>Contrastar el alcance autorizado y el resultado de las operaciones, también ante fallos.</p></li>
+      </ul></section>
+      <section class="v03-board__col" aria-labelledby="direction-title"><h3 class="v03-board__head" id="direction-title"><span class="v03-status v03-status--dir">Dirección del modelo</span></h3><ul>
+        <li><h4>Otros dominios de efectos</h4><p>Extender el modelo a otras clases de operaciones sobre sistemas reales.</p></li>
+        <li><h4>Vistas operativas</h4><p>Acercar estados, evidencias y decisiones a personas y agentes.</p></li>
+      </ul></section>
+    </div>
+    <p class="v03-closing">Ahora toca demostrar este modelo<br><span>en uso real y fiable.</span></p>
+  </div>
+</section><section class="v03-sec v03-sec--deep" id="empezar" aria-labelledby="empezar-title">
+  <div class="v03-wrap">
+    <h2 class="v03-h2 v03-h2--sm" id="empezar-title">Por dónde empezar</h2>
+    <div class="v03-doors">
+      <a class="v03-door" data-pending-href="./repoops/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+        <span class="v03-door__kind">Primer dominio</span>
+        <span class="v03-door__title">RepoOps</span>
+        <span class="v03-door__text">Qué resuelve, cómo funciona y qué está demostrado hoy.</span>
+        <span class="v03-door__go">Explorar RepoOps<svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></span>
+      </a>
+      <a class="v03-door" data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+        <span class="v03-door__kind">Modelo técnico</span>
+        <span class="v03-door__title">Atlas</span>
+        <span class="v03-door__text">Las fronteras de autoridad, con lo observado separado de la arquitectura objetivo.</span>
+        <span class="v03-door__go">Abrir el Atlas<svg viewbox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M9 4.5 12.5 8 9 11.5"></path></svg></span>
+      </a>
+      <a class="v03-door" data-pending-href="https://github.com/CollSalvia-Org/sdd-framework" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">
+        <span class="v03-door__kind">Open source</span>
+        <span class="v03-door__title">SDD Framework</span>
+        <span class="v03-door__text">Contratos de ciclo de vida legibles por máquina, para repositorios donde personas y agentes colaboran.</span>
+        <span class="v03-door__go">Ver en GitHub<svg viewbox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"></path></svg></span>
+      </a>
+    </div>
+  </div>
 </section>
-<section aria-labelledby="explore-heading" class="section landing-conversation" id="explore">
-<div class="shell landing-conversation-inner"><div><div class="kicker">EXPLORA LA DOCUMENTACIÓN</div><h2 id="explore-heading">Explora cómo se gobierna el límite.</h2><p>Empieza por RepoOps para entender el trabajo gobernado sobre repositorios, o consulta el Atlas para profundizar en los modelos técnicos. Ambos distinguen lo observado de la arquitectura objetivo.</p></div><div class="landing-conversation-actions"><a class="btn primary" href="./repoops/">Entender RepoOps →</a><a class="btn secondary" href="./atlas/">Explorar el Atlas técnico →</a></div></div>
-</section>
+
 </main>
-<footer class="footer"><div class="shell footer-inner"><span>BARANES</span><span><a href="./atlas/">Atlas de arquitectura</a> · <a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework</a></span></div></footer>
-<script defer="" src="./assets/site.js"></script></body>
+
+<footer class="v03-foot">
+  <div class="v03-wrap">
+    <div class="v03-foot__row">
+      <a class="v03-foot__brand" href="./" aria-label="BARANES, inicio"><img class="" src="./assets/baranes-symbol-teal.svg" width="38" height="38" alt=""></a>
+      <p class="v03-foot__tag">BARANES · Inteligencia, ejecución y autoridad con límites explícitos.</p>
+      <nav class="v03-foot__nav" aria-label="Pie">
+        <a data-pending-href="./repoops/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">RepoOps</a>
+        <a data-pending-href="./open-source/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Open source</a>
+        <a data-pending-href="./atlas/" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">Atlas</a>
+        <a data-pending-href="https://github.com/CollSalvia-Org/sdd-framework" aria-disabled="true" role="link" tabindex="-1" title="Destino en revisión">GitHub</a>
+      </nav>
+    </div>
+    <p class="v03-foot__fine">El ejemplo del timeout utiliza datos de muestra. El Atlas distingue el modelo objetivo de los mecanismos implementados.</p>
+  </div>
+</footer>
+
+<script src="./assets/site.js" defer></script><script src="./assets/landing-v03.js" defer></script></body>
 </html>
