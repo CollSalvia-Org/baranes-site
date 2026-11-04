@@ -1,17 +1,117 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RepoOps — Baranes</title><meta name="description" content="RepoOps is the governed repository-operations domain within the Baranes target architecture."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/repoops/"><meta property="og:title" content="RepoOps — Baranes"><meta property="og:description" content="RepoOps is the governed repository-operations domain within the Baranes target architecture."><meta property="og:type" content="website"><meta property="og:url" content="https://magronxo.github.io/baranes-site/repoops/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="RepoOps — Baranes"><meta name="twitter:description" content="RepoOps is the governed repository-operations domain within the Baranes target architecture."><link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/brand.css"></head><body>
-<header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../">Home</a><a data-nav href="./">RepoOps</a><a data-nav href="../open-source/">Open source</a><a data-nav href="../atlas/">Atlas</a></nav></div></header>
-<main><section class="shell page-hero"><div class="eyebrow">RepoOps · governed repository effects</div><h1>Govern the path from software intent to canonical repository effect.</h1><p>RepoOps is Baranes's first concrete domain for repository effects. It separates planning and candidate engineering from the point where a change becomes an accepted repository effect.</p><div class="label-row"><span class="label target">Target architecture</span><span class="label oss">SDD layer open source</span></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div class="kicker">Model</div><h2>A lifecycle and an execution engine are not the same thing.</h2><p>SDD governs feature state and expected behaviour. RepoOps governs structured repository operations and the candidate-to-canonical effect boundary.</p></div><div class="two-col"><div class="codeflow">SEED / INTAKE
-      ↓
-DESIGN → SPEC → VALIDATION → TASKS
-      ↓
-BOUNDED IMPLEMENTATION WORKSPACE
-      ↓
-SEALED CANDIDATE
-      ↓
-REPOOPS GOVERNED ADOPTION
-      ↓
-VERIFY → AUDIT → ARCHIVED</div><div class="feature-list"><div class="feature"><b>Durable job envelope</b><span>Repository, operation, scope, identity and bounded arguments travel as structured state.</span></div><div class="feature"><b>Candidate boundary</b><span>Engineering can iterate without silently becoming canonical repository state.</span></div><div class="feature"><b>Governed adoption</b><span>The exact candidate is adopted through an explicit effect transaction; commit is separate from publication.</span></div><div class="feature"><b>Terminal evidence</b><span>Verification, audit and closure preserve what happened and why it was accepted.</span></div></div></div></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div class="kicker">Public claims boundary</div><h2>What this page is — and is not — claiming.</h2></div><div class="cards"><article class="card"><div class="status-label now">Exists now</div><h3>Implemented RepoOps mechanisms</h3><p>Existing implementation evidence covers durable jobs, runner/execution-role patterns, SDD artifact operations, verification and bounded execution mechanisms. They are not presented here as one complete deployed product.</p></article><article class="card"><div class="status-label oss">Open source</div><h3>SDD Framework</h3><p>The feature lifecycle and contract layer is public and inspectable.</p><a href="https://github.com/CollSalvia-Org/sdd-framework">GitHub →</a></article><article class="card"><div class="status-label target">Target architecture</div><h3>Unified governed adoption model</h3><p>The full end-to-end flow shown in the Atlas remains a target cognitive architecture and must not be read as a claim that every component is deployed today.</p></article></div></div></section>
-<section class="section"><div class="shell"><div class="proof-row"><div class="proof"><h3>Technical depth</h3><p>The public RepoOps Atlas contains lifecycle phases, persistent artifacts, a role-level execution surface, runner, governance primitives, identity trace and clickable technical explanations.</p><div class="cta-row"><a class="btn primary" href="../atlas/repoops/">Explore technical architecture →</a><a class="btn secondary" href="../atlas/">Atlas index</a></div></div><div class="callout"><div class="kicker">Foundation</div><h3>Spec before effect.</h3><p>SDD Framework makes feature lifecycle and validation gates explicit before repository execution.</p><a href="../open-source/">Explore open source →</a></div></div></div></section></main>
-<footer class="footer"><div class="shell footer-inner"><span>BARANES · RepoOps</span><a href="../">Home</a></div></footer><script src="../assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RepoOps — Del cambio propuesto al efecto comprobado · BARANES</title>
+  <meta name="description" content="RepoOps recibe material de clientes externos, comprueba las condiciones de la operación y gobierna sus efectos sobre Git. Dirección adoptada del primer MVP local.">
+  <meta name="theme-color" content="#0b1827">
+  <link rel="canonical" href="https://baranes.ai/repoops/">
+  <meta property="og:title" content="RepoOps — Del cambio propuesto al efecto comprobado">
+  <meta property="og:description" content="Clientes externos, operaciones admitidas y resultado consultable. Primer MVP local en desarrollo; recorrido integrado por demostrar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baranes.ai/repoops/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RepoOps — BARANES">
+  <meta name="twitter:description" content="La frontera entre preparar un cambio y gobernar su efecto sobre Git.">
+  <link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg">
+  <link rel="preload" href="../assets/fonts/sora-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="../assets/repoops-v2.css">
+</head>
+<body class="repoops-v2">
+<a class="ro-skip" href="#main">Saltar al contenido</a>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="../" aria-label="BARANES, inicio"><img src="../assets/baranes-symbol-teal.svg" width="38" height="38" alt=""><span>BARANES</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="../">Inicio</a>
+      <a class="active" aria-current="page" href="./">RepoOps</a>
+      <a href="../open-source/">Open source</a>
+      <a href="../atlas/repoops/">Atlas RepoOps</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <section class="shell ro-hero" aria-labelledby="ro-title">
+    <div>
+      <p class="eyebrow">RepoOps · operaciones gobernadas sobre Git</p>
+      <h1 id="ro-title">Tu agente prepara el cambio.<br><span>RepoOps gobierna su efecto.</span></h1>
+      <p class="ro-lead">Una persona o un agente define el trabajo, prepara material y aporta informes. RepoOps comprueba qué operación puede realizarse, sobre qué candidato y con qué límites.</p>
+      <div class="cta-row"><a class="btn primary" href="../atlas/repoops/">Ver el mapa de RepoOps <span aria-hidden="true">→</span></a><a class="btn secondary" href="#recorrido">Cómo funciona</a></div>
+      <p class="ro-maturity"><span class="ro-dot" aria-hidden="true"></span>Dirección adoptada · nuevo motor en desarrollo</p>
+    </div>
+    <aside class="ro-first-cut" aria-labelledby="first-cut-title">
+      <p class="kicker">Primer MVP</p>
+      <h2 id="first-cut-title">Local. Con un resultado que puedas recuperar.</h2>
+      <dl><div><dt>Despliegue inicial</dt><dd>Motor y canónico en el mismo host.</dd></div><div><dt>Resultado mínimo</dt><dd>Un commit recuperable.</dd></div><div><dt>Publicación inicial</dt><dd>Push manual del operador con Git.</dd></div></dl>
+      <p>El nuevo recorrido integrado todavía está por demostrar.</p>
+    </aside>
+  </section>
+
+  <section class="section ro-deep" id="recorrido" aria-labelledby="route-title">
+    <div class="shell">
+      <div class="section-head"><p class="kicker">Frontera cliente–motor</p><h2 id="route-title">Preparar, admitir y comprobar<br>son responsabilidades distintas.</h2><p>La cognición queda en las herramientas del cliente. El motor recibe una operación explícita y material identificable; aplica las condiciones que exige su efecto.</p></div>
+      <div class="ro-track" aria-label="Relación entre el cliente, RepoOps y el resultado">
+        <article class="ro-lane ro-lane--client">
+          <p class="ro-lane__kind">Cliente externo</p><h3>Preparar el trabajo</h3>
+          <p>Persona, Architect, implementador y revisores, con las herramientas elegidas por el usuario.</p>
+          <ul><li>Documentos y requisitos SDD.</li><li>Cambios sobre una base identificada.</li><li>Informes sobre material concreto.</li></ul>
+          <p class="ro-lane__out">Aporta petición, material e informes.</p>
+        </article>
+        <article class="ro-lane ro-lane--engine">
+          <p class="ro-lane__kind">RepoOps</p><h3>Gobernar la operación</h3>
+          <ul class="ro-engine-steps"><li><b>Admitir</b><span>Permisos técnicos, alcance y condiciones.</span></li><li><b>Comprobar</b><span>Candidato fijado e inputs pertinentes.</span></li><li><b>Controlar el efecto</b><span>Operación Git admitida y resultado conservado.</span></li></ul>
+          <p class="ro-lane__out">Responde de las condiciones y del efecto.</p>
+        </article>
+        <article class="ro-lane ro-lane--result">
+          <p class="ro-lane__kind">Resultado consultable</p><h3>Saber qué ocurrió</h3>
+          <ul><li>Qué se pidió y qué se admitió.</li><li>Qué se ejecutó y qué se comprobó.</li><li>Qué efecto existe y qué sigue incierto.</li><li>Qué evidencia respalda el resultado.</li></ul>
+          <p class="ro-lane__out">El cliente puede consultar el resultado y sus límites.</p>
+        </article>
+      </div>
+      <div class="ro-recovery"><span class="ro-recovery__label">Recuperación · cuando corresponda</span><p><strong>Si el efecto queda incierto, consultar y reconciliar antes de repetir.</strong> Un timeout o una respuesta perdida pueden dejar un cambio ya aplicado.</p></div>
+      <p class="ro-caption">Este esquema muestra responsabilidades. El orden concreto de los gates SDD, la autoridad del estado y el momento de incorporación al canónico siguen en definición.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sdd-title">
+    <div class="shell ro-sdd">
+      <div class="section-head"><p class="kicker">SDD Framework · open source</p><h2 id="sdd-title">Definir el trabajo.<br>Conservar sus criterios.</h2><p>SDD organiza la funcionalidad, sus documentos y las comprobaciones de cada etapa. Es la ruta funcional inicial de RepoOps. Pre-SDD puede ayudar a preparar una idea; no exige adoptar una seed antes de entrar.</p></div>
+      <div class="ro-sdd-reference">
+        <p class="ro-small-label">Referencia del ciclo del framework</p>
+        <ol class="ro-phases" aria-label="Etapas de SDD Framework"><li>DESIGN</li><li>SPEC</li><li>VALIDATION</li><li>TASKS</li><li>IMPLEMENT</li><li>VERIFY</li><li>AUDIT</li><li>ARCHIVE</li></ol>
+        <p>El cliente prepara y revisa los documentos. RepoOps comprueba las condiciones aplicables a la operación. Una etapa SDD o un informe no conceden permisos sobre Git.</p>
+        <a class="ro-text-link" href="../atlas/repoops/">Ver su relación con el motor en el Atlas <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ro-deep" aria-labelledby="material-title">
+    <div class="shell">
+      <div class="section-head"><p class="kicker">Material, revisiones y permisos</p><h2 id="material-title">Cada comprobación tiene un objeto y un alcance.</h2></div>
+      <div class="ro-boundaries">
+        <article><span class="ro-small-label">Candidato fijado</span><h3>Comprobar el mismo cambio.</h3><p>La copia editable puede seguir evolucionando. El material comprobado debe permanecer identificado y separado: una edición posterior no puede cambiar el candidato al que se atribuye el resultado.</p></article>
+        <article><span class="ro-small-label">Revisión externa</span><h3>Un informe que corresponda.</h3><p>El informe debe referirse al candidato y a los requisitos pertinentes. Recibirlo por otro canal no acredita por sí solo la independencia del revisor, el modelo utilizado ni la ejecución de pruebas.</p></article>
+        <article><span class="ro-small-label">Asentimiento condicional</span><h3>Aprobar cuando la política lo exija.</h3><p>La aprobación se aplica al material y los límites presentados. Registra la respuesta recibida; los permisos técnicos y las condiciones de ejecución siguen siendo responsabilidad del dominio.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="status-title">
+    <div class="shell">
+      <div class="section-head"><p class="kicker">Estado real</p><h2 id="status-title">Qué existe.<br>Qué falta demostrar.</h2><p>Las pruebas previas tienen valor dentro de su alcance. El refactor tendrá que demostrar su propio recorrido con el consumidor que lo utilice.</p></div>
+      <div class="ro-status-grid">
+        <article class="ro-status-card"><p class="ro-small-label ro-label--legacy">Legado · evidencia acotada</p><h3>Mecanismos del motor anterior.</h3><p>Existen mecanismos de candidato separado, comprobaciones, commit y custodia, con pruebas concretas. Esas pruebas describen la implementación anterior.</p></article>
+        <article class="ro-status-card"><p class="ro-small-label ro-label--direction">Dirección adoptada</p><h3>Un motor más pequeño.</h3><p>Cliente externo, operación explícita, admisión, resultado y recuperación aplicable. El contrato y las condiciones concretas del primer recorrido siguen en definición.</p></article>
+        <article class="ro-status-card"><p class="ro-small-label ro-label--pending">Por demostrar</p><h3>El recorrido integrado nuevo.</h3><p>Entrada real, comprobaciones pertinentes, efecto Git admitido y consulta del resultado, también ante interrupciones. El motor nuevo todavía no acredita ese recorrido completo.</p></article>
+      </div>
+      <p class="ro-scope-note">El primer MVP no promete automatizar push, PR o merge. Esas operaciones pueden seguir en las herramientas Git habituales del usuario.</p>
+      <div class="ro-atlas-link"><div><p class="kicker">Profundidad técnica</p><h3>El mapa, las fronteras y sus límites.</h3><p>Consulta las responsabilidades de cada pieza y los puntos que siguen abiertos.</p></div><div class="ro-atlas-link__actions"><a class="btn primary" href="../atlas/repoops/">Abrir Atlas RepoOps <span aria-hidden="true">→</span></a><a class="ro-text-link ro-history-link" href="../atlas/history/repoops-2026-10/">Arquitectura anterior · histórico</a></div></div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="shell footer-inner"><span>BARANES · RepoOps</span><nav aria-label="Pie"><a href="../">Inicio</a><a href="../atlas/repoops/">Atlas RepoOps</a></nav></div></footer>
+</body>
+</html>

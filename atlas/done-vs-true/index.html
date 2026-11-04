@@ -1,50 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Done Is Not the Same as True — Baranes</title><meta name="description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/done-vs-true/"><meta property="og:title" content="Done Is Not the Same as True — Baranes"><meta property="og:description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><meta property="og:type" content="article"><meta property="og:url" content="https://magronxo.github.io/baranes-site/atlas/done-vs-true/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Done Is Not the Same as True — Baranes"><meta name="twitter:description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/brand.css"></head><body><header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../../">Home</a><a data-nav href="../../repoops/">RepoOps</a><a data-nav href="../../open-source/">Open source</a><a data-nav href="../../atlas/">Atlas</a></nav></div></header><main>
-<article class="fascicle-page">
-  <section class="shell fascicle-hero">
-    <div class="fascicle-breadcrumb"><a href="../">Baranes Atlas</a><span>/</span><span>Authority boundaries</span><span>/</span><span>01</span></div>
-    <div class="eyebrow">Authority boundaries · 01</div>
-    <h1>Done Is Not the Same as True</h1>
-    <p class="fascicle-deck">A worker can correctly report that it finished an action. That still does not automatically settle what is now true in the system it tried to change.</p>
-    <div class="concept-equation"><span>EXECUTION RESULT</span><strong>!=</strong><span>AUTHORITATIVE EFFECT TRUTH</span></div>
-    <div class="authority-diagram diagram-linear" aria-label="Executor claim and evidence flow to the affected domain">
-      <div class="authority-node claim"><span>Executor</span><b>I ran it.</b><small>acceptance · execution · direct observations</small></div>
-      <div class="authority-edge"><span>claim + evidence</span><b>→</b></div>
-      <div class="authority-node authority"><span>Affected domain</span><b>What is authoritatively true?</b><small>applies the evidence rule for this effect</small></div>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>«Hecho» no demuestra el efecto — BARANES Atlas</title>
+  <meta name="description" content="El resultado de una ejecución y el estado que dejó son hechos distintos. Un timeout o una respuesta perdida no autorizan a repetir a ciegas.">
+  <meta name="theme-color" content="#0b1827">
+  <link rel="canonical" href="https://baranes.ai/atlas/done-vs-true/">
+  <meta property="og:title" content="«Hecho» no demuestra el efecto — BARANES Atlas">
+  <meta property="og:description" content="El resultado de una ejecución y el estado que dejó son hechos distintos. Un timeout o una respuesta perdida no autorizan a repetir a ciegas.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://baranes.ai/atlas/done-vs-true/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="«Hecho» no demuestra el efecto — BARANES Atlas">
+  <meta name="twitter:description" content="El resultado de una ejecución y el estado que dejó son hechos distintos. Un timeout o una respuesta perdida no autorizan a repetir a ciegas.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg">
+  <link rel="preload" href="../../assets/fonts/sora-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/brand.css">
+  <link rel="stylesheet" href="../../assets/atlas-articles-v2.css">
+</head>
+<body class="atlas-articles-v2">
+<a class="article-skip" href="#main">Saltar al artículo</a>
+<header class="topbar"><div class="shell topbar-inner">
+  <a class="brand" href="../../" aria-label="BARANES, inicio"><img src="../../assets/baranes-symbol-teal.svg" width="38" height="38" alt=""><span>BARANES</span></a>
+  <nav class="nav" aria-label="Principal"><a data-nav href="../../">Inicio</a><a data-nav href="../../repoops/">RepoOps</a><a data-nav href="../../open-source/">Open source</a><a data-nav href="../">Atlas</a></nav>
+</div></header>
+<main id="main" tabindex="-1"><article class="fascicle-page">
+  <section class="shell fascicle-hero" aria-labelledby="article-title">
+    <nav class="fascicle-breadcrumb" aria-label="Ruta del artículo"><a href="../">BARANES Atlas</a><span aria-hidden="true">/</span><span>Autoridad y evidencia</span><span aria-hidden="true">/</span><span>01</span></nav>
+    <p class="eyebrow">Autoridad y evidencia · 01</p>
+    <h1 id="article-title">«Hecho» no demuestra el efecto</h1>
+    <p class="fascicle-deck">Un worker puede informar correctamente de lo que ejecutó. Saber qué cambió en el sistema exige comprobar el efecto que importa.</p>
+    <p class="article-status">Principios del core mínimo · diseño vigente</p>
+    <div class="concept-equation"><span>RESULTADO DE EJECUCIÓN</span><strong>≠</strong><span>EFECTO COMPROBADO</span></div>
+    <div class="authority-diagram diagram-linear" aria-label="El ejecutor aporta su declaración y observaciones al dominio que comprueba el efecto">
+      <div class="authority-node claim"><span>Ejecutor</span><b>Qué ejecuté y observé</b><small>inicio · proceso · salida · observaciones directas</small></div>
+      <div class="authority-edge"><span>declaración y evidencia</span><b aria-hidden="true">→</b></div>
+      <div class="authority-node authority"><span>Dominio afectado</span><b>Qué cambió realmente</b><small>aplica las comprobaciones pertinentes para ese efecto</small></div>
     </div>
-    <p class="fascicle-takeaway">“Completed” describes an execution. “True” describes the affected durable or external state.</p>
+    <p class="fascicle-takeaway">Terminar describe una ejecución. El efecto describe el estado que esa ejecución pudo cambiar.</p>
   </section>
-
   <section class="section fascicle-read"><div class="shell fascicle-copy">
-    <div class="section-head"><div class="kicker">The distinction</div><h2>A system says “completed”. The next question is different.</h2></div>
-    <p>The natural question is: <strong>so the change happened?</strong></p>
-    <p>Maybe. But that is a second proposition.</p>
-    <p>An executor can be completely accurate about its own work: it accepted an authorized attempt, ran a process or provider call, observed output and returned a result. Those are meaningful facts. They do not automatically settle every durable fact in the system that action was trying to change.</p>
-
-    <h3>What the executor can say authoritatively</h3>
-    <ul class="fascicle-list">
-      <li>Did I accept this attempt?</li><li>What did I run?</li><li>Did my process complete, fail, time out or get cancelled?</li><li>What output or direct observation did I produce?</li><li>What result claim did I return?</li>
-    </ul>
-    <p>Baranes keeps those facts precise instead of flattening them into a generic “untrusted result”.</p>
-
-    <h3>Why the distinction matters</h3>
-    <p>Execution outcome and effect state can diverge. A process can finish successfully while a concurrent change alters the final durable state. A process can fail after creating part — or all — of the intended effect. A timeout can happen after an external system has already accepted a mutation. A result can be lost even though the effect exists.</p>
-    <div class="concept-stack"><code>PROCESS SUCCESS != AUTOMATIC EFFECT SUCCESS</code><code>PROCESS FAILURE != AUTOMATIC NO EFFECT</code><code>TIMEOUT != AUTOMATIC NO EFFECT</code><code>MISSING RESULT != RETRY PERMISSION</code></div>
-
-    <div class="misconception"><div class="kicker">Common misconception</div><h3>“So Baranes does not trust executors?”</h3><p>No. This is not an adversarial assumption. The executor remains authoritative for its own acceptance, execution and direct observations. The boundary appears only when the proposition belongs to another semantic authority.</p></div>
-
-    <h3>Practical significance</h3>
-    <p>The distinction prevents operational convenience from erasing uncertainty. A missing or failed result cannot simply be relabeled as “nothing happened” if that conclusion is not established. That matters especially before a retry or another action could duplicate an external effect.</p>
-    <p>Baranes also does <strong>not</strong> require every successful execution to be checked by a universal independent verifier. The affected domain applies the evidence rule appropriate to that effect; in some cases the executor’s evidence may already be sufficient.</p>
+    <div class="section-head"><p class="kicker">Dos preguntas relacionadas</p><h2>Qué se ejecutó y qué cambió.</h2></div>
+    <p>Un proceso termina y devuelve un resultado. Ese dato permite saber cómo acabó la ejecución observada. Para concluir que el cambio previsto existe, también importan el material utilizado, el estado del sistema y las condiciones de la operación.</p>
+    <p>El ejecutor puede aportar hechos precisos sobre su propio trabajo: qué inició, qué proceso ejecutó, qué salida recibió y qué observó directamente. Esos hechos conservan su valor y su alcance.</p>
+    <h3>La ejecución y el efecto pueden divergir.</h3>
+    <p>Un proceso puede terminar bien y dejar un estado distinto del esperado por un cambio concurrente. También puede fallar después de producir una parte del efecto, o todo. Un timeout puede llegar después de que un sistema externo haya aceptado la operación.</p>
+    <div class="concept-stack"><code>Proceso correcto ≠ efecto correcto</code><code>Proceso fallido ≠ ausencia de efecto</code><code>Timeout ≠ ausencia de efecto</code><code>Resultado perdido ≠ permiso para reintentar</code></div>
+    <h3>Consultar antes de repetir.</h3>
+    <p>Una respuesta perdida deja una pregunta abierta. El dominio debe consultar y reconciliar cuando la interrupción pueda haber dejado un efecto parcial, desconocido o duplicado. Repetir sin resolver esa incertidumbre puede crear un segundo efecto.</p>
+    <p>El retorno del cliente tampoco demuestra que todos los procesos hayan terminado. La recuperación debe considerar el estado que sigue vivo y conservar el material necesario para decidir cómo continuar.</p>
+    <div class="misconception"><p class="kicker">Comprobación proporcional</p><h3>La evidencia necesaria depende del efecto.</h3><p>No se exige un verificador independiente universal para cada ejecución. El dominio aplica las comprobaciones que requiere la operación; en algunos casos las observaciones del propio ejecutor pueden ser suficientes.</p></div>
+    <h3>Un ejemplo sobre Git.</h3>
+    <p>Encontrar un commit tras un timeout aporta un dato relevante. Para atribuirlo al cambio solicitado hay que contrastar su repositorio, su base y su contenido. Esa determinación permite decidir si hubo efecto y evita un reintento automático basado solo en el timeout.</p>
+    <p class="article-scope"><strong>Alcance.</strong> Estos principios forman parte del core mínimo vigente. Explican responsabilidades y límites; no acreditan por sí solos la implementación del nuevo motor RepoOps ni de otros dominios.</p>
   </div></section>
-
   <section class="section"><div class="shell fascicle-copy">
-    <details class="technical-expander"><summary>Technical note</summary><div class="technical-body">
-      <p>The logical architecture keeps executor-side result authority separate from domain effect-truth authority:</p>
-      <div class="concept-equation compact"><span>EXECUTOR CLAIM</span><strong>!=</strong><span>DOMAIN EFFECT TRUTH</span></div>
-      <p>The executor can produce a precise result claim and strong direct observations. Those become evidence for the authority that owns the affected effect semantics.</p>
-      <p><strong>Maturity:</strong> canonical logical architecture. This distinction does not freeze one physical executor, verifier or service topology.</p>
-      <p><strong>Bounded example:</strong> RepoOps can illustrate the boundary in repository work. Git/process observations can be useful executor evidence while repository-specific final-state semantics remain a separate proposition. Git-specific mechanics are not a universal Baranes topology.</p>
-    </div></details>
-    <nav class="fascicle-nav" aria-label="Authority boundaries series"><a href="../">← Baranes Atlas</a><a href="../effect-truth/">Next: Who Owns Effect Truth? →</a></nav>
+    <details class="technical-expander"><summary>Cómo encaja en el core mínimo</summary><div class="technical-body"><p>El resultado distingue lo admitido, el inicio, la declaración del ejecutor y el efecto comprobado. La recuperación se aplica cuando el efecto puede quedar incierto.</p><p>Estas responsabilidades pueden vivir en el mismo proceso o registro. Separarlas en el razonamiento no obliga a crear servicios, objetos o gates adicionales.</p><p>La admisión comprueba permisos y condiciones antes del efecto. La aprobación humana se incorpora solo cuando la política de esa operación la requiere.</p></div></details>
+    <nav class="fascicle-nav" aria-label="Serie de autoridad y evidencia"><a href="../">Índice del Atlas</a><a href="../effect-truth/">Quién determina qué cambió →</a></nav>
   </div></section>
-</article></main><footer class="footer"><div class="shell footer-inner"><span>BARANES · Authority boundaries</span><span><a href="../../atlas/">Architecture Atlas</a> · <a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework</a></span></div></footer><script src="../../assets/site.js"></script></body></html>
+</article></main>
+<footer class="footer"><div class="shell footer-inner"><span>BARANES · Autoridad y evidencia</span><nav aria-label="Pie"><a href="../">Atlas</a><a href="../repoops/">Mapa de RepoOps</a><a href="../../open-source/">Open source</a></nav></div></footer>
+<script src="../../assets/site.js"></script>
+</body>
+</html>

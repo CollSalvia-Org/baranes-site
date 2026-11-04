@@ -1,51 +1,297 @@
-(()=>{
-const svg=document.getElementById('repoops-atlas'),Z=document.getElementById('zones'),E=document.getElementById('edges'),N=document.getElementById('nodes'),P=document.getElementById('primitives'),L=document.getElementById('labels'),H=document.getElementById('handles'),I=document.getElementById('identity'),status=document.getElementById('atlas-status'),card=document.getElementById('atlas-card'),viewBtn=document.getElementById('mode-view'),designBtn=document.getElementById('mode-design'),saveBtn=document.getElementById('save-layout'),zoomOutBtn=document.getElementById('zoom-out'),zoomInBtn=document.getElementById('zoom-in'),fitBtn=document.getElementById('fit');
-if(!svg)return;
-const NS='http://www.w3.org/2000/svg';
-const DATA={"defs":{"seed":{"x":38,"y":108,"w":132,"h":76,"type":"seed","kicker":"PRE-SDD","title":"SEED","note":"structured feature idea"},"intake":{"x":205,"y":108,"w":142,"h":76,"type":"phase","kicker":"ADOPTION / IDENTITY","title":"INTAKE","note":"feature admitted"},"design":{"x":382,"y":108,"w":142,"h":76,"type":"phase","kicker":"SDD","title":"DESIGN","note":"architecture / boundaries"},"spec":{"x":559,"y":108,"w":142,"h":76,"type":"phase","kicker":"SDD","title":"SPEC","note":"normative behaviour"},"validation":{"x":736,"y":108,"w":150,"h":76,"type":"gate","kicker":"INDEPENDENT GATE","title":"VALIDATION","note":"spec PASS / FAIL"},"tasks":{"x":921,"y":108,"w":142,"h":76,"type":"phase","kicker":"SDD","title":"TASKS","note":"bounded work plan"},"implementation":{"x":1107.3352623199655,"y":103.7709130670383,"w":164,"h":86,"type":"implementation","kicker":"ENGINEERING LOOP","title":"IMPLEMENTATION","note":"edit \u00b7 test \u00b7 correct"},"verify":{"x":1305.8345445142336,"y":106.45817386592338,"w":142,"h":76,"type":"verify","kicker":"ASSURANCE","title":"VERIFY","note":"adopted state vs spec"},"audit":{"x":1484.5849256741208,"y":108,"w":150,"h":76,"type":"verify","kicker":"ASSURANCE","title":"AUDIT / QA","note":"independent closure"},"closed":{"x":1658,"y":108,"w":118,"h":76,"type":"close","kicker":"TERMINAL","title":"ARCHIVED","note":"feature lifecycle complete"},"seedDossier":{"x":38,"y":397,"w":148,"h":66,"type":"artifact","kicker":"ARTIFACT","title":"Seed dossier","note":"pre-SDD provenance"},"featureRecord":{"x":224.70994750557543,"y":280.61109244235723,"w":1450,"h":58,"type":"record","kicker":"PERSISTENT STATE","title":"Feature Record","note":"identity \u00b7 phase \u00b7 paths \u00b7 results \u00b7 provenance"},"designDoc":{"x":378,"y":360.9963950586747,"w":148,"h":66,"type":"artifact","kicker":"ARTIFACT","title":"design.md","note":"design_path"},"specDoc":{"x":555.8000984560168,"y":362.59656138241587,"w":148,"h":66,"type":"artifact","kicker":"ARTIFACT","title":"spec.md","note":"spec_path"},"validationEvidence":{"x":726.3998030879663,"y":362.548374707748,"w":164,"h":66,"type":"evidence","kicker":"EVIDENCE","title":"Validation evidence","note":"PASS / findings"},"tasksDoc":{"x":918.7594918274611,"y":464.6731329893683,"w":148,"h":66,"type":"artifact","kicker":"ARTIFACT","title":"tasks.md","note":"task_path + scope"},"candidate":{"x":1107.3415736623137,"y":503.9451120140659,"w":176,"h":76,"type":"candidate","kicker":"BOUNDED CANDIDATE","title":"Sealed candidate","note":"diff \u00b7 tests \u00b7 exact scope"},"verifyEvidence":{"x":1299.5851367847463,"y":358.74205430662624,"w":158,"h":66,"type":"evidence","kicker":"EVIDENCE","title":"Verification evidence","note":"PASS / report"},"auditEvidence":{"x":1476.667653417004,"y":359.48379727883224,"w":174,"h":66,"type":"evidence","kicker":"EVIDENCE","title":"Audit / closure evidence","note":"audit \u00b7 QA \u00b7 archive"},"gitSdd":{"x":920.402919929459,"y":364.0482750989938,"w":174,"h":54,"type":"git","kicker":"OPTIONAL CHECKPOINT","title":"Git \u00b7 SDD package","note":""},"gitAdoption":{"x":1103.2563603215208,"y":363.4975616742582,"w":174,"h":54,"type":"git","kicker":"PRIMARY CHECKPOINT","title":"Git \u00b7 adoption","note":""},"gitClosure":{"x":1474.800128976652,"y":471.59853360696263,"w":184,"h":54,"type":"git","kicker":"IF NEEDED","title":"Git \u00b7 closure","note":""},"control":{"x":86.39218963361958,"y":915.548948179813,"w":186,"h":78,"type":"control","kicker":"TECHNICAL CONTROL","title":"Governed request","note":"bounded repo intent"},"helper":{"x":367.9520682709765,"y":917.6827701818601,"w":166,"h":78,"type":"helper","kicker":"FRONT DOOR","title":"RepoOps helper","note":"construct / validate"},"job":{"x":622.9521245769956,"y":921.7899518958984,"w":166,"h":78,"type":"job","kicker":"REQUEST ENVELOPE","title":"RepoOps Job","note":"scope \u00b7 actor \u00b7 effect"},"queue":{"x":871.4760059824789,"y":921.7899518958984,"w":156,"h":78,"type":"queue","kicker":"DURABLE STATE","title":"Job Queue","note":"pending \u2192 running"},"runner":{"x":1192.294183869697,"y":899.2179700648485,"w":298,"h":126,"type":"runner","kicker":"REPOOPS ENGINE","title":"RepoOps Job Runner","note":"admission \u00b7 dispatch \u00b7 terminal result"},"phaseController":{"x":370,"y":678,"w":154,"h":66,"type":"wrapper","kicker":"WRAPPER","title":"SDD phase gate","note":"transition control"},"artifactWriter":{"x":546.2208575912305,"y":678.8555950326328,"w":154,"h":66,"type":"wrapper-write","kicker":"WRAPPER \u00b7 WRITE","title":"SDD artifact writer","note":"controlled materialization"},"specValidator":{"x":721.6246661650055,"y":678.9566816795016,"w":154,"h":66,"type":"wrapper-ai","kicker":"WRAPPER \u00b7 AI","title":"Spec validator","note":"independent review"},"gateInspector":{"x":841.3218845717935,"y":789.9335447599428,"w":154,"h":66,"type":"wrapper","kicker":"WRAPPER","title":"Implementation gate","note":"eligibility preflight"},"contextCodex":{"x":947.2619203377511,"y":673.6841799732277,"w":154,"h":66,"type":"wrapper-ai","kicker":"WRAPPER \u00b7 AI","title":"Bounded context","note":"read-only repo context"},"planOpenCode":{"x":1145.5120475288152,"y":674.2740632124091,"w":154,"h":66,"type":"wrapper-ai","kicker":"WRAPPER \u00b7 AI","title":"Implementation plan","note":"read-only planning"},"implementer":{"x":1372.1017542564564,"y":679.9133998540697,"w":170,"h":66,"type":"wrapper-write","kicker":"WRAPPER \u00b7 AI WRITE","title":"Candidate implementer","note":"candidate workspace"},"verifier":{"x":1132.5693079192386,"y":789.0433183204985,"w":154,"h":66,"type":"wrapper","kicker":"WRAPPER","title":"Verifier","note":"deterministic evidence"},"auditor":{"x":1594.1698371294563,"y":683.216839889182,"w":154,"h":66,"type":"wrapper-ai","kicker":"WRAPPER \u00b7 AI","title":"Independent auditor","note":"post-verify audit"},"qa":{"x":1560.8474260543117,"y":790.0000729901335,"w":154,"h":66,"type":"wrapper","kicker":"WRAPPER","title":"QA review","note":"closure evidence gate"},"adoptionGit":{"x":1320,"y":790,"w":194,"h":66,"type":"wrapper-git","kicker":"CANONICAL EFFECT","title":"Repo adoption / Git","note":"governed commit"},"seedWriter":{"x":370,"y":790,"w":154,"h":66,"type":"wrapper-write","kicker":"WRAPPER \u00b7 WRITE","title":"Seed writer","note":"pre-SDD materialization"}},"baseEdges":[["seed","intake","adopt","flow",0],["intake","design","","flow",0],["design","spec","","flow",0],["spec","validation","","flow",0],["validation","tasks","PASS","flow",0],["tasks","implementation","","flow",0],["implementation","verify","","flow",0],["verify","audit","","flow",0],["audit","closed","","flow",0],["validation","spec","FAIL","return",-72],["verify","implementation","FAIL","return",72],["seed","seedDossier","","artifact",0],["intake","featureRecord","","artifact",0],["design","designDoc","","artifact",0],["spec","specDoc","","artifact",0],["validation","validationEvidence","","artifact",0],["tasks","tasksDoc","","artifact",0],["implementation","candidate","","artifact",0],["verify","verifyEvidence","","artifact",0],["audit","auditEvidence","","artifact",0],["tasksDoc","gitSdd","optional","git",0],["candidate","gitAdoption","adopt","git",0],["auditEvidence","gitClosure","if needed","git",0],["control","helper","request","engine",0],["helper","job","validate / build","engine",0],["job","queue","","engine",0],["queue","runner","claim","engine",0]],"baseControls":{"0":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"1":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"2":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"3":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"4":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"5":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"6":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"7":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"8":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"9":{"c1dx":44.28101112843717,"c1dy":21.878542338187685,"c2dx":-58.41010964210125,"c2dy":3.3320447878164714},"10":{"c1dx":88.77019357625,"c1dy":124.6065588929309,"c2dx":-50.84127307198287,"c2dy":211.50479330354176},"11":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"12":{"c1dx":-724.5427540114156,"c1dy":29.12270967107247,"c2dx":24.466589009849372,"c2dy":-270.6674765890724},"13":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"14":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"15":{"c1dx":-1.4332287606384853,"c1dy":52.24801056005637,"c2dx":0,"c2dy":0},"16":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"17":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"18":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"19":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"20":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"21":{"c1dx":0,"c1dy":0,"c2dx":0.3195934876191586,"c2dy":-29.21833830566095},"22":{"c1dx":-61.937365371027454,"c1dy":0.3046452623916025,"c2dx":-19.223362680038235,"c2dy":-4.583328956478795},"23":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"24":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"25":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0},"26":{"c1dx":0,"c1dy":0,"c2dx":0,"c2dy":0}},"wires":[["seedWriter","seedDossier","materialize","artifact",-30],["featureRecord","phaseController","transition check","light",40],["artifactWriter","featureRecord","record write","artifact",-28],["artifactWriter","designDoc","DESIGN","artifact",-26],["artifactWriter","specDoc","SPEC","artifact",12],["artifactWriter","tasksDoc","TASKS","artifact",40],["specDoc","specValidator","validate","engine",-15],["specValidator","validationEvidence","PASS / findings","engine",20],["tasksDoc","gateInspector","eligibility","engine",18],["gateInspector","contextCodex","eligible","engine",-15],["contextCodex","planOpenCode","context","engine",0],["planOpenCode","implementer","plan","engine",0],["implementer","candidate","product write","artifact",-10],["candidate","adoptionGit","approved candidate","git",34],["adoptionGit","gitAdoption","canonical commit","git",-30],["gitAdoption","verifier","verify adopted state","engine",-12],["verifier","verifyEvidence","evidence","engine",-15],["verifyEvidence","auditor","audit input","engine",24],["auditor","auditEvidence","audit result","engine",-18],["auditEvidence","qa","closure gate","engine",20]],"primitives":{"admission":{"x":336.80557117553394,"y":896.5024865379635,"label":"PolicyQuery \u2192 PolicyDecision \u2192 ApprovalRecord","w":304,"kind":"Governance primitives"},"capability":{"x":623.7759516866485,"y":900.2025741444072,"label":"ExecutionCapability","w":160,"kind":"Execution grant"},"reservation":{"x":879.833980124036,"y":903.2850945230937,"label":"CapabilityReservation","w":170,"kind":"Concurrency / claim"},"request":{"x":1202.6592273699105,"y":963.1600386468785,"label":"ExecutionRequest","w":146,"kind":"Execution attempt"},"consumption":{"x":1201.9095755028793,"y":982.488839174844,"label":"CapabilityConsumption","w":178,"kind":"Single-use boundary"},"results":{"x":1202.1585015026449,"y":1002.405984563304,"label":"ExecutionResult \u2192 EvidenceEnvelope","w":232,"kind":"Result + evidence"},"recovery":{"x":1372.83142342873,"y":983.0433940305359,"label":"RecoveryState","w":140,"kind":"Failure / unknown effect"}},"info":{"seed":{"kind":"PRE-SDD INPUT","status":"TARGET ARCHITECTURE \u00b7 SDD-ALIGNED","summary":"A structured feature idea before persistent SDD state. It preserves intent and provenance without granting implementation authority.","receives":["feature idea","available context / provenance"],"produces":["seed dossier suitable for explicit adoption"],"does":["does not create implementation authority","does not replace DESIGN or SPEC"]},"intake":{"kind":"FEATURE ADMISSION","status":"TARGET ARCHITECTURE \u00b7 SDD-ALIGNED","summary":"The explicit adoption point that gives the feature identity and enters the governed lifecycle.","receives":["adopted seed","feature identity","accepted scope"],"produces":["initial Feature Record","governed feature state"],"does":["does not imply implementation","does not silently widen scope"]},"design":{"kind":"SDD LIFECYCLE","status":"OPEN SOURCE CONTRACT MODEL","summary":"Defines architecture, boundaries and technical decisions needed before behaviour can be specified precisely.","receives":["accepted feature intent","technical evidence"],"produces":["design.md","design state in the Feature Record"],"does":["does not replace SPEC","does not grant write authority"]},"spec":{"kind":"SDD LIFECYCLE","status":"OPEN SOURCE CONTRACT MODEL","summary":"Defines normative, testable behaviour and acceptance criteria.","receives":["coherent DESIGN","resolved product scope"],"produces":["spec.md","acceptance criteria"],"does":["does not implement","does not become PASS without validation"]},"validation":{"kind":"INDEPENDENT SDD GATE","status":"OPEN SOURCE CONTRACT MODEL","summary":"Checks DESIGN + SPEC for coherence, determinism and testability before TASKS.","receives":["Feature Record","DESIGN","SPEC"],"produces":["PASS / FAIL","findings / blockers"],"does":["does not repair the SPEC silently","does not authorize implementation on FAIL"]},"tasks":{"kind":"SDD LIFECYCLE","status":"OPEN SOURCE CONTRACT MODEL","summary":"Turns validated behaviour into bounded, verifiable implementation work.","receives":["validated SPEC","DESIGN","constraints"],"produces":["tasks.md","implementation scope / checks"],"does":["does not redefine product behaviour","does not grant write authority by itself"]},"implementation":{"kind":"ENGINEERING PHASE","status":"TARGET ARCHITECTURE \u00b7 CURRENT MECHANISM EVIDENCE","summary":"Flexible edit / test / correct work happens in an isolated candidate context rather than directly becoming canonical repository state.","receives":["SPEC + TASKS","bounded write scope","technical context"],"produces":["sealed implementation candidate","implementation evidence"],"does":["does not redefine SPEC","does not become canonical state automatically"]},"verify":{"kind":"ASSURANCE PHASE","status":"OPEN SOURCE CONTRACT MODEL + TARGET EXECUTION","summary":"Checks adopted repository state against SPEC, TASKS and acceptance criteria.","receives":["adopted repo state","SPEC / TASKS","verification commands"],"produces":["verification PASS / FAIL","reproducible evidence"],"does":["does not repair code","does not close the feature alone"]},"audit":{"kind":"ASSURANCE PHASE","status":"OPEN SOURCE CONTRACT MODEL + TARGET EXECUTION","summary":"Independent closure review for contradictions, missing evidence and lifecycle consistency before archive.","receives":["Feature Record","SDD artifacts","verification evidence"],"produces":["audit / QA result","closure evidence"],"does":["does not hide blockers","does not publish"]},"closed":{"kind":"TERMINAL SDD STATE","status":"OPEN SOURCE CONTRACT MODEL","summary":"ARCHIVED is the terminal feature lifecycle state. It records a coherent completed feature history; it is not external publication.","receives":["verify + audit / QA evidence","coherent Feature Record"],"produces":["ARCHIVED feature state","durable closure history"],"does":["does not imply push or deployment","does not erase provenance"]},"featureRecord":{"kind":"PERSISTENT SDD STATE","status":"OPEN SOURCE FOUNDATION / TARGET INTEGRATION","summary":"The durable feature-state record linking identity, phase, artifact paths, results and provenance across the lifecycle.","receives":["phase transitions","artifact references","validation / verify / audit results"],"produces":["current machine-readable feature state"],"does":["does not replace source artifacts","does not fabricate PASS"]},"candidate":{"kind":"ENGINEERING CANDIDATE","status":"TARGET ARCHITECTURE","summary":"An exact, bounded technical candidate proposed for adoption. It can be reviewed and tested without yet being authoritative repository state.","receives":["bounded implementation workspace","tests","base + path identity"],"produces":["sealed candidate identity","input to governed adoption"],"does":["is not main / canonical state","cannot change after sealing without a new identity"]},"runner":{"kind":"REPOOPS ENGINE","status":"TARGET ARCHITECTURE \u00b7 CURRENT MECHANISM EVIDENCE","summary":"Claims durable jobs, checks admissible routes and dispatches bounded execution roles, preserving a terminal outcome and evidence.","receives":["RepoOps Job from queue","policy / allowlist context"],"produces":["bounded dispatch","terminal result / evidence"],"does":["does not decide product intent","does not make every effect canonical"]},"helper":{"kind":"FRONT DOOR","status":"TARGET ARCHITECTURE \u00b7 CURRENT MECHANISM EVIDENCE","summary":"Constructs or validates a structured RepoOps request before it enters durable execution state.","receives":["bounded technical intent","repo / operation / scope"],"produces":["validated RepoOps Job envelope"],"does":["does not execute the effect","does not turn a request into approval"]},"job":{"kind":"REQUEST ENVELOPE","status":"TARGET ARCHITECTURE \u00b7 CURRENT MECHANISM EVIDENCE","summary":"Structured durable representation of repository operation, scope, identity and requested effect.","receives":["operation proposal","scope / actor / arguments"],"produces":["validatable durable job request"],"does":["does not execute","does not widen after admission"]},"queue":{"kind":"DURABLE STATE","status":"TARGET ARCHITECTURE \u00b7 CURRENT MECHANISM EVIDENCE","summary":"Separates request creation from execution and retains pending / running / terminal job state.","receives":["admitted RepoOps Job"],"produces":["claimable durable work item"],"does":["does not interpret product meaning","does not execute the job"]},"control":{"kind":"TECHNICAL CONTROL","status":"TARGET ARCHITECTURE","summary":"Represents bounded technical intent and decomposition before the repository request is constructed.","receives":["accepted feature / technical objective"],"produces":["bounded RepoOps request intent"],"does":["does not directly mutate the repository","does not bypass SDD gates"]},"adoptionGit":{"kind":"CANONICAL REPO EFFECT","status":"TARGET ARCHITECTURE","summary":"The governed adoption boundary that turns the exact sealed candidate into canonical repository state through an explicit commit effect.","receives":["sealed candidate","exact base / paths / identity","adoption authority"],"produces":["canonical repository effect","commit + effect evidence"],"does":["does not author the code","does not push / publish"]},"gitAdoption":{"kind":"PRIMARY GIT CHECKPOINT","status":"TARGET ARCHITECTURE","summary":"The main repository checkpoint created by governed candidate adoption.","receives":["approved sealed candidate"],"produces":["canonical commit identity"],"does":["does not imply push","does not replace verification"]},"gitSdd":{"kind":"OPTIONAL GIT CHECKPOINT","status":"TARGET ARCHITECTURE","summary":"An optional grouped SDD checkpoint. The model deliberately avoids one commit per SDD phase.","receives":["coherent SDD package"],"produces":["optional grouped documentation commit"],"does":["is not mandatory","does not authorize implementation"]},"gitClosure":{"kind":"OPTIONAL CLOSURE CHECKPOINT","status":"TARGET ARCHITECTURE","summary":"A closure commit only when persisting terminal lifecycle evidence requires it.","receives":["closure metadata / evidence when required"],"produces":["optional terminal checkpoint"],"does":["is not a publication step","is not required for every feature"]},"seedDossier":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Durable pre-SDD artifact preserving structured intent and provenance.","receives":["lifecycle inputs appropriate to this phase"],"produces":["Seed dossier"],"does":["does not grant external-system authority","does not replace original source truth"]},"designDoc":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Versionable architecture artifact used as the technical basis for SPEC.","receives":["lifecycle inputs appropriate to this phase"],"produces":["design.md"],"does":["does not grant external-system authority","does not replace original source truth"]},"specDoc":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Normative behaviour and acceptance contract for the feature.","receives":["lifecycle inputs appropriate to this phase"],"produces":["spec.md"],"does":["does not grant external-system authority","does not replace original source truth"]},"validationEvidence":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Independent validation result plus findings / blockers.","receives":["lifecycle inputs appropriate to this phase"],"produces":["Validation evidence"],"does":["does not grant external-system authority","does not replace original source truth"]},"tasksDoc":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Bounded implementation plan derived from validated behaviour.","receives":["lifecycle inputs appropriate to this phase"],"produces":["tasks.md"],"does":["does not grant external-system authority","does not replace original source truth"]},"verifyEvidence":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Reproducible evidence that adopted state conforms to the specification.","receives":["lifecycle inputs appropriate to this phase"],"produces":["Verification evidence"],"does":["does not grant external-system authority","does not replace original source truth"]},"auditEvidence":{"kind":"SDD ARTIFACT / EVIDENCE","status":"OPEN SOURCE MODEL \u00b7 PUBLIC TECHNICAL DEPTH","summary":"Terminal assurance evidence supporting archive.","receives":["lifecycle inputs appropriate to this phase"],"produces":["Audit / closure evidence"],"does":["does not grant external-system authority","does not replace original source truth"]},"seedWriter":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Materializes an already prepared seed artifact.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"NO","write":"SDD artifact","git":"NO"},"phaseController":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Checks lifecycle transition prerequisites.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"NO","write":"NO","git":"NO"},"artifactWriter":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Materializes approved SDD content and record updates.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"NO","write":"SDD artifacts","git":"NO"},"specValidator":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Performs independent specification review.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"MODEL-ASSISTED","write":"NO","git":"NO"},"gateInspector":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Checks eligibility before write-capable engineering.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"NO","write":"NO","git":"NO"},"contextCodex":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Provides scoped repository context without mutation.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"MODEL-ASSISTED","write":"NO","git":"NO"},"planOpenCode":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Creates a read-only bounded technical plan.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"MODEL-ASSISTED","write":"NO","git":"NO"},"implementer":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Edits and tests only inside the bounded candidate workspace.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"MODEL-ASSISTED","write":"CANDIDATE","git":"NO CANONICAL"},"verifier":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Runs deterministic / bounded verification against expected behaviour.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"OPTIONAL","write":"NO PRODUCT WRITE","git":"NO"},"auditor":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Performs independent post-verification review.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"MODEL-ASSISTED","write":"NO","git":"NO"},"qa":{"kind":"PUBLIC ROLE VIEW","status":"TARGET ARCHITECTURE \u00b7 ROLE-LEVEL DISCLOSURE","summary":"Checks terminal evidence coherence before archive.","receives":["bounded lifecycle / repository inputs"],"produces":["role-specific result / evidence"],"does":["does not expand product scope","does not publish or push"],"ai":"NO","write":"NO","git":"NO"},"primitive:admission":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Governance primitives primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["PolicyQuery \u2192 PolicyDecision \u2192 ApprovalRecord"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:capability":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Execution grant primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["ExecutionCapability"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:reservation":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Concurrency / claim primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["CapabilityReservation"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:request":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Execution attempt primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["ExecutionRequest"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:consumption":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Single-use boundary primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["CapabilityConsumption"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:results":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Result + evidence primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["ExecutionResult \u2192 EvidenceEnvelope"],"does":["does not collapse request into authority","does not make observations canonical by itself"]},"primitive:recovery":{"kind":"GOVERNANCE PRIMITIVE","status":"TARGET ARCHITECTURE","summary":"Failure / unknown effect primitive used to keep request, authority, execution and recovery identities distinct.","receives":["bounded correlated state"],"produces":["RecoveryState"],"does":["does not collapse request into authority","does not make observations canonical by itself"]}},"view":{"x":-168.83298667670633,"y":89.02179492682066,"w":2171.233878945487,"h":1016.832135203993}};
-const defs=DATA.defs, baseEdges=DATA.baseEdges, wireEdges=DATA.wires, info=DATA.info;
-const KEY='baranes-public:repoops-atlas:v1', MODE='baranes-public:repoops-atlas:mode:v1';
-const state={};Object.entries(defs).forEach(([id,d])=>state[id]={x:d.x,y:d.y});
-const controls=Object.fromEntries(Object.entries(DATA.baseControls).map(([k,v])=>[k,{...v}]));
-const wireControls={};wireEdges.forEach((_,i)=>wireControls[i]={c1dx:0,c1dy:0,c2dx:0,c2dy:0});
-const primitiveState={};Object.entries(DATA.primitives).forEach(([id,d])=>primitiveState[id]={x:d.x,y:d.y});
-let view={...DATA.view},mode=localStorage.getItem(MODE)||'view',drag=null,edgeDrag=null,pan=null,selected=null;
-try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s?.positions)for(const id in state)if(s.positions[id])state[id]={...state[id],...s.positions[id]};if(s?.controls)for(const i in controls)if(s.controls[i])controls[i]={...controls[i],...s.controls[i]};if(s?.wireControls)for(const i in wireControls)if(s.wireControls[i])wireControls[i]={...wireControls[i],...s.wireControls[i]};if(s?.primitives)for(const id in primitiveState)if(s.primitives[id])primitiveState[id]={...primitiveState[id],...s.primitives[id]};if(s?.view&&['x','y','w','h'].every(k=>Number.isFinite(s.view[k])))view={...s.view}}catch(_){}
-function X(tag,a={}){const q=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))q.setAttribute(k,v);return q}
-function point(evt){const r=svg.getBoundingClientRect(),v=svg.viewBox.baseVal;return{x:v.x+(evt.clientX-r.left)/r.width*v.width,y:v.y+(evt.clientY-r.top)/r.height*v.height}}
-function applyView(){svg.setAttribute('viewBox',`${view.x} ${view.y} ${view.w} ${view.h}`)}
-function box(id){const d=defs[id],s=state[id];return{x:s.x,y:s.y,w:d.w,h:d.h}}
-function boundary(b,ux,uy,out){const cx=b.x+b.w/2,cy=b.y+b.h/2,hw=b.w/2,hh=b.h/2,k=1/Math.max(Math.abs(ux)/(hw||1),Math.abs(uy)/(hh||1),.0001);return{x:cx+(out?1:-1)*ux*k,y:cy+(out?1:-1)*uy*k}}
-function baseGeom(edge){const a=box(edge[0]),b=box(edge[1]),ax=a.x+a.w/2,ay=a.y+a.h/2,bx=b.x+b.w/2,by=b.y+b.h/2,dx=bx-ax,dy=by-ay,l=Math.hypot(dx,dy)||1,ux=dx/l,uy=dy/l,nx=-uy,ny=ux,S=boundary(a,ux,uy,true),T=boundary(b,ux,uy,false),bend=edge[4]||0;return{S,T,c1:{x:S.x+(T.x-S.x)/3+nx*bend,y:S.y+(T.y-S.y)/3+ny*bend},c2:{x:S.x+2*(T.x-S.x)/3+nx*bend,y:S.y+2*(T.y-S.y)/3+ny*bend}}}
-function geom(edge,c){const b=baseGeom(edge);return{S:b.S,T:b.T,C1:{x:b.c1.x+(c?.c1dx||0),y:b.c1.y+(c?.c1dy||0)},C2:{x:b.c2.x+(c?.c2dx||0),y:b.c2.y+(c?.c2dy||0)}}}
-function cubic(g,t=.5){const u=1-t;return{x:u*u*u*g.S.x+3*u*u*t*g.C1.x+3*u*t*t*g.C2.x+t*t*t*g.T.x,y:u*u*u*g.S.y+3*u*u*t*g.C1.y+3*u*t*t*g.C2.y+t*t*t*g.T.y}}
-function path(g){return`M${g.S.x} ${g.S.y}C${g.C1.x} ${g.C1.y} ${g.C2.x} ${g.C2.y} ${g.T.x} ${g.T.y}`}
-function marker(cls){return cls==='flow'?'url(#a-flow)':cls==='artifact'?'url(#a-artifact)':cls==='engine'?'url(#a-engine)':cls==='git'?'url(#a-git)':cls==='return'?'url(#a-return)':'url(#a-default)'}
-function renderZones(){Z.innerHTML='';const zone=(cl,x,y,w,h,title,sub)=>{Z.appendChild(X('rect',{class:`zone ${cl}`,x,y,width:w,height:h,rx:20}));let t=X('text',{class:'zone-title',x:x+18,y:y+26});t.textContent=title;Z.appendChild(t);t=X('text',{class:'zone-subtitle',x:x+18,y:y+43});t.textContent=sub;Z.appendChild(t)};zone('zone-feature',18,65,1772,170,'1 · FEATURE FLOW','Seed → SDD → bounded engineering → assurance → ARCHIVED');zone('zone-artifacts',18,270,1772,315,'2 · ARTIFACT FLOW','Feature Record persists · Git uses coherent checkpoints, not per-phase ritual');zone('zone-engine',18,592,1772,500,'3 · REPOOPS EXECUTION ENGINE','request → envelope → durable queue → runner → bounded role dispatch');Z.appendChild(X('rect',{class:'allow-surface',x:320,y:638,width:1450,height:248,rx:18}));let t=X('text',{class:'zone-title',x:346,y:660});t.textContent='ALLOWLISTED EXECUTION ROLES';Z.appendChild(t);t=X('text',{class:'zone-subtitle',x:575,y:660});t.textContent='role-level public view · implementation detail intentionally abstracted';Z.appendChild(t);Z.appendChild(X('path',{class:'git-rail',d:'M770 551 H1690'}));t=X('text',{class:'git-label',x:775,y:546});t.textContent='GIT CHECKPOINTS · typically 2, at most ~3 · commit ≠ publication';Z.appendChild(t)}
-function renderNodes(){N.innerHTML='';for(const[id,d]of Object.entries(defs)){const s=state[id],g=X('g',{class:`node type-${d.type}${selected===id?' selected':''}${mode==='view'?' selectable':''}`,'data-id':id,transform:`translate(${s.x} ${s.y})`});g.appendChild(X('rect',{class:'box',width:d.w,height:d.h,rx:id==='featureRecord'?14:12}));let t=X('text',{class:'kicker',x:d.w/2,y:id==='featureRecord'?18:20});t.textContent=d.kicker;g.appendChild(t);t=X('text',{class:'title',x:d.w/2,y:id==='featureRecord'?37:43});t.textContent=d.title;g.appendChild(t);if(d.note){t=X('text',{class:'note',x:d.w/2,y:id==='featureRecord'?51:59});t.textContent=d.note;g.appendChild(t)}N.appendChild(g)}}
-function label(g,text){if(!text)return;const p=cubic(g,.5),w=Math.max(52,text.length*5.6+18);L.appendChild(X('rect',{class:'edge-label-bg',x:p.x-w/2,y:p.y-9,width:w,height:18,rx:9}));const t=X('text',{class:'edge-label',x:p.x,y:p.y+3});t.textContent=text;L.appendChild(t)}
-function drawEdge(edge,c,key,kind,index){let g;
- if(kind==='base'&&index===12){const a=box('intake'),b=box('featureRecord'),S={x:a.x+a.w/2,y:a.y+a.h},T={x:b.x,y:b.y+b.h/2},C1={x:S.x,y:S.y+46},C2={x:T.x-34,y:T.y-12};g={S,T,C1,C2};}
- else g=geom(edge,c);
- E.appendChild(X('path',{class:`edge ${edge[3]||''}`,d:path(g),'marker-end':marker(edge[3])}));label(g,edge[2]);if(mode==='design'){[['c1',g.C1],['c2',g.C2]].forEach(([which,p])=>H.appendChild(X('circle',{class:`edge-handle ${edge[3]||''}`,'data-kind':kind,'data-edge':index,'data-control':which,cx:p.x,cy:p.y,r:5.2})))}}
-function renderEdges(){E.innerHTML='';L.innerHTML='';H.innerHTML='';baseEdges.forEach((e,i)=>drawEdge(e,controls[i],`b${i}`,'base',i));wireEdges.forEach((e,i)=>drawEdge(e,wireControls[i],`w${i}`,'wire',i));const r=box('runner'),sx=r.x+r.w/2,sy=r.y,tx=1045,ty=886,g={S:{x:sx,y:sy},T:{x:tx,y:ty},C1:{x:sx,y:sy-58},C2:{x:tx+70,y:ty+44}};E.appendChild(X('path',{class:'edge engine',d:path(g),'marker-end':'url(#a-engine)'}));label(g,'allowlisted dispatch')}
-function shield(g){g.appendChild(X('path',{class:'primitive-shield',d:'M8 1.5L14 3.8V8.2C14 12 11.6 15.1 8 17.2C4.4 15.1 2 12 2 8.2V3.8Z',transform:'translate(0 1) scale(.72)'}))}
-function renderPrimitives(){P.innerHTML='';for(const[id,d]of Object.entries(DATA.primitives)){const s=primitiveState[id],g=X('g',{class:`primitive${selected==='primitive:'+id?' selected':''}${mode==='view'?' selectable':''}`,'data-primitive':id,transform:`translate(${s.x} ${s.y})`});g.appendChild(X('rect',{class:'primitive-hit',x:-4,y:-5,width:d.w,height:27,rx:6}));shield(g);const t=X('text',{class:'primitive-text',x:16,y:8.5});t.textContent=d.label;g.appendChild(t);P.appendChild(g);if(id==='recovery'){const n=X('text',{class:'recovery-note',x:s.x,y:s.y-7});n.textContent='FAIL / UNKNOWN EFFECT';P.appendChild(n)}}}
-function renderIdentity(){I.innerHTML='';const x=205,w=1400,y=1041,h=46;I.appendChild(X('rect',{class:'identity-bg',x,y,width:w,height:h,rx:12}));let t=X('text',{class:'identity-title',x:x+16,y:y+17});t.textContent='IDENTITY TRACE';I.appendChild(t);const items=['job_id','transaction_id','capability_id','reservation_id','attempt_id','candidate_id','commit_sha'],start=x+165,end=x+w-32,step=(end-start)/(items.length-1);items.forEach((it,i)=>{const px=start+i*step,q=X('text',{class:'identity-item',x:px,y:y+32});q.textContent=it;I.appendChild(q);if(i<items.length-1){const a=X('text',{class:'identity-arrow',x:px+step/2,y:y+32});a.textContent='→';I.appendChild(a)}})}
-function render(){renderZones();renderNodes();renderEdges();renderPrimitives();renderIdentity()}
-function dirty(text='Layout changed'){saveBtn.classList.remove('saved');saveBtn.textContent='Save layout';status.textContent=mode==='view'?'View · select a node · drag background to pan · use +/− to zoom':`${text} · Save layout to keep it locally`}
-function save(){try{localStorage.setItem(KEY,JSON.stringify({positions:state,controls,wireControls,primitives:primitiveState,view}));saveBtn.classList.add('saved');saveBtn.textContent='Saved';status.textContent='Personal layout saved in this browser'}catch(_){status.textContent='Could not save browser layout'}}
-function setMode(next){mode=next;document.body.dataset.atlasMode=mode;viewBtn.classList.toggle('active',mode==='view');designBtn.classList.toggle('active',mode==='design');localStorage.setItem(MODE,mode);if(mode==='design')closeCard();status.textContent=mode==='view'?'View · select a node · drag background to pan · use +/− to zoom':'Design · move nodes, primitives or curve handles · Save layout to keep locally';render()}
-function fmtList(xs){return`<ul>${(xs||[]).map(x=>`<li>${x}</li>`).join('')}</ul>`}
-function fallback(id){const d=defs[id];return{kind:'PUBLIC TECHNICAL NODE',status:'TARGET ARCHITECTURE',summary:`${d?.title||id} is part of the public RepoOps cognitive model.`,receives:['bounded upstream state'],produces:['bounded downstream state / evidence'],does:['does not imply deployed production capability']}}
-function openCard(key){selected=key;const d=info[key]||fallback(key);const node=key.startsWith('primitive:')?DATA.primitives[key.split(':')[1]]:defs[key];card.innerHTML=`<div class="card-head"><div><div class="card-kind">${d.kind}</div><h2>${node?.title||node?.label||key}</h2><div class="card-tech">public cognitive model</div></div><button class="card-close" type="button">×</button></div><div class="card-status"><b>Public status:</b> ${d.status}</div><p class="card-summary">${d.summary}</p><div class="card-grid"><div class="card-cap"><b>AI / MODEL</b><span>${d.ai||'ROLE-DEPENDENT / N/A'}</span></div><div class="card-cap"><b>REPO WRITE</b><span>${d.write||'BOUNDED BY ROLE'}</span></div><div class="card-cap"><b>GIT EFFECT</b><span>${d.git||'NO BY DEFAULT'}</span></div><div class="card-cap"><b>PUBLICATION</b><span>SEPARATE</span></div></div><div class="card-section"><h3>RECEIVES</h3>${fmtList(d.receives)}</div><div class="card-section"><h3>PRODUCES</h3>${fmtList(d.produces)}</div><div class="card-section"><h3>DOES NOT</h3>${fmtList(d.does)}</div>${['design','spec','validation','tasks','closed','featureRecord'].includes(key)?'<div class="card-section"><h3>OPEN SOURCE</h3><a href="https://github.com/CollSalvia-Org/sdd-framework" style="color:#f4c95d;font-size:10px;text-decoration:none;font-weight:800">SDD Framework ↗</a></div>':''}`;card.classList.add('open');card.querySelector('.card-close').onclick=closeCard;render()}
-function closeCard(){selected=null;card.classList.remove('open');render()}
-function pointerXY(e){return point(e)}
-window.addEventListener('pointerdown',e=>{const prim=e.target.closest?.('.primitive'),node=e.target.closest?.('.node'),handle=e.target.closest?.('.edge-handle');if(mode==='view'&&(prim||node)){e.preventDefault();e.stopImmediatePropagation();openCard(prim?'primitive:'+prim.dataset.primitive:node.dataset.id);return}if(mode==='design'&&handle){e.preventDefault();e.stopImmediatePropagation();edgeDrag={kind:handle.dataset.kind,index:+handle.dataset.edge,which:handle.dataset.control,pid:e.pointerId};try{svg.setPointerCapture(e.pointerId)}catch(_){};return}if(mode==='design'&&(prim||node)){e.preventDefault();e.stopImmediatePropagation();const p=pointerXY(e);if(prim){const id=prim.dataset.primitive,s=primitiveState[id];drag={kind:'primitive',id,pid:e.pointerId,dx:p.x-s.x,dy:p.y-s.y}}else{const id=node.dataset.id,s=state[id];drag={kind:'node',id,pid:e.pointerId,dx:p.x-s.x,dy:p.y-s.y}}try{svg.setPointerCapture(e.pointerId)}catch(_){};return}if(svg.contains(e.target)){pan={pid:e.pointerId,x:e.clientX,y:e.clientY,vx:view.x,vy:view.y};try{svg.setPointerCapture(e.pointerId)}catch(_){}}},true)
-svg.addEventListener('pointermove',e=>{if(edgeDrag&&e.pointerId===edgeDrag.pid){const p=pointerXY(e),arr=edgeDrag.kind==='base'?baseEdges:wireEdges,map=edgeDrag.kind==='base'?controls:wireControls,ed=arr[edgeDrag.index],b=baseGeom(ed),c=map[edgeDrag.index];if(edgeDrag.which==='c1'){c.c1dx=p.x-b.c1.x;c.c1dy=p.y-b.c1.y}else{c.c2dx=p.x-b.c2.x;c.c2dy=p.y-b.c2.y}renderEdges();dirty('Curve changed');return}if(drag&&e.pointerId===drag.pid){const p=pointerXY(e),s=drag.kind==='node'?state[drag.id]:primitiveState[drag.id];s.x=p.x-drag.dx;s.y=p.y-drag.dy;render();dirty(drag.kind==='node'?'Node moved':'Primitive moved');return}if(pan&&e.pointerId===pan.pid){const r=svg.getBoundingClientRect();view.x=pan.vx-(e.clientX-pan.x)/r.width*view.w;view.y=pan.vy-(e.clientY-pan.y)/r.height*view.h;applyView()}},true)
-function end(e){if(edgeDrag&&e.pointerId===edgeDrag.pid)edgeDrag=null;if(drag&&e.pointerId===drag.pid)drag=null;if(pan&&e.pointerId===pan.pid)pan=null;try{svg.releasePointerCapture(e.pointerId)}catch(_){}}
-svg.addEventListener('pointerup',end,true);svg.addEventListener('pointercancel',end,true);svg.addEventListener('wheel',e=>{e.preventDefault();const p=pointerXY(e),old={...view},f=e.deltaY>0?1.1:.9,nw=Math.min(3400,Math.max(700,view.w*f)),nh=nw*(view.h/view.w),rx=(p.x-old.x)/old.w,ry=(p.y-old.y)/old.h;view.x=p.x-rx*nw;view.y=p.y-ry*nh;view.w=nw;view.h=nh;applyView()},{passive:false})
-function zoomBy(factor){const cx=view.x+view.w/2,cy=view.y+view.h/2,nw=Math.min(3400,Math.max(700,view.w*factor)),nh=nw*(view.h/view.w);view={x:cx-nw/2,y:cy-nh/2,w:nw,h:nh};applyView();dirty('Viewport changed')}
-function fit(){const boxes=Object.keys(defs).map(box),ps=Object.keys(primitiveState).map(id=>({x:primitiveState[id].x,y:primitiveState[id].y,w:DATA.primitives[id].w,h:24})),all=[...boxes,...ps],m=55,minX=Math.min(...all.map(b=>b.x))-m,minY=Math.min(...all.map(b=>b.y))-m,maxX=Math.max(...all.map(b=>b.x+b.w))+m,maxY=Math.max(...all.map(b=>b.y+b.h))+m;let x=minX,y=minY,w=maxX-minX,h=maxY-minY;const r=svg.getBoundingClientRect(),a=(r.width||1)/(r.height||1);if(w/h>a){const nh=w/a;y-=(nh-h)/2;h=nh}else{const nw=h*a;x-=(nw-w)/2;w=nw}view={x,y,w,h};applyView();dirty('Viewport changed')}
-viewBtn.onclick=()=>setMode('view');designBtn.onclick=()=>setMode('design');saveBtn.onclick=save;zoomOutBtn.onclick=()=>zoomBy(1.22);zoomInBtn.onclick=()=>zoomBy(.82);fitBtn.onclick=fit;card.addEventListener('pointerdown',e=>e.stopPropagation());applyView();setMode(mode==='design'?'design':'view');
+(() => {
+  'use strict';
+  const svg = document.getElementById('repoops-atlas');
+  if (!svg) return;
+  const Z = document.getElementById('zones'), E = document.getElementById('edges');
+  const N = document.getElementById('nodes'), L = document.getElementById('labels');
+  const status = document.getElementById('atlas-status'), card = document.getElementById('atlas-card');
+  const textView = document.getElementById('atlas-text-view'), textToggle = document.getElementById('toggle-text-view');
+  const NS = 'http://www.w3.org/2000/svg';
+  // Retain the original SVG viewer, visual components and edge geometry. The
+  // published layout is fixed; no v1 design mode or personal positions are read.
+  const DATA = {
+    view: {x: 0, y: 40, w: 1810, h: 1010},
+    zones: [
+      ['zone-feature', 18, 65, 1772, 170, 'SDD · RUTA FUNCIONAL INICIAL', 'Referencia del framework. La variante, los gates y sus retornos concretos siguen en definición para RepoOps.'],
+      ['zone-artifacts', 18, 280, 1772, 270, 'CLIENTES EXTERNOS · PREPARAN Y REVISAN EL TRABAJO', 'Cognición fuera del motor. Pre-SDD es opcional; no se exige una seed adoptada.'],
+      ['zone-engine', 18, 590, 1772, 420, 'REPOOPS · GOBIERNA LA OPERACIÓN Y SU EFECTO', 'Responsabilidades integrables. Este mapa no prescribe servicios, objetos, transportes ni una cadena de contratos.']
+    ],
+    defs: {}, baseEdges: [], info: {}
+  };
+  function node(id, x, y, w, h, type, kicker, title, note, info) {
+    DATA.defs[id] = {x, y, w, h, type, kicker, title, note};
+    DATA.info[id] = info;
+  }
+  const phases = [
+    ['design', 'DESIGN', 'diseño y límites', 'Describe el cambio y las decisiones de diseño.'],
+    ['spec', 'SPEC', 'comportamiento esperado', 'Concreta el comportamiento y los requisitos que se deben comprobar.'],
+    ['validation', 'VALIDATION', 'revisión de la especificación', 'Revisa la especificación según las condiciones de la ruta SDD.'],
+    ['tasks', 'TASKS', 'trabajo acotado', 'Descompone el trabajo previsto y sus límites.'],
+    ['implementation', 'IMPLEMENT', 'preparación del candidato', 'Produce el material candidato con las herramientas del cliente.'],
+    ['verify', 'VERIFY', 'comprobaciones requeridas', 'Contrasta el candidato con los requisitos aplicables.'],
+    ['audit', 'AUDIT', 'revisión y hallazgos', 'Aporta la revisión requerida por la ruta concreta.'],
+    ['closed', 'ARCHIVE', 'cierre del ciclo', 'Conserva el cierre y las referencias del recorrido SDD.']
+  ];
+  phases.forEach(([id, title, note, summary], i) => node(id, 70 + i * 210, 128, 180, 76,
+    ['validation', 'audit'].includes(id) ? 'gate' : id === 'implementation' ? 'implementation' : id === 'closed' ? 'close' : 'phase',
+    'SDD FRAMEWORK', title, note, {
+      kind: 'REFERENCIA DEL FRAMEWORK', status: 'SDD Framework · open source', summary,
+      caps: [['Ámbito', 'Ciclo de trabajo'], ['RepoOps nuevo', 'Integración por demostrar']],
+      receives: ['Material y requisitos pertinentes de la funcionalidad.'],
+      produces: ['Documentos o resultados de la etapa, según el framework y la ruta aplicable.'],
+      does: ['Este recorrido de referencia no fija el momento del commit ni la autoridad de estado del nuevo motor.', 'La variante, los gates y los retornos concretos del primer producto siguen en definición.', 'Una etapa SDD no concede permisos técnicos sobre Git.'], sdd: true
+    }));
+  node('architect', 70, 350, 360, 86, 'wrapper-ai', 'CLIENTE EXTERNO', 'Architect', 'diseño · especificación · preparación', {
+    kind: 'COGNICIÓN FUERA DEL MOTOR', status: 'Dirección adoptada · cliente externo',
+    summary: 'Architect prepara el trabajo y puede utilizar herramientas para ejecutar órdenes o pruebas. Su harness y su cognición quedan fuera de RepoOps.',
+    caps: [['Modelo y herramientas', 'Los elige el usuario'], ['Permisos', 'Los limita el entorno']],
+    receives: ['Objetivo del usuario, proyecto y contexto pertinentes.'],
+    produces: ['Peticiones, documentación, material e informes para el recorrido.'],
+    does: ['No se convierte en un wrapper cognitivo interno del motor.', 'Su configuración editable o su nombre de rol no conceden admisión.', 'Pre-SDD es opcional; no exige ACULL/ADOPTA ni una seed adoptada.']
+  });
+  node('implementer', 610, 350, 360, 86, 'wrapper-write', 'CLIENTE EXTERNO', 'Implementador', 'edición · pruebas · material candidato', {
+    kind: 'PREPARACIÓN DEL MATERIAL', status: 'Dirección adoptada · cliente externo',
+    summary: 'Una persona o un agente prepara cambios sobre una base identificada. La copia editable puede seguir evolucionando; el material de cada operación debe quedar fijado para su comprobación.',
+    caps: [['Trabajo', 'Copia editable'], ['Material comprobado', 'Candidato fijado']],
+    receives: ['Base identificada, requisitos y límites del trabajo.'],
+    produces: ['Material candidato y los informes que correspondan.'],
+    does: ['Una edición posterior no puede alterar el candidato que se está comprobando.', 'El permiso para preparar un cambio no equivale a permiso para incorporarlo.', 'No se exige un harness, catálogo de modelos ni pin cognitivo interno.']
+  });
+  node('reviewers', 1150, 350, 360, 86, 'wrapper-ai', 'CLIENTES EXTERNOS', 'Revisores externos', 'informes sobre material identificado', {
+    kind: 'REVISIÓN EXTERNA CUANDO PROCEDA', status: 'Dirección adoptada · condiciones por concretar',
+    summary: 'Los revisores aportan informes sobre el candidato y los requisitos del gate aplicable. El cliente puede transportar esos informes manualmente o con sus herramientas disponibles.',
+    caps: [['Encargo', 'Candidato y requisitos'], ['Independencia', 'No acreditada por el canal']],
+    receives: ['Material identificado y un encargo de revisión acotado.'],
+    produces: ['Informe, hallazgos y límites de la revisión.'],
+    does: ['Recibir un informe externo no autentica el modelo ni acredita independencia o calidad.', 'Un informe no se transforma por sí solo en prueba ejecutada o admisión.', 'El motor no necesita lanzar un harness cognitivo ni gestionar una flota de revisores.']
+  });
+  node('material', 70, 470, 1440, 58, 'artifact', 'MATERIAL APORTADO POR EL CLIENTE', 'Petición, documentos, cambios e informes', 'Referencias necesarias del repositorio, la base y el material · sin cadena universal de identidades', {
+    kind: 'FRONTERA CLIENTE–MOTOR', status: 'Dirección adoptada · contrato concreto en definición',
+    summary: 'RepoOps recibe una operación explícita y material al que poder atribuir las comprobaciones. La conversación puede prepararlos, pero no sustituye su alcance ni sus condiciones.',
+    caps: [['Referencias', 'Las necesarias para la operación'], ['Formato de entrada', 'Por concretar']],
+    receives: ['Documentación SDD, cambios e informes preparados fuera del motor.'],
+    produces: ['Material presentado para su admisión y comprobación.'],
+    does: ['No impone capability_id, reservation_id, transaction_id ni un servicio de identidad humana.', 'La aplicabilidad de un patch no demuestra por sí sola que la base sea la correcta.', 'No fija un Feature Record nuevo como autoridad central de estado.']
+  });
+  node('request', 70, 680, 240, 86, 'control', 'PETICIÓN', 'Qué se solicita', 'operación · target · límites', {
+    kind: 'RESPONSABILIDAD DEL CORE', status: 'Core mínimo vigente · diseño adoptado',
+    summary: 'La petición concreta qué operación se solicita, sobre qué repositorio o ref y con qué material, precondiciones y límites relevantes.',
+    caps: [['Autor de la petición', 'Persona o agente'], ['Representación', 'Propia del producto']],
+    receives: ['Operación, target, base y material pertinentes.'],
+    produces: ['Una petición explícita que el dominio puede admitir o rechazar.'],
+    does: ['Solicitar no equivale a ser admitido.', 'No obliga a crear un objeto o servicio separado.', 'Un cambio material del alcance exige revisar la admisión.']
+  });
+  node('admission', 410, 680, 240, 86, 'helper', 'ADMISIÓN', 'Qué se permite', 'permisos · alcance · condiciones', {
+    kind: 'RESPONSABILIDAD DEL CORE', status: 'Core mínimo vigente · diseño adoptado',
+    summary: 'El dominio comprueba los permisos técnicos, el alcance y las condiciones aplicables antes del efecto. La aprobación humana se solicita solo cuando la política concreta la requiere.',
+    caps: [['Permisos', 'Aplicados técnicamente'], ['Asentimiento humano', 'Condicional']],
+    receives: ['Petición y condiciones que exige la operación.'],
+    produces: ['Admisión o rechazo con su alcance y límites.'],
+    does: ['La prosa, el rol del cliente o un informe no sustituyen el límite técnico.', 'ApprovalRecord v2 solo se aplica cuando se requiere asentimiento; no autentica a la persona física.', 'No exige una cadena de capacidades, reservas o contratos históricos.']
+  });
+  node('operation', 790, 680, 340, 86, 'runner', 'OPERACIÓN ACOTADA', 'Candidato y efecto Git', 'material fijado · comprobaciones aplicables', {
+    kind: 'OPERACIÓN DEL DOMINIO REPOPS', status: 'Dirección adoptada · integración por demostrar',
+    summary: 'El motor comprueba material fijado y gobierna el efecto Git admitido. Tests, builds y hooks son ejecución de código y requieren límites de acceso apropiados.',
+    caps: [['Primer resultado', 'Commit recuperable'], ['Push inicial', 'Manual con Git']],
+    receives: ['Petición admitida, base explícita, candidato fijado e inputs pertinentes.'],
+    produces: ['Las comprobaciones y el efecto que admita la operación, con referencias consultables.'],
+    does: ['No contiene Architect, implementadores ni revisores cognitivos internos.', 'No fija aquí el orden del commit respecto de VERIFY/AUDIT ni la autoridad concreta del estado SDD.', 'No promete push, PR, merge o sincronización automáticos en el primer MVP.', 'La implementación anterior y sus pruebas no acreditan el nuevo recorrido integrado.']
+  });
+  node('result', 1330, 680, 300, 86, 'evidence', 'RESULTADO', 'Qué ocurrió', 'consultable · evidencia · límites', {
+    kind: 'RESPONSABILIDAD DEL CORE', status: 'Core mínimo vigente · diseño adoptado',
+    summary: 'El resultado distingue admisión, inicio, declaración del ejecutor y efecto comprobado. Conserva la evidencia necesaria para que el consumidor pueda consultarlo e interpretar sus límites.',
+    caps: [['Consulta', 'Resultado conservado'], ['Efecto', 'Lo determina el dominio']],
+    receives: ['Hechos de la operación, observaciones pertinentes y resultados de comprobación.'],
+    produces: ['Resultado consultable con alcance, referencias y límites conocidos.'],
+    does: ['Un PASS, un hash o un informe no acreditan por sí solos todo el efecto.', 'Fallo de contenido, falta de entorno y no ejecutado deben distinguirse.', 'No impone EvidenceEnvelope, un almacén universal de jobs ni un schema aún no adoptado.']
+  });
+  node('recovery', 1330, 855, 300, 86, 'queue', 'RECUPERACIÓN · SI APLICA', 'Consultar y reconciliar', 'antes de repetir un efecto incierto', {
+    kind: 'RESPONSABILIDAD CONDICIONAL DEL CORE', status: 'Core mínimo vigente · integración por demostrar',
+    summary: 'Cuando una interrupción puede dejar un efecto parcial, desconocido o duplicado, se consulta y reconcilia el estado del dominio antes de decidir otro intento.',
+    caps: [['Aplicación', 'Cuando el efecto lo requiere'], ['Reintento', 'Sin permiso automático']],
+    receives: ['Resultado incierto y referencias suficientes del material y del efecto.'],
+    produces: ['Una determinación actualizada o una incertidumbre explícita para decidir cómo continuar.'],
+    does: ['Timeout, cancelación o respuesta perdida no demuestran ausencia de efecto.', 'El retorno del cliente no acredita que todos los procesos hayan terminado.', 'No se elimina candidato o evidencia con efecto incierto ni se reaplica a ciegas.', 'No exige una plataforma distribuida ni promete exactamente-una-vez universal.']
+  });
+  DATA.baseEdges = phases.slice(0, -1).map((p, i) => [p[0], phases[i + 1][0], '', 'flow', 0]);
+  DATA.baseEdges.push(
+    ['architect', 'material', '', 'artifact', 0], ['implementer', 'material', '', 'artifact', 0],
+    ['reviewers', 'material', '', 'artifact', 0], ['material', 'request', 'petición y material', 'artifact', 0],
+    ['request', 'admission', '', 'engine', 0], ['admission', 'operation', '', 'engine', 0],
+    ['operation', 'result', '', 'engine', 0], ['result', 'recovery', 'si el efecto queda incierto', 'return', 0]
+  );
+  const defs = DATA.defs, info = DATA.info;
+  let view = {...DATA.view}, pan = null, selected = null, returnFocus = null, customView = false;
+  let textual = window.matchMedia('(max-width: 760px)').matches;
+  function X(tag, attrs = {}) {
+    const element = document.createElementNS(NS, tag);
+    for (const [key, value] of Object.entries(attrs)) element.setAttribute(key, value);
+    return element;
+  }
+  function applyView() { svg.setAttribute('viewBox', `${view.x} ${view.y} ${view.w} ${view.h}`); }
+  function boundary(b, ux, uy, out) {
+    const cx = b.x + b.w / 2, cy = b.y + b.h / 2;
+    const k = 1 / Math.max(Math.abs(ux) / (b.w / 2 || 1), Math.abs(uy) / (b.h / 2 || 1), .0001);
+    return {x: cx + (out ? 1 : -1) * ux * k, y: cy + (out ? 1 : -1) * uy * k};
+  }
+  function geom(edge) {
+    // Enter the engine to the right of its heading, then reach the request.
+    // This keeps the transport line clear of the zone titles.
+    if (edge[0] === 'material' && edge[1] === 'request') {
+      return {S: {x: 1510, y: 499}, T: {x: 190, y: 680},
+        C1: {x: 1720, y: 499}, C2: {x: 1720, y: 660}, label: {x: 1690, y: 565},
+        route: 'M1510 499 H1708 Q1720 499 1720 511 V648 Q1720 660 1708 660 H202 Q190 660 190 672 V680'};
+    }
+    const a = defs[edge[0]], b = defs[edge[1]];
+    const dx = b.x + b.w / 2 - a.x - a.w / 2, dy = b.y + b.h / 2 - a.y - a.h / 2;
+    const length = Math.hypot(dx, dy) || 1, ux = dx / length, uy = dy / length;
+    const S = boundary(a, ux, uy, true), T = boundary(b, ux, uy, false), bend = edge[4] || 0;
+    return {S, T, C1: {x: S.x + (T.x - S.x) / 3 - uy * bend, y: S.y + (T.y - S.y) / 3 + ux * bend},
+      C2: {x: S.x + 2 * (T.x - S.x) / 3 - uy * bend, y: S.y + 2 * (T.y - S.y) / 3 + ux * bend}};
+  }
+  function cubic(g, t = .5) {
+    const u = 1 - t;
+    return {x: u*u*u*g.S.x + 3*u*u*t*g.C1.x + 3*u*t*t*g.C2.x + t*t*t*g.T.x,
+      y: u*u*u*g.S.y + 3*u*u*t*g.C1.y + 3*u*t*t*g.C2.y + t*t*t*g.T.y};
+  }
+  function path(g) { return g.route || `M${g.S.x} ${g.S.y}C${g.C1.x} ${g.C1.y} ${g.C2.x} ${g.C2.y} ${g.T.x} ${g.T.y}`; }
+  function marker(cls) { return `url(#a-${['flow', 'artifact', 'engine', 'git', 'return'].includes(cls) ? cls : 'default'})`; }
+  function renderZones() {
+    Z.replaceChildren();
+    for (const [cls, x, y, w, h, title, subtitle] of DATA.zones) {
+      Z.appendChild(X('rect', {class: `zone ${cls}`, x, y, width: w, height: h, rx: 20}));
+      for (const [className, value, offset] of [['zone-title', title, 26], ['zone-subtitle', subtitle, 46]]) {
+        const t = X('text', {class: className, x: x + 18, y: y + offset}); t.textContent = value; Z.appendChild(t);
+      }
+    }
+    const annotations = [
+      [70, 855, 'PRIMER MVP · LOCAL', 'Motor y canónico en el mismo host. Commit recuperable; push manual.'],
+      [70, 915, 'SIGUE EN DEFINICIÓN', 'Contrato de entrada, autoridad de estado, gates y momento del efecto.'],
+      [70, 975, 'ESTADO REAL', 'Hay piezas y pruebas previas. El motor nuevo aún no tiene un recorrido integrado demostrado.']
+    ];
+    for (const [x, y, title, text] of annotations) {
+      let t = X('text', {class: 'zone-title', x, y}); t.textContent = title; Z.appendChild(t);
+      t = X('text', {class: 'zone-subtitle', x, y: y + 22}); t.textContent = text; Z.appendChild(t);
+    }
+  }
+  function renderNodes() {
+    N.replaceChildren();
+    for (const [id, d] of Object.entries(defs)) {
+      const g = X('g', {class: `node type-${d.type} selectable`, 'data-id': id,
+        transform: `translate(${d.x} ${d.y})`, tabindex: 0, role: 'button',
+        'aria-label': `${d.title}: ${d.note}. Ver detalle`, 'aria-controls': 'atlas-card', 'aria-expanded': 'false'});
+      g.appendChild(X('rect', {class: 'box', width: d.w, height: d.h, rx: 12}));
+      for (const [className, text, y] of [['kicker', d.kicker, d.h === 58 ? 15 : 20],
+        ['title', d.title, d.h === 58 ? 33 : 44], ['note', d.note, d.h === 58 ? 49 : 64]]) {
+        const t = X('text', {class: className, x: d.w / 2, y}); t.textContent = text; g.appendChild(t);
+      }
+      N.appendChild(g);
+    }
+  }
+  function renderEdges() {
+    E.replaceChildren(); L.replaceChildren();
+    for (const edge of DATA.baseEdges) {
+      const g = geom(edge);
+      E.appendChild(X('path', {class: `edge ${edge[3]}`, d: path(g), 'marker-end': marker(edge[3])}));
+      if (edge[2]) {
+        const p = g.label || cubic(g), width = Math.max(52, edge[2].length * 6.4 + 20);
+        L.appendChild(X('rect', {class: 'edge-label-bg', x: p.x - width / 2, y: p.y - 11, width, height: 22, rx: 9}));
+        const t = X('text', {class: 'edge-label', x: p.x, y: p.y + 4}); t.textContent = edge[2]; L.appendChild(t);
+      }
+    }
+  }
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+  }
+  function fmtList(items) { return `<ul>${items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul>`; }
+  function updateSelection() {
+    for (const g of N.children) {
+      const active = g.dataset.id === selected; g.classList.toggle('selected', active); g.setAttribute('aria-expanded', String(active));
+    }
+    textView?.querySelectorAll('[data-node]').forEach(button => button.setAttribute('aria-expanded', String(button.dataset.node === selected)));
+  }
+  function openCard(key, opener) {
+    const d = info[key], n = defs[key]; if (!d || !n) return;
+    returnFocus = opener || document.activeElement; selected = key;
+    card.innerHTML = `<div class="card-head"><div><div class="card-kind">${escapeHTML(d.kind)}</div><h2 id="atlas-card-title">${escapeHTML(n.title)}</h2><div class="card-tech">Modelo público · actualizado al core mínimo</div></div><button class="card-close" type="button" aria-label="Cerrar detalle">×</button></div><div class="card-status"><b>Estado:</b> ${escapeHTML(d.status)}</div><p class="card-summary">${escapeHTML(d.summary)}</p><div class="card-grid">${d.caps.map(([label, value]) => `<div class="card-cap"><b>${escapeHTML(label)}</b><span>${escapeHTML(value)}</span></div>`).join('')}</div><div class="card-section"><h3>RECIBE</h3>${fmtList(d.receives)}</div><div class="card-section"><h3>APORTA</h3>${fmtList(d.produces)}</div><div class="card-section"><h3>LÍMITES</h3>${fmtList(d.does)}</div>${d.sdd ? '<div class="card-section"><h3>OPEN SOURCE</h3><a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework ↗</a></div>' : ''}`;
+    card.setAttribute('role', 'region'); card.setAttribute('aria-labelledby', 'atlas-card-title');
+    card.classList.add('open'); card.scrollTop = 0;
+    card.querySelector('.card-close').addEventListener('click', closeCard);
+    updateSelection(); card.querySelector('.card-close').focus({preventScroll: true});
+  }
+  function closeCard() {
+    selected = null; card.classList.remove('open'); updateSelection();
+    if (returnFocus?.isConnected) returnFocus.focus({preventScroll: true});
+  }
+  function renderTextView() {
+    if (!textView) return;
+    const groups = [
+      ['SDD · referencia del framework', phases.map(p => p[0])],
+      ['Clientes externos y material', ['architect', 'implementer', 'reviewers', 'material']],
+      ['RepoOps · operación y resultado', ['request', 'admission', 'operation', 'result', 'recovery']]
+    ];
+    textView.innerHTML = groups.map(([title, ids]) => `<section class="atlas-text-group"><h2>${escapeHTML(title)}</h2>${ids.map(id => `<button class="atlas-text-node" type="button" data-node="${id}" aria-controls="atlas-card" aria-expanded="false"><strong>${escapeHTML(defs[id].title)}</strong><span>${escapeHTML(info[id].summary)}</span></button>`).join('')}</section>`).join('');
+    textView.addEventListener('click', event => {
+      const button = event.target.closest('[data-node]'); if (button) openCard(button.dataset.node, button);
+    });
+  }
+  function setTextView(next) {
+    textual = next; closeCard(); document.body.classList.toggle('atlas-reading-text', textual);
+    svg.hidden = textual; svg.style.display = textual ? 'none' : '';
+    if (textView) textView.hidden = !textual;
+    status.hidden = textual;
+    for (const id of ['zoom-out', 'zoom-in', 'fit']) document.getElementById(id).hidden = textual;
+    if (textToggle) {
+      textToggle.textContent = textual ? 'Ver diagrama' : 'Vista textual';
+      textToggle.setAttribute('aria-expanded', String(textual));
+    }
+    if (!textual) fit();
+  }
+  function fit() {
+    const r = svg.getBoundingClientRect(); if (!r.width || !r.height) return;
+    const a = r.width / r.height;
+    let {x, y, w, h} = DATA.view;
+    if (w / h > a) { const nh = w / a; y -= (nh - h) / 2; h = nh; }
+    else { const nw = h * a; x -= (nw - w) / 2; w = nw; }
+    view = {x, y, w, h}; customView = false; applyView();
+  }
+  function zoomBy(factor) {
+    const cx = view.x + view.w / 2, cy = view.y + view.h / 2;
+    const w = Math.min(4000, Math.max(650, view.w * factor)), h = w * view.h / view.w;
+    view = {x: cx - w / 2, y: cy - h / 2, w, h}; customView = true; applyView();
+  }
+  svg.addEventListener('click', event => {
+    const node = event.target.closest('.node'); if (node) openCard(node.dataset.id, node);
+  });
+  svg.addEventListener('keydown', event => {
+    const node = event.target.closest('.node');
+    if (node && ['Enter', ' '].includes(event.key)) { event.preventDefault(); openCard(node.dataset.id, node); }
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && selected) { event.preventDefault(); closeCard(); } });
+  svg.addEventListener('pointerdown', event => {
+    if (event.target.closest('.node') || event.button !== 0) return;
+    const m = svg.getScreenCTM(); if (!m) return;
+    pan = {pid: event.pointerId, x: event.clientX, y: event.clientY, vx: view.x, vy: view.y, sx: m.a, sy: m.d};
+    svg.setPointerCapture(event.pointerId);
+  });
+  svg.addEventListener('pointermove', event => {
+    if (!pan || event.pointerId !== pan.pid) return;
+    view.x = pan.vx - (event.clientX - pan.x) / pan.sx; view.y = pan.vy - (event.clientY - pan.y) / pan.sy;
+    customView = true; applyView();
+  });
+  function endPan(event) {
+    if (pan?.pid !== event.pointerId) return;
+    pan = null; if (svg.hasPointerCapture(event.pointerId)) svg.releasePointerCapture(event.pointerId);
+  }
+  svg.addEventListener('pointerup', endPan); svg.addEventListener('pointercancel', endPan);
+  // Page scrolling stays native. Zoom is explicit and cannot move graph nodes.
+  document.getElementById('zoom-out').addEventListener('click', () => zoomBy(1.22));
+  document.getElementById('zoom-in').addEventListener('click', () => zoomBy(.82));
+  document.getElementById('fit').addEventListener('click', fit);
+  textToggle?.addEventListener('click', () => setTextView(!textual));
+  window.addEventListener('resize', () => { if (!customView && !textual) fit(); });
+  renderZones(); renderEdges(); renderNodes(); renderTextView(); applyView();
+  document.body.dataset.atlasMode = 'view';
+  status.textContent = 'Selecciona un nodo para ver su detalle · arrastra el fondo para desplazar · +/− para ampliar';
+  setTextView(textual);
 })();

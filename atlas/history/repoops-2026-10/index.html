@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RepoOps Architecture · histórico de octubre 2026 — BARANES Atlas</title>
+  <meta name="description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#071018">
+  <link rel="canonical" href="https://baranes.ai/atlas/history/repoops-2026-10/">
+  <meta property="og:title" content="RepoOps Architecture — Baranes Atlas">
+  <meta property="og:description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baranes.ai/atlas/history/repoops-2026-10/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RepoOps Architecture — Baranes Atlas">
+  <meta name="twitter:description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/baranes-symbol-teal.svg">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/brand.css">
+  <link rel="stylesheet" href="./repoops-public.css">
+  <style>
+    /* RepoOps Atlas is an inspection surface: prioritise canvas over marketing chrome. */
+    .atlas-workspace{
+      height:calc(100vh - 78px)!important;
+      min-height:680px!important;
+      border-top:0;
+    }
+    .atlas-toolbar{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto;
+      grid-template-areas:"heading right" "legend legend";
+      align-items:center!important;
+      gap:7px 18px!important;
+      padding:9px 16px 8px!important;
+    }
+    .atlas-toolbar-heading{grid-area:heading;min-width:0}
+    .atlas-toolbar-heading .atlas-kicker{margin-bottom:2px}
+    .atlas-toolbar-heading .atlas-kicker a{color:inherit;text-decoration:none}
+    .atlas-toolbar-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .atlas-toolbar-title-row h1{
+      margin:0;
+      font-size:clamp(25px,2.5vw,38px);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+    .atlas-toolbar-summary{
+      margin:4px 0 0;
+      max-width:920px;
+      color:#94a7b8;
+      font-size:10.5px;
+      line-height:1.35;
+    }
+    .atlas-toolbar-right{
+      grid-area:right;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:6px;
+    }
+    .atlas-toolbar-right .atlas-public-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .atlas-toolbar-right .btn.compact{padding:5px 8px;font-size:9.5px;border-radius:7px}
+    .atlas-toolbar-right .atlas-controls{justify-content:flex-end}
+    .atlas-toolbar-legend{
+      grid-area:legend;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      padding-top:6px;
+      border-top:1px solid #28384a;
+      color:#8297a9;
+      font-size:9px;
+      line-height:1.25;
+    }
+    .atlas-toolbar-legend>div{display:flex;align-items:center;gap:5px;min-width:0}
+    .atlas-toolbar-legend b{color:#dbe5ee;font-size:9px;white-space:nowrap}
+    .atlas-toolbar-legend .status-dot{flex:0 0 7px}
+    .public-status{font-size:8px;padding:4px 7px}
+    @media(max-width:900px){
+      .atlas-workspace{height:760px!important;min-height:720px!important}
+      .atlas-toolbar{
+        grid-template-columns:1fr!important;
+        grid-template-areas:"heading" "right" "legend"!important;
+        align-items:stretch!important;
+      }
+      .atlas-toolbar-right{align-items:flex-start}
+      .atlas-toolbar-right .atlas-public-actions,.atlas-toolbar-right .atlas-controls{justify-content:flex-start;width:100%}
+      .atlas-toolbar-legend{display:grid;grid-template-columns:1fr;gap:4px}
+    }
+  </style>
+</head>
+<body data-atlas-mode="view">
+<aside class="historical-banner" aria-label="Historical version" style="position:sticky;top:0;z-index:30;background:#2b2456;color:#f3efff;padding:14px 20px;border-bottom:2px solid #b6a7ff;font-size:14px;line-height:1.5">
+  <strong>HISTÓRICO · OCTUBRE 2026.</strong> Esta arquitectura fue sustituida por el core mínimo del 02/11/2026. Se conserva como antecedente; sus contratos y secuencias no describen el nuevo motor.
+  <a href="../../repoops/" style="color:#fff;text-decoration:underline;font-weight:700;white-space:nowrap">Ver dirección vigente →</a>
+</aside>
+<header class="topbar public-topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="../../../"><span class="brand-mark">B</span><span>BARANES</span></a>
+    <nav class="nav">
+      <a data-nav href="../../../">Home</a>
+      <a data-nav href="../../../repoops/">RepoOps</a>
+      <a data-nav href="../../../open-source/">Open source</a>
+      <a data-nav href="../../">Atlas</a>
+    </nav>
+  </div>
+</header>
+<main class="atlas-page">
+  <section class="atlas-workspace">
+    <header class="atlas-toolbar">
+      <div class="atlas-toolbar-heading">
+        <div class="atlas-kicker"><a href="../../">BARANES / ATLAS</a></div>
+        <div class="atlas-toolbar-title-row">
+          <h1>RepoOps Architecture</h1>
+          <span class="public-status target">HISTORICAL / SUPERSEDED</span>
+        </div>
+        <p class="atlas-toolbar-summary">Historical architecture snapshot from October 2026. Preserved for context; superseded for new design by the minimal core of 02/11/2026.</p>
+      </div>
+      <div class="atlas-toolbar-right">
+        <div class="atlas-public-actions">
+          <a class="btn secondary compact" href="../../../repoops/">← Back to RepoOps</a>
+          <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework ↗</a>
+        </div>
+        <div class="atlas-controls">
+          <span class="atlas-mode-group"><button id="mode-view" type="button">View</button><button id="mode-design" type="button">Design</button></span>
+          <button id="save-layout" type="button">Save layout</button>
+          <button id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in">+</button><button id="fit" type="button">Fit</button>
+        </div>
+      </div>
+      <div class="atlas-toolbar-legend" aria-label="Public status legend">
+        <div><span class="status-dot now"></span><b>Exists now</b><span>interactive public Atlas + implemented RepoOps mechanisms; not a unified deployed product</span></div>
+        <div><span class="status-dot oss"></span><b>Open source</b><span>SDD Framework lifecycle and contracts</span></div>
+        <div><span class="status-dot target"></span><b>Target architecture</b><span>the end-to-end RepoOps model below</span></div>
+      </div>
+    </header>
+    <div class="atlas-canvas-wrap">
+      <svg id="repoops-atlas" viewBox="-168.83 89.02 2171.23 1016.83" aria-label="RepoOps public target architecture">
+        <defs>
+          <marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+          <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+          <marker id="a-artifact" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+          <marker id="a-engine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker>
+          <marker id="a-git" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+          <marker id="a-return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f472b6"/></marker>
+          <filter id="atlas-shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".28"/></filter>
+        </defs>
+        <g id="zones"></g>
+        <g id="edges"></g>
+        <g id="nodes"></g>
+        <g id="primitives"></g>
+        <g id="labels"></g>
+        <g id="handles"></g>
+        <g id="identity"></g>
+      </svg>
+      <div id="atlas-status" class="atlas-status">View · select a node · drag background to pan · use +/− to zoom</div>
+      <aside id="atlas-card" class="atlas-card" aria-live="polite"></aside>
+    </div>
+  </section>
+  <section class="atlas-disclosure-note">
+    <b>Public Atlas scope.</b> This view is deliberately scoped to product architecture and effect boundaries; low-value implementation detail is omitted. Execution roles are retained only where they explain the product model. SDD contracts are separately inspectable in the open-source framework.
+  </section>
+</main>
+
+<script src="./repoops-public.js"></script>
+</body>
+</html>

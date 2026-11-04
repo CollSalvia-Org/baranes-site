@@ -1,7 +1,65 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open source — Baranes</title><meta name="description" content="SDD Framework is an open-source feature-lifecycle and contract layer shown in context with Baranes and RepoOps."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/open-source/"><meta property="og:title" content="Open source — Baranes"><meta property="og:description" content="SDD Framework is an open-source feature-lifecycle and contract layer shown in context with Baranes and RepoOps."><meta property="og:type" content="website"><meta property="og:url" content="https://magronxo.github.io/baranes-site/open-source/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Open source — Baranes"><meta name="twitter:description" content="SDD Framework is an open-source feature-lifecycle and contract layer shown in context with Baranes and RepoOps."><link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/brand.css"></head><body>
-<header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../">Home</a><a data-nav href="../repoops/">RepoOps</a><a data-nav href="./">Open source</a><a data-nav href="../atlas/">Atlas</a></nav></div></header>
-<main><section class="shell page-hero"><div class="eyebrow">Open source</div><h1>SDD Framework</h1><p>Agent-first Spec-Driven Development with explicit, machine-readable contracts for repositories where humans and AI agents collaborate on software changes.</p><div class="label-row"><span class="label oss">Apache-2.0</span><span class="label now">Public repository</span></div><div class="cta-row"><a class="btn primary" href="https://github.com/CollSalvia-Org/sdd-framework">View repository ↗</a></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div class="kicker">What it provides</div><h2>Lifecycle state that agents can read and tools can validate.</h2><p>The framework installs into an existing product repository under <code>docs/sdd/</code>. Product source remains outside the framework tree.</p></div><div class="cards"><article class="card"><div class="num">01</div><h3>Feature-record schema</h3><p>Fields, types, enums, paths, aliases and record invariants for persistent feature state.</p></article><article class="card"><div class="num">02</div><h3>SDD protocol</h3><p>Lifecycle transitions, gates, blockers, regressions and conditional checkpoints.</p></article><article class="card"><div class="num">03</div><h3>Validator + installer</h3><p>Canonical contract validation plus deterministic installation into an existing repository.</p></article></div></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div class="kicker">Persistent lifecycle</div><h2>From design to archive.</h2></div><div class="codeflow">DESIGN → SPEC → VALIDATION → TASKS → IMPLEMENT → VERIFY → AUDIT → ARCHIVE</div><div class="two-col" style="margin-top:20px"><div class="feature"><b>Machine-readable authorities</b><span>The feature-record schema governs record shape and invariants; the SDD protocol governs workflow behaviour and gates.</span></div><div class="feature"><b>Current scope</b><span>Fresh installation into an existing repository. The framework does not grant authority over external systems or replace external execution governance.</span></div></div></div></section>
-<section class="section"><div class="shell"><div class="proof-row"><div class="proof"><h3>See the lifecycle in context</h3><p>The public RepoOps Atlas shows how the open-source SDD lifecycle relates to candidate engineering, governed repository adoption and terminal evidence in the broader target architecture.</p><div class="cta-row"><a class="btn secondary" href="../atlas/repoops/">Open RepoOps Architecture →</a></div></div><div class="callout"><div class="kicker">Boundary</div><h3>SDD ≠ external execution authority.</h3><p>The framework governs feature state and workflow contracts. Baranes / RepoOps target architecture governs the broader effect boundary.</p></div></div></div></section></main>
-<footer class="footer"><div class="shell footer-inner"><span>BARANES · Open source</span><a href="https://github.com/CollSalvia-Org/sdd-framework">CollSalvia-Org/sdd-framework ↗</a></div></footer><script src="../assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open source — SDD Framework · BARANES</title>
+  <meta name="description" content="SDD Framework: contratos, documentación y herramientas para organizar el trabajo de personas y agentes. Repositorio público bajo Apache-2.0.">
+  <meta name="theme-color" content="#0b1827">
+  <link rel="canonical" href="https://baranes.ai/open-source/">
+  <meta property="og:title" content="Open source — SDD Framework · BARANES">
+  <meta property="og:description" content="Un ciclo de trabajo con contratos legibles por máquina, validador, consultas de estado e instalador. Su relación con RepoOps y sus límites.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baranes.ai/open-source/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SDD Framework · Open source">
+  <meta name="twitter:description" content="Contratos, documentación y herramientas bajo Apache-2.0.">
+  <link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg">
+  <link rel="preload" href="../assets/fonts/sora-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="../assets/resources-v2.css">
+</head>
+<body class="resources-v2">
+<a class="res-skip" href="#main">Saltar al contenido</a>
+<header class="topbar"><div class="shell topbar-inner">
+  <a class="brand" href="../" aria-label="BARANES, inicio"><img src="../assets/baranes-symbol-teal.svg" width="38" height="38" alt=""><span>BARANES</span></a>
+  <nav class="nav" aria-label="Principal"><a data-nav href="../">Inicio</a><a data-nav href="../repoops/">RepoOps</a><a data-nav href="./" class="active" aria-current="page">Open source</a><a data-nav href="../atlas/">Atlas</a></nav>
+</div></header>
+<main id="main" tabindex="-1">
+  <section class="shell res-hero" aria-labelledby="sdd-title">
+    <p class="eyebrow">Open source</p><h1 id="sdd-title">SDD Framework</h1>
+    <p class="res-lead">Contratos, documentación y herramientas para organizar el trabajo de personas y agentes. Define cómo avanza una funcionalidad y qué debe comprobarse en cada etapa.</p>
+    <div class="res-labels"><span>Repositorio público</span><span>Apache-2.0</span></div>
+    <div class="cta-row"><a class="btn primary" href="https://github.com/CollSalvia-Org/sdd-framework">Ver el repositorio en GitHub <span aria-hidden="true">→</span></a><a class="btn secondary" href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/README.md">Leer la documentación</a></div>
+  </section>
+
+  <section class="section res-deep" aria-labelledby="provides-title"><div class="shell">
+    <div class="section-head"><p class="kicker">Qué aporta</p><h2 id="provides-title">Reglas que se pueden leer.<br>Contratos que se pueden validar.</h2><p>El framework combina documentos de trabajo con reglas legibles por máquina. Se instala dentro de un repositorio existente bajo <code>docs/sdd/</code>; el código del producto permanece fuera de ese árbol.</p></div>
+    <div class="res-tools-grid">
+      <article class="res-tool"><p class="res-small-label">01 · Contratos</p><h3>Esquema y protocolo.</h3><p>El esquema define la forma y las invariantes del registro de funcionalidad. El protocolo define las transiciones, gates, bloqueos y regresiones del ciclo SDD.</p><div class="res-link-list"><a href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/contract/v1/feature-record.schema.json">Ver el esquema <span aria-hidden="true">→</span></a><a href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/contract/v1/sdd-protocol.json">Ver el protocolo <span aria-hidden="true">→</span></a></div></article>
+      <article class="res-tool"><p class="res-small-label">02 · Comprobación</p><h3>Validador.</h3><p>Comprueba registros y reglas del protocolo. Distingue la lectura tolerante de la validación canónica de un registro que se va a persistir.</p><a class="res-text-link" href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/README.md#validate-a-feature-record">Cómo validar un registro <span aria-hidden="true">→</span></a></article>
+      <article class="res-tool"><p class="res-small-label">03 · Consulta</p><h3>Estado y siguientes rutas.</h3><p>Las consultas <code>status</code> y <code>next</code> permiten inspeccionar un registro y los gates declarados por el protocolo. Son de solo lectura: no avanzan el ciclo ni ejecutan trabajo ni modifican el registro.</p><a class="res-text-link" href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/README.md#inspect-status-and-next-routes">Ver las consultas <span aria-hidden="true">→</span></a></article>
+      <article class="res-tool"><p class="res-small-label">04 · Preparación</p><h3>Instalador y plantillas.</h3><p>El inventario de instalación fija los archivos que se incorporan. Incluye documentación operativa, configuración y plantillas para preparar los artefactos del proyecto.</p><a class="res-text-link" href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/README.md#quick-start">Consultar el inicio rápido <span aria-hidden="true">→</span></a></article>
+    </div>
+  </div></section>
+
+  <section class="section" aria-labelledby="lifecycle-title"><div class="shell">
+    <div class="section-head"><p class="kicker">Ciclo de referencia</p><h2 id="lifecycle-title">Del diseño al archivo.</h2><p>Los documentos y resultados permiten seguir el trabajo, revisar sus requisitos y volver a una etapa anterior cuando las comprobaciones lo exigen.</p></div>
+    <ol class="res-phases" aria-label="Ciclo de SDD Framework"><li>DESIGN</li><li>SPEC</li><li>VALIDATION</li><li>TASKS</li><li>IMPLEMENT</li><li>VERIFY</li><li>AUDIT</li><li>ARCHIVE</li></ol>
+    <div class="res-two-col">
+      <article class="res-note"><h3>Alcance de instalación.</h3><p>El instalador actual requiere Python 3.11 o posterior y un repositorio existente sin instalación previa en <code>docs/sdd/</code>. Permite examinar los destinos con <code>--dry-run</code> y rechaza sobrescribir una instalación existente.</p><p>La documentación del repositorio detalla los requisitos y las comprobaciones de instalación.</p></article>
+      <article class="res-note"><h3>Alcance de las reglas.</h3><p>Validar un registro confirma las reglas que cubre el contrato. No demuestra por sí solo el efecto de una operación sobre otro sistema, ni concede permiso para hacer push, merge o desplegar.</p><p>Los permisos técnicos y la comprobación del efecto corresponden al dominio que realiza la operación.</p></article>
+    </div>
+  </div></section>
+
+  <section class="section res-deep" aria-labelledby="relationship-title"><div class="shell">
+    <div class="res-map-grid"><div class="res-map-main"><p class="kicker">SDD y RepoOps</p><h2 id="relationship-title">El trabajo tiene criterios.<br>La operación tiene condiciones.</h2><p>SDD es la ruta funcional inicial del nuevo RepoOps. El cliente prepara material y revisiones; el motor comprueba las condiciones de la operación y gobierna el efecto Git admitido.</p><p>El registro de funcionalidad pertenece al contrato del framework. Su existencia no fija la autoridad de estado ni la representación del motor sucesor: esos detalles siguen en definición.</p><div class="cta-row"><a class="btn primary" href="../atlas/repoops/">Ver la relación en el Atlas <span aria-hidden="true">→</span></a><a class="btn secondary" href="../repoops/">Explorar RepoOps</a></div></div>
+      <aside class="res-map-scope"><p class="res-small-label">Fuentes públicas</p><h3>Inspeccionable y reutilizable.</h3><p>SDD Framework se distribuye bajo Apache License 2.0. El repositorio contiene los contratos, las herramientas, sus pruebas y la documentación.</p><div class="res-link-list"><a href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/README.md">README <span aria-hidden="true">→</span></a><a href="https://github.com/CollSalvia-Org/sdd-framework/blob/main/LICENSE">Licencia Apache-2.0 <span aria-hidden="true">→</span></a></div></aside>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="shell footer-inner"><span>BARANES · Open source</span><nav aria-label="Pie"><a href="https://github.com/CollSalvia-Org/sdd-framework">GitHub</a><a href="../atlas/">Atlas</a></nav></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

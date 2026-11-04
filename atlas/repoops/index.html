@@ -1,136 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RepoOps Architecture — Baranes Atlas</title>
-  <meta name="description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <title>Arquitectura de RepoOps — BARANES Atlas</title>
+  <meta name="description" content="Dirección adoptada de RepoOps: clientes externos, operaciones admitidas, candidato fijado y resultado consultable. Primer MVP local en desarrollo.">
   <meta name="theme-color" content="#071018">
-  <link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/repoops/">
-  <meta property="og:title" content="RepoOps Architecture — Baranes Atlas">
-  <meta property="og:description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <link rel="canonical" href="https://baranes.ai/atlas/repoops/">
+  <meta property="og:title" content="Arquitectura de RepoOps — BARANES Atlas">
+  <meta property="og:description" content="Clientes externos, operaciones admitidas y resultado consultable. Dirección de producto adoptada; integración del nuevo motor por demostrar.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://magronxo.github.io/baranes-site/atlas/repoops/">
+  <meta property="og:url" content="https://baranes.ai/atlas/repoops/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="RepoOps Architecture — Baranes Atlas">
-  <meta name="twitter:description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <meta name="twitter:title" content="Arquitectura de RepoOps — BARANES Atlas">
+  <meta name="twitter:description" content="Dirección adoptada de RepoOps y límites del primer MVP local.">
   <link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/brand.css">
   <link rel="stylesheet" href="./repoops-public.css">
-  <style>
-    /* RepoOps Atlas is an inspection surface: prioritise canvas over marketing chrome. */
-    .atlas-workspace{
-      height:calc(100vh - 78px)!important;
-      min-height:680px!important;
-      border-top:0;
-    }
-    .atlas-toolbar{
-      display:grid!important;
-      grid-template-columns:minmax(0,1fr) auto;
-      grid-template-areas:"heading right" "legend legend";
-      align-items:center!important;
-      gap:7px 18px!important;
-      padding:9px 16px 8px!important;
-    }
-    .atlas-toolbar-heading{grid-area:heading;min-width:0}
-    .atlas-toolbar-heading .atlas-kicker{margin-bottom:2px}
-    .atlas-toolbar-heading .atlas-kicker a{color:inherit;text-decoration:none}
-    .atlas-toolbar-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .atlas-toolbar-title-row h1{
-      margin:0;
-      font-size:clamp(25px,2.5vw,38px);
-      line-height:1;
-      letter-spacing:-.04em;
-    }
-    .atlas-toolbar-summary{
-      margin:4px 0 0;
-      max-width:920px;
-      color:#94a7b8;
-      font-size:10.5px;
-      line-height:1.35;
-    }
-    .atlas-toolbar-right{
-      grid-area:right;
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:6px;
-    }
-    .atlas-toolbar-right .atlas-public-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-    .atlas-toolbar-right .btn.compact{padding:5px 8px;font-size:9.5px;border-radius:7px}
-    .atlas-toolbar-right .atlas-controls{justify-content:flex-end}
-    .atlas-toolbar-legend{
-      grid-area:legend;
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      padding-top:6px;
-      border-top:1px solid #28384a;
-      color:#8297a9;
-      font-size:9px;
-      line-height:1.25;
-    }
-    .atlas-toolbar-legend>div{display:flex;align-items:center;gap:5px;min-width:0}
-    .atlas-toolbar-legend b{color:#dbe5ee;font-size:9px;white-space:nowrap}
-    .atlas-toolbar-legend .status-dot{flex:0 0 7px}
-    .public-status{font-size:8px;padding:4px 7px}
-    @media(max-width:900px){
-      .atlas-workspace{height:760px!important;min-height:720px!important}
-      .atlas-toolbar{
-        grid-template-columns:1fr!important;
-        grid-template-areas:"heading" "right" "legend"!important;
-        align-items:stretch!important;
-      }
-      .atlas-toolbar-right{align-items:flex-start}
-      .atlas-toolbar-right .atlas-public-actions,.atlas-toolbar-right .atlas-controls{justify-content:flex-start;width:100%}
-      .atlas-toolbar-legend{display:grid;grid-template-columns:1fr;gap:4px}
-    }
-  </style>
 </head>
 <body data-atlas-mode="view">
+<a class="atlas-skip" href="#atlas-heading">Saltar al Atlas</a>
 <header class="topbar public-topbar">
   <div class="shell topbar-inner">
     <a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a>
-    <nav class="nav">
-      <a data-nav href="../../">Home</a>
-      <a data-nav href="../../repoops/">RepoOps</a>
-      <a data-nav href="../../open-source/">Open source</a>
-      <a data-nav href="../">Atlas</a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="../../">Inicio</a>
+      <a href="../../repoops/">RepoOps</a>
+      <a href="../../open-source/">Open source</a>
+      <a class="active" aria-current="page" href="../">Atlas</a>
     </nav>
   </div>
 </header>
 <main class="atlas-page">
-  <section class="atlas-workspace">
+  <section class="atlas-workspace" aria-labelledby="atlas-heading">
     <header class="atlas-toolbar">
       <div class="atlas-toolbar-heading">
         <div class="atlas-kicker"><a href="../">BARANES / ATLAS</a></div>
         <div class="atlas-toolbar-title-row">
-          <h1>RepoOps Architecture</h1>
-          <span class="public-status target">TARGET ARCHITECTURE</span>
+          <h1 id="atlas-heading">Arquitectura de RepoOps</h1>
+          <span class="public-status target">DIRECCIÓN ADOPTADA</span>
         </div>
-        <p class="atlas-toolbar-summary">Governed path from feature intent and SDD state to a bounded engineering candidate, repository adoption and verification. Technical depth — not a claim that every component is deployed today.</p>
+        <p class="atlas-toolbar-summary">El cliente prepara el trabajo. RepoOps comprueba las condiciones, gobierna los efectos sobre Git y conserva un resultado consultable.</p>
       </div>
       <div class="atlas-toolbar-right">
         <div class="atlas-public-actions">
-          <a class="btn secondary compact" href="../../repoops/">← Back to RepoOps</a>
-          <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework ↗</a>
+          <a class="btn secondary compact" href="../history/repoops-2026-10/">Versión histórica · octubre 2026</a>
+          <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework →</a>
         </div>
-        <div class="atlas-controls">
-          <span class="atlas-mode-group"><button id="mode-view" type="button">View</button><button id="mode-design" type="button">Design</button></span>
-          <button id="save-layout" type="button">Save layout</button>
-          <button id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in">+</button><button id="fit" type="button">Fit</button>
+        <div class="atlas-controls" aria-label="Controles de lectura">
+          <button id="zoom-out" type="button" title="Alejar" aria-label="Alejar">−</button>
+          <button id="zoom-in" type="button" title="Acercar" aria-label="Acercar">+</button>
+          <button id="fit" type="button">Encajar</button>
+          <button id="toggle-text-view" type="button" aria-expanded="false" aria-controls="atlas-text-view">Leer en texto</button>
         </div>
       </div>
-      <div class="atlas-toolbar-legend" aria-label="Public status legend">
-        <div><span class="status-dot now"></span><b>Exists now</b><span>interactive public Atlas + implemented RepoOps mechanisms; not a unified deployed product</span></div>
-        <div><span class="status-dot oss"></span><b>Open source</b><span>SDD Framework lifecycle and contracts</span></div>
-        <div><span class="status-dot target"></span><b>Target architecture</b><span>the end-to-end RepoOps model below</span></div>
+      <div class="atlas-toolbar-legend" aria-label="Alcance de esta vista">
+        <div><span class="status-dot target"></span><b>Nuevo motor</b><span>en desarrollo; recorrido integrado por demostrar</span></div>
+        <div><span class="status-dot now"></span><b>Legado</b><span>mecanismos previos con evidencias de alcance propio</span></div>
+        <div><span class="status-dot oss"></span><b>SDD Framework</b><span>open source; referencia para la ruta inicial</span></div>
       </div>
     </header>
     <div class="atlas-canvas-wrap">
-      <svg id="repoops-atlas" viewBox="-168.83 89.02 2171.23 1016.83" aria-label="RepoOps public target architecture">
+      <svg id="repoops-atlas" viewBox="0 40 1810 1020" role="group" aria-label="Mapa de responsabilidades de RepoOps. Selecciona un nodo para consultar sus límites.">
         <defs>
           <marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
           <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
@@ -148,15 +80,27 @@
         <g id="handles"></g>
         <g id="identity"></g>
       </svg>
-      <div id="atlas-status" class="atlas-status">View · select a node · drag background to pan · use +/− to zoom</div>
-      <aside id="atlas-card" class="atlas-card" aria-live="polite"></aside>
+      <div id="atlas-status" class="atlas-status">Selecciona un nodo · arrastra el fondo para desplazar · +/− para ampliar</div>
+      <aside id="atlas-card" class="atlas-card" aria-live="polite" aria-label="Detalle del nodo"></aside>
     </div>
   </section>
-  <section class="atlas-disclosure-note">
-    <b>Public Atlas scope.</b> This view is deliberately scoped to product architecture and effect boundaries; low-value implementation detail is omitted. Execution roles are retained only where they explain the product model. SDD contracts are separately inspectable in the open-source framework.
+  <section id="atlas-text-view" class="atlas-text-view" hidden aria-label="Lectura del mapa en texto"></section>
+  <section class="atlas-disclosure-note" aria-label="Alcance y decisiones abiertas">
+    <div>
+      <h2>Primer MVP local</h2>
+      <p>Motor y repositorio canónico en el mismo host. Un commit recuperable es suficiente para el primer resultado; el push puede hacerlo el operador con Git. SDD es la ruta funcional inicial del producto.</p>
+    </div>
+    <div>
+      <h2>Frontera cliente–motor</h2>
+      <p>Architect, implementadores y revisores trabajan fuera del motor. Aportan material e informes; RepoOps comprueba su aplicabilidad y las condiciones de la operación. La aprobación humana se solicita cuando la política la exige.</p>
+    </div>
+    <div>
+      <h2>Decisiones abiertas</h2>
+      <p>La variante SDD, sus gates, la autoridad concreta del estado y el momento de incorporación al canónico siguen por concretar. Las conexiones muestran responsabilidades y circulación de material; no fijan ese orden ni una topología de servicios.</p>
+    </div>
   </section>
+  <noscript><p class="atlas-disclosure-note">Activa JavaScript para consultar el mapa y sus tarjetas. Los límites y el estado del primer MVP están descritos arriba.</p></noscript>
 </main>
-<script src="../../assets/site.js"></script>
 <script src="./repoops-public.js"></script>
 </body>
 </html>

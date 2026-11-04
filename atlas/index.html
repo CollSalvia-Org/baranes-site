@@ -1,7 +1,76 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Architecture Atlas — Baranes</title><meta content="Curated public technical architecture for Baranes, beginning with the interactive RepoOps target model." name="description"/><meta content="#071018" name="theme-color"/><link href="https://magronxo.github.io/baranes-site/atlas/" rel="canonical"/><meta content="Architecture Atlas — Baranes" property="og:title"/><meta content="Curated public technical architecture for Baranes, beginning with the interactive RepoOps target model." property="og:description"/><meta content="website" property="og:type"/><meta content="https://magronxo.github.io/baranes-site/atlas/" property="og:url"/><meta content="summary" name="twitter:card"/><meta content="Architecture Atlas — Baranes" name="twitter:title"/><meta content="Curated public technical architecture for Baranes, beginning with the interactive RepoOps target model." name="twitter:description"/><link href="../assets/baranes-symbol-teal.svg" rel="icon" type="image/svg+xml"/><link href="../assets/site.css" rel="stylesheet"/><link href="../assets/brand.css" rel="stylesheet"/></head><body>
-<header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav="" href="../">Home</a><a data-nav="" href="../repoops/">RepoOps</a><a data-nav="" href="../open-source/">Open source</a><a data-nav="" href="./">Atlas</a></nav></div></header>
-<main><section class="shell page-hero"><div class="eyebrow">Technical depth</div><h1>Baranes Architecture Atlas</h1><p>A technical view of Baranes for readers who want to inspect lifecycle, effect boundaries and evidence flow. Every view distinguishes current evidence, open-source code and target architecture.</p><div class="label-row"><span class="label target">Curated public projection</span><span class="label now">Interactive</span></div></section>
-<section class="section"><div class="shell"><div class="section-head"><div class="kicker">Available now</div><h2>RepoOps Architecture</h2><p>The public Atlas starts with RepoOps Architecture: lifecycle, persistent artifacts, bounded candidate boundary, governed Git adoption, execution roles, governance primitives, identity trace and inspectable cognitive cards.</p></div><div class="proof-row"><div class="proof"><h3>Interactive RepoOps Flow</h3><p>The diagram is primarily a <b>target architecture</b> cognitive model. SDD lifecycle contracts are separately open source; some RepoOps mechanisms are implemented and evidenced separately, but the map must not be read as a production-deployment claim.</p><div class="meta"><span class="pill">target architecture</span><span class="pill">SDD open source</span><span class="pill">clickable nodes</span><span class="pill">pan / zoom / local layout</span></div><div class="cta-row"><a class="btn primary" href="./repoops/">Explore RepoOps Architecture →</a><a class="btn secondary" href="../repoops/">RepoOps overview</a></div></div><div class="callout"><div class="kicker">Public boundary</div><h3>Technical depth with a clear scope.</h3><p>The public Atlas is deliberately scoped to product architecture, effect boundaries and evidence flow.</p></div></div></div></section>
-<section class="section" id="authority-boundaries"><div class="shell"><div class="section-head"><div class="kicker">Authority boundaries</div><h2>Three distinctions behind governed effects.</h2><p>AI systems can execute actions, observe outcomes, verify evidence and record facts. The difficult part is keeping those different acts from silently becoming the same authority.</p><p>This short series explains three boundaries in Baranes: the difference between finishing an action and establishing its effect, who owns that effect determination, and what strong evidence can — and cannot — prove.</p></div><div class="series-index"><article class="series-card"><div class="num">01 · DONE VS TRUE</div><h3>Done Is Not the Same as True</h3><p>A successful execution result and the durable truth of its effect are related, but they are not automatically the same proposition.</p><a href="./done-vs-true/">Read 01 →</a></article><article class="series-card"><div class="num">02 · WHO OWNS EFFECT TRUTH?</div><h3>Who Owns Effect Truth?</h3><p>Baranes leaves authoritative effect determination with the semantic domain whose state was affected — without requiring one service per domain.</p><a href="./effect-truth/">Read 02 →</a></article><article class="series-card"><div class="num">03 · WHAT EVIDENCE CAN PROVE</div><h3>What Evidence Can — and Cannot — Prove</h3><p>Hashes, signatures, provenance and attestations can strengthen evidence without turning the evidence layer into a truth authority.</p><a href="./evidence-and-truth/">Read 03 →</a></article></div><div class="series-takeaway"><span>EXECUTION REPORTS WHAT IT DID.</span><span>THE AFFECTED DOMAIN DETERMINES EFFECT TRUTH.</span><span>EVIDENCE SUPPORTS THAT DETERMINATION WITHOUT OWNING IT.</span></div></div></section><section class="section"><div class="shell"><div class="section-head"><div class="kicker">Technical depth</div><h2>Curated by explanatory value.</h2><p>Additional views appear only when they clarify the public product architecture without turning every source diagram into a product claim.</p></div></div></section></main>
-<footer class="footer"><div class="shell footer-inner"><span>BARANES · Architecture Atlas</span><a href="../repoops/">RepoOps</a></div></footer><script src="../assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Atlas — El modelo y sus límites · BARANES</title>
+  <meta name="description" content="El core mínimo de BARANES, el mapa de RepoOps y tres lecturas sobre ejecución, efectos y evidencia. Dirección adoptada y límites de lo demostrado.">
+  <meta name="theme-color" content="#0b1827">
+  <link rel="canonical" href="https://baranes.ai/atlas/">
+  <meta property="og:title" content="Atlas — El modelo y sus límites · BARANES">
+  <meta property="og:description" content="Peticiones, admisión, resultados y recuperación aplicable. Explora el mapa de RepoOps y los principios sobre efectos y evidencia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baranes.ai/atlas/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Atlas — BARANES">
+  <meta name="twitter:description" content="El modelo técnico, sus efectos y sus límites.">
+  <link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg">
+  <link rel="preload" href="../assets/fonts/sora-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="../assets/resources-v2.css">
+</head>
+<body class="resources-v2">
+<a class="res-skip" href="#main">Saltar al contenido</a>
+<header class="topbar"><div class="shell topbar-inner">
+  <a class="brand" href="../" aria-label="BARANES, inicio"><img src="../assets/baranes-symbol-teal.svg" width="38" height="38" alt=""><span>BARANES</span></a>
+  <nav class="nav" aria-label="Principal"><a data-nav href="../">Inicio</a><a data-nav href="../repoops/">RepoOps</a><a data-nav href="../open-source/">Open source</a><a data-nav href="./" class="active" aria-current="page">Atlas</a></nav>
+</div></header>
+<main id="main" tabindex="-1">
+  <section class="shell res-hero" aria-labelledby="atlas-title">
+    <p class="eyebrow">Profundidad técnica</p>
+    <h1 id="atlas-title">El modelo,<br><span>sus efectos y sus límites.</span></h1>
+    <p class="res-lead">BARANES permite distinguir qué se pide, qué se admite y qué ha ocurrido. Este Atlas explica sus responsabilidades y cómo se aplican al primer dominio: RepoOps.</p>
+    <div class="res-labels"><span>Core mínimo vigente</span><span>Nuevo motor en desarrollo</span></div>
+  </section>
+
+  <section class="section res-deep" id="core" aria-labelledby="core-title"><div class="shell">
+    <div class="section-head"><p class="kicker">Reglas compartidas</p><h2 id="core-title">Cuatro responsabilidades.<br>Efectos con dueño.</h2><p>Cada dominio define y comprueba los efectos sobre su sistema. Estas responsabilidades pueden vivir juntas en un mismo protocolo o registro.</p></div>
+    <dl class="res-core">
+      <div><dt>Petición</dt><dd>Qué operación se solicita, sobre qué y con qué material y límites.</dd></div>
+      <div><dt>Admisión</dt><dd>Qué permisos y condiciones deben cumplirse antes del efecto.</dd></div>
+      <div><dt>Resultado</dt><dd>Qué se admitió, qué ocurrió y qué se ha comprobado.</dd></div>
+      <div><dt>Recuperación, si aplica</dt><dd>Si el efecto queda incierto, consultar y reconciliar antes de repetir.</dd></div>
+    </dl>
+    <p class="res-caption">No prescriben cuatro servicios, cuatro objetos ni un almacén universal de trabajos. Cada operación incorpora las condiciones que exige su efecto.</p>
+  </div></section>
+
+  <section class="section" aria-labelledby="map-title"><div class="shell">
+    <div class="res-map-grid">
+      <div class="res-map-main"><p class="kicker">Mapa de RepoOps</p><h2 id="map-title">Del cliente externo<br>al resultado consultable.</h2><p>Architect, implementadores y revisores preparan el trabajo fuera del motor. RepoOps comprueba las condiciones de la operación, gobierna sus efectos sobre Git y conserva el resultado.</p>
+        <ul class="res-map-points"><li>SDD como referencia para la ruta funcional inicial.</li><li>Material y candidato identificados para las comprobaciones.</li><li>Consulta y reconciliación cuando el efecto queda incierto.</li></ul>
+        <div class="cta-row"><a class="btn primary" href="./repoops/">Abrir el mapa de RepoOps <span aria-hidden="true">→</span></a><a class="btn secondary" href="../repoops/">Qué resuelve RepoOps</a></div>
+        <p class="res-caption">Selecciona un nodo para leer su alcance. El mapa permite desplazar y ampliar la vista; también ofrece lectura textual.</p>
+      </div>
+      <aside class="res-map-scope" aria-labelledby="scope-title"><p class="res-small-label">Alcance de esta vista</p><h3 id="scope-title">Una dirección adoptada.<br>Una integración por demostrar.</h3><p>El primer MVP es local, con un commit recuperable y push manual del operador.</p><p>Los mecanismos del legado tienen pruebas de alcance propio. El nuevo recorrido integrado todavía debe demostrarse; el diagrama no acredita su implementación.</p><p class="res-scope-open">La variante SDD, la autoridad concreta del estado y el momento de incorporación al canónico siguen en definición.</p></aside>
+    </div>
+  </div></section>
+
+  <section class="section res-deep" id="authority-boundaries" aria-labelledby="articles-title"><div class="shell">
+    <div class="section-head"><p class="kicker">Tres lecturas</p><h2 id="articles-title">Ejecución, efecto y evidencia.</h2><p>Terminar una tarea, determinar qué cambió y aportar evidencia son actos relacionados. Conviene saber qué establece cada uno.</p></div>
+    <div class="series-index">
+      <article class="series-card"><p class="num">01 · EJECUCIÓN Y EFECTO</p><h3>«Hecho» no demuestra el efecto</h3><p>Un proceso puede terminar, fallar o agotar el tiempo sin resolver por sí solo qué ocurrió en el sistema afectado.</p><a href="./done-vs-true/">Leer el artículo <span aria-hidden="true">→</span></a></article>
+      <article class="series-card"><p class="num">02 · RESPONSABILIDAD DEL DOMINIO</p><h3>Quién determina qué cambió</h3><p>El dominio afectado aplica las reglas de su efecto. Guardar o mostrar una afirmación no le transfiere esa responsabilidad.</p><a href="./effect-truth/">Leer el artículo <span aria-hidden="true">→</span></a></article>
+      <article class="series-card"><p class="num">03 · LÍMITES DE LA EVIDENCIA</p><h3>Qué puede demostrar la evidencia</h3><p>Hashes, firmas y procedencia respaldan propiedades concretas. El alcance de la comprobación sigue siendo necesario.</p><a href="./evidence-and-truth/">Leer el artículo <span aria-hidden="true">→</span></a></article>
+    </div>
+    <div class="res-takeaway"><p>El ejecutor informa de su ejecución.</p><p>El dominio determina el efecto con la evidencia pertinente.</p><p>Una aprobación adicional se exige cuando lo requiere la política de la operación.</p></div>
+  </div></section>
+
+  <section class="section" aria-labelledby="history-title"><div class="shell">
+    <div class="res-history"><div><p class="res-small-label">Histórico · octubre de 2026</p><h2 id="history-title">La arquitectura anterior, conservada.</h2><p>El visor anterior permite consultar la evolución del modelo. Sus contratos, roles y conexiones se conservan como historia, con su contexto y sus límites.</p></div><a class="res-text-link" href="./history/repoops-2026-10/">Consultar la versión histórica <span aria-hidden="true">→</span></a></div>
+  </div></section>
+</main>
+<footer class="footer"><div class="shell footer-inner"><span>BARANES · Atlas</span><nav aria-label="Pie"><a href="../repoops/">RepoOps</a><a href="../open-source/">Open source</a></nav></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -9,3 +9,109 @@ body{overflow-x:hidden}.public-topbar{position:relative}.atlas-page{min-height:1
 body[data-atlas-mode="view"] #handles{display:none}body[data-atlas-mode="view"] .node,body[data-atlas-mode="view"] .primitive{cursor:pointer}body[data-atlas-mode="design"] .node,body[data-atlas-mode="design"] .primitive{cursor:move}
 @media(max-width:900px){.atlas-public-intro{align-items:flex-start;flex-direction:column}.atlas-public-actions{width:100%}.atlas-workspace{height:760px}.atlas-toolbar{align-items:flex-start;flex-direction:column}.atlas-controls{width:100%}.atlas-card{top:auto;left:8px;right:8px;bottom:8px;width:auto;max-height:58%}.status-legend{gap:10px}.status-legend>div{width:100%}.atlas-page{padding-bottom:1px}}
 @media(max-width:560px){.atlas-public-intro,.status-legend,.atlas-disclosure-note{width:calc(100% - 24px)}.atlas-workspace{min-height:720px}.atlas-toolbar-title{font-size:10px}}
+
+/* Read-only adaptation: retain the Atlas canvas and cards, with a text reading mode. */
+.atlas-workspace{height:max(780px,calc(100vh - 78px));min-height:780px;border-top:0;grid-template-rows:auto minmax(480px,1fr)}
+.atlas-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"heading right" "legend legend";align-items:center;gap:16px 24px;padding:20px 24px 14px}
+.atlas-toolbar-heading{grid-area:heading;min-width:0}
+.atlas-kicker{font-size:10px;letter-spacing:.12em;color:#a9cbe9}
+.atlas-kicker a{color:inherit;text-decoration:none}
+.atlas-toolbar-title-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.atlas-toolbar-title-row h1{font-size:clamp(25px,2.7vw,38px);line-height:1.1;letter-spacing:-.035em;margin:0}
+.public-status{font-size:9px;line-height:1.3;letter-spacing:.08em;padding:6px 9px}
+.atlas-toolbar-summary{font-size:13px;line-height:1.6;color:#b3c4d2;max-width:810px;margin:10px 0 0}
+.atlas-toolbar-right{grid-area:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.atlas-public-actions{justify-content:flex-end}
+.atlas-toolbar .btn.compact{font-size:11px;line-height:1.5;padding:9px 12px}
+.atlas-controls{justify-content:flex-end}
+.atlas-controls button{min-height:40px;min-width:40px;font-size:12px;padding:8px 12px}
+#toggle-text-view{border-color:#8574c7;color:#e8e1ff}
+#toggle-text-view[aria-expanded="true"]{background:#342a55}
+.atlas-toolbar-legend{grid-area:legend;display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid #334155;padding-top:12px;color:#b2c1ce;font-size:11px;line-height:1.5}
+.atlas-toolbar-legend>div{display:flex;gap:6px;align-items:center;min-width:0}
+.atlas-toolbar-legend b{color:#eef4fa;white-space:nowrap;font-size:11px}
+.atlas-toolbar-legend .status-dot{flex:0 0 7px}
+.atlas-status{font-size:11px;line-height:1.4;max-width:calc(100% - 28px)}
+.atlas-disclosure-note{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1400px;width:calc(100% - 48px);font-size:13px;line-height:1.7;padding:22px 24px;margin:24px auto 40px;color:#b3c3d1}
+.atlas-disclosure-note h2{font-size:15px;line-height:1.4;color:#eef4fa;margin:0 0 8px}
+.atlas-disclosure-note p{margin:0}
+.atlas-card{width:410px;padding:20px}
+.atlas-card h2{font-size:23px;line-height:1.25;margin:6px 0}
+.card-kind{font-size:10px;letter-spacing:.07em}
+.card-tech{font-size:11px;line-height:1.5}
+.card-status{font-size:12px;line-height:1.6}
+.card-summary{font-size:14px;line-height:1.7}
+.card-close{min-width:40px;min-height:40px;font-size:20px}
+.card-cap{padding:10px}
+.card-cap b{font-size:9px;line-height:1.5;letter-spacing:.05em}
+.card-cap span{font-size:12px;line-height:1.5}
+.card-section h3{font-size:10px;line-height:1.5}
+.card-section li{font-size:12px;line-height:1.65;margin:5px 0}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible .box{stroke:#fff;stroke-width:4}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #b6a7ff;outline-offset:4px}
+.atlas-text-view{width:min(1320px,calc(100% - 48px));margin:24px auto;display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.atlas-text-view[hidden]{display:none}
+.atlas-text-view h2,.atlas-text-view>p{grid-column:1/-1;margin:0;color:#eaf1f8}
+.atlas-text-view h2{font-size:24px}
+.atlas-text-view details,.atlas-text-view article,.atlas-text-view .text-node{border:1px solid #334155;border-radius:12px;background:#101c29;padding:16px;min-width:0;color:#becddd;font-size:14px;line-height:1.65}
+.atlas-text-view summary{cursor:pointer;color:#edf3f8;font-weight:750;line-height:1.5}
+.atlas-text-view p{margin:10px 0}
+.atlas-text-view li{margin:5px 0}
+.atlas-text-view button{font:inherit;text-align:left;background:#172438;color:#edf3f8;border:1px solid #52627b;border-radius:8px;padding:12px;cursor:pointer}
+.atlas-text-view h3{font-size:16px;line-height:1.4;margin:0 0 10px;color:#edf3f8}
+.atlas-skip{position:absolute;top:-100px;left:16px;z-index:50;background:#172438;color:#fff;padding:12px;border-radius:8px}
+.atlas-skip:focus{top:12px}
+@media(max-width:1150px){
+  .atlas-toolbar{grid-template-columns:1fr;grid-template-areas:"heading" "right" "legend";gap:14px}
+  .atlas-toolbar-right{align-items:flex-start;flex-direction:row;flex-wrap:wrap;justify-content:space-between}
+  .atlas-toolbar-right .atlas-public-actions,.atlas-toolbar-right .atlas-controls{justify-content:flex-start}
+  .atlas-text-view{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .atlas-workspace{height:auto;min-height:0;grid-template-rows:auto 560px}
+  .atlas-toolbar{padding:20px 16px 16px}
+  .atlas-toolbar-summary{font-size:14px}
+  .atlas-toolbar-right{flex-direction:column;align-items:stretch;gap:14px}
+  .atlas-controls button{min-height:44px}
+  .atlas-toolbar-legend{display:grid;gap:9px}
+  .atlas-toolbar-legend>div{display:block;font-size:12px;line-height:1.6}
+  .atlas-toolbar-legend b{font-size:12px;margin:0 5px}
+  .atlas-toolbar-legend .status-dot{width:7px;height:7px;vertical-align:middle}
+  .atlas-card{top:8px;left:8px;right:8px;bottom:auto;width:auto;max-height:calc(100% - 16px)}
+  .atlas-status{font-size:10px;left:10px;bottom:10px;max-width:calc(100% - 20px)}
+  .atlas-disclosure-note{grid-template-columns:1fr;width:calc(100% - 24px);padding:20px;gap:22px;font-size:14px}
+  .atlas-text-view{width:calc(100% - 24px);grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+/* Text mode keeps the same inspector available without reserving canvas space. */
+#repoops-atlas{height:calc(100% - 52px)}
+.atlas-controls [hidden]{display:none!important}
+body.atlas-reading-text .atlas-workspace{height:auto;min-height:0;grid-template-rows:auto 0}
+body.atlas-reading-text .atlas-canvas-wrap{height:0;overflow:visible;z-index:12}
+body.atlas-reading-text #repoops-atlas,body.atlas-reading-text .atlas-status{display:none}
+body.atlas-reading-text .atlas-card{position:fixed;top:50%;left:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);width:min(460px,calc(100vw - 24px));max-height:calc(100dvh - 32px);z-index:40}
+
+/* The textual map mirrors the three diagram lanes. */
+.atlas-text-view{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:20px}
+.atlas-text-group{display:flex;flex-direction:column;gap:12px;min-width:0}
+.atlas-text-view .atlas-text-group>h2{font-size:18px;line-height:1.4;margin:0 0 4px;color:#eaf1f8}
+.atlas-text-view button.atlas-text-node{display:block;width:100%;min-width:0;min-height:56px;padding:16px;text-align:left;white-space:normal;background:#101c29;border:1px solid #3c5067;border-radius:12px;color:#bacbdb;line-height:1.65}
+.atlas-text-node strong{display:block;color:#f1f6fb;font-size:15px;line-height:1.4;margin:0 0 7px}
+.atlas-text-node span{display:block;font-size:13px;font-weight:400;line-height:1.7}
+.atlas-text-view button.atlas-text-node:hover{background:#142439;border-color:#7594b5}
+.atlas-text-view button.atlas-text-node[aria-expanded="true"]{border-color:#b6a7ff;background:#282340}
+#repoops-atlas .title{font-size:16px}
+#repoops-atlas .kicker{font-size:9px;letter-spacing:.7px}
+#repoops-atlas .note{font-size:11px}
+#repoops-atlas .zone-title{font-size:13px;letter-spacing:1px}
+#repoops-atlas .zone-subtitle{font-size:11px;opacity:1;fill:#b2c1d1}
+#repoops-atlas .edge-label{font-size:11px}
+.atlas-card a{color:#b9e9e3;text-decoration:underline;text-underline-offset:3px;font-size:13px;line-height:1.6}
+.atlas-card a:hover{color:#e8fffb}
+@media(max-width:760px){
+  .atlas-text-view{grid-template-columns:1fr;gap:28px}
+  .atlas-text-view .atlas-text-group>h2{font-size:19px}
+  .atlas-text-node span{font-size:14px}
+}

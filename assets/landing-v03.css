@@ -513,3 +513,70 @@ body.home-v03 .v03-repo-boundary__mark{color:var(--violet)}
   body.home-v03 .v03-item__d{display:none}
   body.home-v03 .v03-item .v03-status{font-size:10.5px;white-space:normal;line-height:1.4}
 }
+
+/* RepoOps refactor: a visible client–engine boundary and SDD reference cycle. */
+body.home-v03 .v03-route{margin-top:30px;border:1px solid var(--line);border-radius:16px;background:var(--s1);overflow:hidden}
+body.home-v03 .v03-route__caption{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding:20px 24px;border-bottom:1px solid var(--line-soft)}
+body.home-v03 .v03-route__caption h3{font-size:17px;line-height:1.45;letter-spacing:-.02em;font-weight:650}
+body.home-v03 .v03-route__caption .v03-status{font-size:11px}
+body.home-v03 .v03-route__sdd{padding:20px 24px;background:linear-gradient(110deg,rgba(174,155,251,.07),transparent);border-bottom:1px solid var(--line-soft)}
+body.home-v03 .v03-route__sdd-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+body.home-v03 .v03-route__sdd-head strong{font-size:13px;font-weight:650;color:var(--violet)}
+body.home-v03 .v03-route__sdd-head .v03-status{font-size:11px}
+body.home-v03 .v03-route__phases{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+body.home-v03 .v03-route__phases li{border:1px solid rgba(174,155,251,.32);border-radius:6px;padding:6px 9px;background:rgba(174,155,251,.04);color:var(--text-2);font:10.5px/1.3 var(--mono);letter-spacing:.02em}
+body.home-v03 .v03-route__sdd > p{margin-top:12px;color:var(--text-3);font-size:12px;line-height:1.65;max-width:95ch}
+body.home-v03 .v03-route__flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding:24px}
+body.home-v03 .v03-route__stage{position:relative;display:flex;flex-direction:column;min-width:0;padding:20px;border:1px solid var(--line-strong);border-radius:12px;background:rgba(7,18,29,.3)}
+body.home-v03 .v03-route__stage--client{border-top:2px solid var(--violet)}
+body.home-v03 .v03-route__stage--engine{border-color:rgba(57,211,193,.55);border-top:2px solid var(--teal);background:linear-gradient(160deg,rgba(57,211,193,.055),rgba(7,18,29,.3))}
+body.home-v03 .v03-route__stage--result{border-top:2px solid var(--sky)}
+body.home-v03 .v03-route__kicker{font-size:11px;line-height:1.5;font-weight:650;letter-spacing:.04em;color:var(--text-3)}
+body.home-v03 .v03-route__stage--client .v03-route__kicker{color:var(--violet)}
+body.home-v03 .v03-route__stage--engine .v03-route__kicker{color:var(--teal)}
+body.home-v03 .v03-route__stage--result .v03-route__kicker{color:var(--sky)}
+body.home-v03 .v03-route__stage h4{font-size:20px;line-height:1.3;letter-spacing:-.025em;margin:11px 0 10px;font-weight:650}
+body.home-v03 .v03-route__stage > p:not(.v03-route__kicker):not(.v03-route__handoff){font-size:13px;line-height:1.7;color:var(--text-2)}
+body.home-v03 .v03-route__items{display:grid;gap:7px;margin-top:18px;font-size:12px;line-height:1.55;color:var(--text-2)}
+body.home-v03 .v03-route__items li{position:relative;padding-left:13px}
+body.home-v03 .v03-route__items li::before{content:'';position:absolute;left:0;top:.66em;width:5px;height:1px;background:var(--text-3)}
+body.home-v03 .v03-route__handoff{margin-top:auto;padding-top:20px;color:var(--text-3);font-size:11px;line-height:1.6}
+body.home-v03 .v03-route__arrow{position:absolute;right:-30px;top:48%;width:26px;height:26px;fill:none;stroke:var(--teal);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+body.home-v03 .v03-route__recovery{display:flex;align-items:center;gap:15px;margin:0 24px;padding:16px 18px;border:1px dashed rgba(174,155,251,.5);border-radius:10px;background:rgba(174,155,251,.04)}
+body.home-v03 .v03-route__recovery svg{width:32px;height:26px;flex:none;fill:none;stroke:var(--violet);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+body.home-v03 .v03-route__recovery strong{display:block;font-size:13px;font-weight:600;line-height:1.65;color:var(--text)}
+body.home-v03 .v03-route__recovery span{display:block;font-size:12px;line-height:1.65;margin-top:3px;color:var(--text-3)}
+body.home-v03 .v03-route__policy{padding:17px 24px 20px;color:var(--text-3);font-size:11.5px;line-height:1.7}
+body.home-v03 .v03-repo-next{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+body.home-v03 .v03-repo-next > p{font-size:13px;line-height:1.75;color:var(--text-2);max-width:72ch}
+body.home-v03 .v03-repo-next strong{color:var(--text);font-weight:600}
+body.home-v03 .v03-repo-next > div{display:flex;flex-direction:column;gap:9px;flex-shrink:0}
+body.home-v03 .v03-repo-next .v03-link{font-size:12px}
+@media(max-width:1024px){
+  body.home-v03 .v03-route__flow{gap:24px;padding:20px}
+  body.home-v03 .v03-route__stage{padding:17px}
+  body.home-v03 .v03-route__stage h4{font-size:18px}
+  body.home-v03 .v03-route__arrow{width:20px;height:20px;right:-23px}
+}
+@media(max-width:760px){
+  body.home-v03 .v03-route__flow{grid-template-columns:1fr;gap:28px;padding:20px}
+  body.home-v03 .v03-route__stage{padding:20px}
+  body.home-v03 .v03-route__stage h4{font-size:21px}
+  body.home-v03 .v03-route__arrow{right:auto;left:calc(50% - 11px);top:auto;bottom:-25px;width:22px;height:22px;transform:rotate(90deg)}
+  body.home-v03 .v03-route__caption,body.home-v03 .v03-route__sdd{padding:18px 20px}
+  body.home-v03 .v03-route__recovery{margin:0 20px;padding:16px;align-items:flex-start}
+  body.home-v03 .v03-route__recovery svg{margin-top:3px;width:26px}
+  body.home-v03 .v03-route__policy{padding:17px 20px 20px}
+  body.home-v03 .v03-repo-next{align-items:flex-start;flex-direction:column;gap:17px}
+  body.home-v03 .v03-repo-next > div{flex-direction:row;gap:15px 24px;flex-wrap:wrap}
+}
+@media(max-width:460px){
+  body.home-v03 .v03-route__caption,body.home-v03 .v03-route__sdd{padding:17px 16px}
+  body.home-v03 .v03-route__caption h3{font-size:16px}
+  body.home-v03 .v03-route__flow{padding:18px 16px}
+  body.home-v03 .v03-route__stage{padding:18px}
+  body.home-v03 .v03-route__recovery{margin-inline:16px;gap:11px;padding:14px}
+  body.home-v03 .v03-route__recovery strong{font-size:12px}
+  body.home-v03 .v03-route__recovery span{font-size:11.5px}
+  body.home-v03 .v03-route__policy{padding-inline:16px}
+}
