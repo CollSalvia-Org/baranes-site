@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RepoOps · vista general — BARANES Atlas</title>
+  <meta name="description" content="Dirección adoptada de RepoOps: clientes externos, operaciones admitidas, candidato fijado y resultado consultable. Primer MVP local en desarrollo.">
+  <meta name="theme-color" content="#071018">
+  <link rel="canonical" href="https://baranes.ai/atlas/repoops/overview/">
+  <meta property="og:title" content="RepoOps · vista general — BARANES Atlas">
+  <meta property="og:description" content="Clientes externos, operaciones admitidas y resultado consultable. Dirección de producto adoptada; integración del nuevo motor por demostrar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baranes.ai/atlas/repoops/overview/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RepoOps · vista general — BARANES Atlas">
+  <meta name="twitter:description" content="Dirección adoptada de RepoOps y límites del primer MVP local.">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/baranes-symbol-teal.svg">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/brand.css">
+  <link rel="stylesheet" href="./repoops-public.css">
+</head>
+<body data-atlas-mode="view">
+<a class="atlas-skip" href="#atlas-heading">Saltar al Atlas</a>
+<header class="topbar public-topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="../../../"><span class="brand-mark">B</span><span>BARANES</span></a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="../../../">Inicio</a>
+      <a href="../../../repoops/">RepoOps</a>
+      <a href="../../../open-source/">Open source</a>
+      <a class="active" aria-current="page" href="../../">Atlas</a>
+    </nav>
+  </div>
+</header>
+<main class="atlas-page">
+  <section class="atlas-workspace" aria-labelledby="atlas-heading">
+    <header class="atlas-toolbar">
+      <div class="atlas-toolbar-heading">
+        <div class="atlas-kicker"><a href="../../">BARANES / ATLAS</a></div>
+        <div class="atlas-toolbar-title-row">
+          <h1 id="atlas-heading">RepoOps · vista general</h1>
+          <span class="public-status target">DIRECCIÓN ADOPTADA</span>
+        </div>
+        <p class="atlas-toolbar-summary">El cliente prepara el trabajo. RepoOps comprueba las condiciones, gobierna los efectos sobre Git y conserva un resultado consultable.</p>
+      </div>
+      <div class="atlas-toolbar-right">
+        <nav class="atlas-public-actions" aria-label="Vistas de RepoOps">
+          <a class="btn secondary compact" href="../">Vista técnica</a>
+          <a class="btn primary compact" href="./" aria-current="page">Vista general</a>
+        </nav>
+        <div class="atlas-public-actions">
+          <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework →</a>
+        </div>
+        <div class="atlas-controls" aria-label="Controles de lectura">
+          <button id="zoom-out" type="button" title="Alejar" aria-label="Alejar">−</button>
+          <button id="zoom-in" type="button" title="Acercar" aria-label="Acercar">+</button>
+          <button id="fit" type="button">Encajar</button>
+          <button id="toggle-text-view" type="button" aria-expanded="false" aria-controls="atlas-text-view">Leer en texto</button>
+        </div>
+      </div>
+      <div class="atlas-toolbar-legend" aria-label="Alcance de esta vista">
+        <div><span class="status-dot target"></span><b>Nuevo motor</b><span>en desarrollo; recorrido integrado por demostrar</span></div>
+        <div><span class="status-dot now"></span><b>Legado</b><span>mecanismos previos con evidencias de alcance propio</span></div>
+        <div><span class="status-dot oss"></span><b>SDD Framework</b><span>open source; referencia para la ruta inicial</span></div>
+      </div>
+    </header>
+    <div class="atlas-canvas-wrap">
+      <svg id="repoops-atlas" viewBox="0 40 1810 1020" role="group" aria-label="Mapa de responsabilidades de RepoOps. Selecciona un nodo para consultar sus límites.">
+        <defs>
+          <marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+          <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+          <marker id="a-artifact" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+          <marker id="a-engine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker>
+          <marker id="a-git" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+          <marker id="a-return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f472b6"/></marker>
+          <filter id="atlas-shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".28"/></filter>
+        </defs>
+        <g id="zones"></g>
+        <g id="edges"></g>
+        <g id="nodes"></g>
+        <g id="primitives"></g>
+        <g id="labels"></g>
+        <g id="handles"></g>
+        <g id="identity"></g>
+      </svg>
+      <div id="atlas-status" class="atlas-status">Selecciona un nodo · arrastra el fondo para desplazar · +/− para ampliar</div>
+      <aside id="atlas-card" class="atlas-card" aria-live="polite" aria-label="Detalle del nodo"></aside>
+    </div>
+  </section>
+  <section id="atlas-text-view" class="atlas-text-view" hidden aria-label="Lectura del mapa en texto"></section>
+  <section class="atlas-disclosure-note" aria-label="Alcance y decisiones abiertas">
+    <div>
+      <h2>Primer MVP local</h2>
+      <p>Motor y repositorio canónico en el mismo host. Un commit recuperable es suficiente para el primer resultado; el push puede hacerlo el operador con Git. SDD es la ruta funcional inicial del producto.</p>
+    </div>
+    <div>
+      <h2>Frontera cliente–motor</h2>
+      <p>Architect, implementadores y revisores trabajan fuera del motor. Aportan material e informes; RepoOps comprueba su aplicabilidad y las condiciones de la operación. La aprobación humana se solicita cuando la política la exige.</p>
+    </div>
+    <div>
+      <h2>Decisiones abiertas</h2>
+      <p>La variante SDD, sus gates, la autoridad concreta del estado y el momento de incorporación al canónico siguen por concretar. Las conexiones muestran responsabilidades y circulación de material; no fijan ese orden ni una topología de servicios.</p>
+    </div>
+  </section>
+  <noscript><p class="atlas-disclosure-note">Activa JavaScript para consultar el mapa y sus tarjetas. Los límites y el estado del primer MVP están descritos arriba.</p></noscript>
+</main>
+<script src="./repoops-public.js"></script>
+</body>
+</html>

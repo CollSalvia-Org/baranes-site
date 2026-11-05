@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Arquitectura de RepoOps — BARANES Atlas</title>
-  <meta name="description" content="Dirección adoptada de RepoOps: clientes externos, operaciones admitidas, candidato fijado y resultado consultable. Primer MVP local en desarrollo.">
+  <title>RepoOps · vista técnica — BARANES Atlas</title>
+  <meta name="description" content="Arquitectura potencial de RepoOps: ciclo SDD, artefactos, cliente cognitivo externo y operaciones del motor, con decisiones todavía abiertas.">
   <meta name="theme-color" content="#071018">
   <link rel="canonical" href="https://baranes.ai/atlas/repoops/">
-  <meta property="og:title" content="Arquitectura de RepoOps — BARANES Atlas">
-  <meta property="og:description" content="Clientes externos, operaciones admitidas y resultado consultable. Dirección de producto adoptada; integración del nuevo motor por demostrar.">
+  <meta property="og:title" content="RepoOps · vista técnica — BARANES Atlas">
+  <meta property="og:description" content="Ciclo SDD, artefactos y operaciones conservados. Cognición fuera del motor; SEED e INTAKE opcionales. Estado y momento del efecto por concretar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://baranes.ai/atlas/repoops/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arquitectura de RepoOps — BARANES Atlas">
-  <meta name="twitter:description" content="Dirección adoptada de RepoOps y límites del primer MVP local.">
+  <meta name="twitter:title" content="RepoOps · vista técnica — BARANES Atlas">
+  <meta name="twitter:description" content="Arquitectura potencial de RepoOps: cliente externo, ciclo SDD, artefactos y motor de operaciones.">
   <link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/brand.css">
   <link rel="stylesheet" href="./repoops-public.css">
 </head>
-<body data-atlas-mode="view">
+<body class="atlas-detailed" data-atlas-mode="view">
 <a class="atlas-skip" href="#atlas-heading">Saltar al Atlas</a>
 <header class="topbar public-topbar">
   <div class="shell topbar-inner">
@@ -38,14 +38,17 @@
       <div class="atlas-toolbar-heading">
         <div class="atlas-kicker"><a href="../">BARANES / ATLAS</a></div>
         <div class="atlas-toolbar-title-row">
-          <h1 id="atlas-heading">Arquitectura de RepoOps</h1>
-          <span class="public-status target">DIRECCIÓN ADOPTADA</span>
+          <h1 id="atlas-heading">RepoOps · vista técnica</h1>
+          <span class="public-status target">ARQUITECTURA POTENCIAL</span>
         </div>
-        <p class="atlas-toolbar-summary">El cliente prepara el trabajo. RepoOps comprueba las condiciones, gobierna los efectos sobre Git y conserva un resultado consultable.</p>
+        <p class="atlas-toolbar-summary">Ciclo, artefactos y operaciones de la arquitectura potencial de RepoOps, con la cognición en el cliente externo. La autoridad del estado y el momento del efecto siguen en definición.</p>
       </div>
       <div class="atlas-toolbar-right">
+        <nav class="atlas-view-switch atlas-public-actions" aria-label="Vistas de RepoOps">
+          <a class="btn primary compact" href="./" aria-current="page">Vista técnica</a>
+          <a class="btn secondary compact" href="./overview/">Vista general</a>
+        </nav>
         <div class="atlas-public-actions">
-          <a class="btn secondary compact" href="../history/repoops-2026-10/">Versión histórica · octubre 2026</a>
           <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework →</a>
         </div>
         <div class="atlas-controls" aria-label="Controles de lectura">
@@ -55,14 +58,14 @@
           <button id="toggle-text-view" type="button" aria-expanded="false" aria-controls="atlas-text-view">Leer en texto</button>
         </div>
       </div>
-      <div class="atlas-toolbar-legend" aria-label="Alcance de esta vista">
-        <div><span class="status-dot target"></span><b>Nuevo motor</b><span>en desarrollo; recorrido integrado por demostrar</span></div>
-        <div><span class="status-dot now"></span><b>Legado</b><span>mecanismos previos con evidencias de alcance propio</span></div>
-        <div><span class="status-dot oss"></span><b>SDD Framework</b><span>open source; referencia para la ruta inicial</span></div>
+      <div class="atlas-toolbar-legend" aria-label="Cómo leer el mapa técnico">
+        <div><span class="status-dot client"></span><b>Cliente externo</b><span>prepara contexto, cambios y revisiones</span></div>
+        <div><span class="status-dot now"></span><b>Motor RepoOps</b><span>admite, comprueba y gobierna el efecto</span></div>
+        <div><span class="status-dot optional"></span><b>Opcional / por concretar</b><span>sin convertirlo en un requisito nuevo</span></div>
       </div>
     </header>
     <div class="atlas-canvas-wrap">
-      <svg id="repoops-atlas" viewBox="0 40 1810 1020" role="group" aria-label="Mapa de responsabilidades de RepoOps. Selecciona un nodo para consultar sus límites.">
+      <svg id="repoops-atlas" viewBox="0 40 1810 1230" role="group" aria-label="Mapa técnico detallado de RepoOps: ciclo SDD, artefactos, cliente externo y motor. Selecciona un nodo para consultar su alcance.">
         <defs>
           <marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
           <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
@@ -84,19 +87,19 @@
       <aside id="atlas-card" class="atlas-card" aria-live="polite" aria-label="Detalle del nodo"></aside>
     </div>
   </section>
-  <section id="atlas-text-view" class="atlas-text-view" hidden aria-label="Lectura del mapa en texto"></section>
+  <section id="atlas-text-view" class="atlas-text-view" hidden aria-label="Lectura del mapa técnico en texto"></section>
   <section class="atlas-disclosure-note" aria-label="Alcance y decisiones abiertas">
     <div>
-      <h2>Primer MVP local</h2>
-      <p>Motor y repositorio canónico en el mismo host. Un commit recuperable es suficiente para el primer resultado; el push puede hacerlo el operador con Git. SDD es la ruta funcional inicial del producto.</p>
+      <h2>Funciones conservadas</h2>
+      <p>El ciclo SDD, los documentos, las evidencias, el candidato y las operaciones siguen formando parte del mapa. Helper, job, cola y runner son una posible descomposición del producto; el core no obliga a separarlos.</p>
     </div>
     <div>
       <h2>Frontera cliente–motor</h2>
-      <p>Architect, implementadores y revisores trabajan fuera del motor. Aportan material e informes; RepoOps comprueba su aplicabilidad y las condiciones de la operación. La aprobación humana se solicita cuando la política la exige.</p>
+      <p>Contexto, planificación, implementación y revisión cognitiva quedan fuera del motor. El cliente aporta peticiones, material e informes; RepoOps aplica las condiciones y comprobaciones técnicas. SEED e INTAKE son preparación opcional.</p>
     </div>
     <div>
       <h2>Decisiones abiertas</h2>
-      <p>La variante SDD, sus gates, la autoridad concreta del estado y el momento de incorporación al canónico siguen por concretar. Las conexiones muestran responsabilidades y circulación de material; no fijan ese orden ni una topología de servicios.</p>
+      <p>La representación y autoridad del estado, la variante SDD, sus gates y el momento de incorporación al canónico siguen por concretar. Esta arquitectura potencial no acredita una implementación integrada del nuevo motor.</p>
     </div>
   </section>
   <noscript><p class="atlas-disclosure-note">Activa JavaScript para consultar el mapa y sus tarjetas. Los límites y el estado del primer MVP están descritos arriba.</p></noscript>
